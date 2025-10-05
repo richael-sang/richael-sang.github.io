@@ -25,6 +25,15 @@ navbar_title: Home
     {% 
         include widgets/publication_card.html 
         publications=pubs
-        title='<i class="fas fa-star"></i> Selected Publications'
+        title='Selected Publications'
+    %}
+{% endif %}
+
+{% if site.data.display.homepage.show_selected_projects %}
+    {% assign prjs = site.projects | sort: "date" | reverse | where: "selected", true %}
+    {% 
+        include widgets/projects_card.html 
+        publications=prjs
+        title='Selected Projects'
     %}
 {% endif %}
