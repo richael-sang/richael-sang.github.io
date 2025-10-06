@@ -1,5 +1,5 @@
 ---
-title:          "Thisisatest——————————Maia: An inpainting-based approach for music adversarial attacks"
+title:          "Maia: An inpainting-based approach for music adversarial attacks"
 date:           2025-09-05 00:01:00 +0800
 selected:       true
 pub:            "17th International Symposium on Computer Music Multidisciplinary Research (CMMR)"
