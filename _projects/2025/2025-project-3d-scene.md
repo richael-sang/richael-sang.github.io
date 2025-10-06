@@ -1,6 +1,6 @@
 ---
 title:          "3D Campus Scene Recreation – Real-to-Virtual World Modeling"
-date:           2024-12-07 00:01:00 +0800
+date:           2025-05-10 00:01:00 +0800
 selected:       true
 pub:            "CPT205 - Computer Graphics"
 pub_date:       "2024"

@@ -1,6 +1,6 @@
 ---
 title:          "YOLOgo – Creating Personalized Student Travel Plans with Generative AI"
-date:           2025-05-09 00:01:00 +0800
+date:           2025-06-01 00:01:00 +0800
 selected:       true
 pub:            "Human-Centric computing"
 pub_date:       "2025"

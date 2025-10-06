@@ -1,6 +1,6 @@
 ---
 title:          "Interactive 2D Birthday Card – OpenGL Graphics Programming"
-date:           2024-10-29 00:01:00 +0800
+date:           2025-05-15 00:01:00 +0800
 selected:       true
 pub:            "CPT205 - Computer Graphics"
 pub_date:       "2024"
