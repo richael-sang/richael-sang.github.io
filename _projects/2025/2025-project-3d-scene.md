@@ -19,6 +19,7 @@ cover:          /assets/images/covers/project-3d-scene.png
 authors:
 - Rui Sang
 links:
+  Code: https://github.com/richael-sang/3D-Campus-Scene-Recreation
   Report: /assets/pdfs/projects/3d-scene/2251576_Sang_Rui_report.pdf
 ---
 
