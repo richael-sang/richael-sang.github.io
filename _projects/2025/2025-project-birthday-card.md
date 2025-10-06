@@ -31,6 +31,7 @@ cover:          /assets/images/covers/project-birthday-card.png
 authors:
 - Rui Sang
 links:
+  Code: https://github.com/richael-sang/Interactive-2D-Birthday-Card
   Report: /assets/pdfs/projects/birthday-card/CPT205_report_Sang_Rui_2251576.pdf
 ---
 
