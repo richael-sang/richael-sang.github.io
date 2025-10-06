@@ -38,5 +38,6 @@ links:
   Code: https://github.com/richael-sang/WeMeet
   Report: /assets/pdfs/projects/wemeet/CPT202-A2-Report-Group50.pdf
   Presentation: /assets/pdfs/projects/wemeet/CPT202-A2-Slide-Group50.pdf
+  Video: https://youtu.be/WsKHcPqDlHI
 ---
 
