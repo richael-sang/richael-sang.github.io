@@ -15,4 +15,6 @@ authors:
 - Shengchen Li
 links:
   Paper: https://arxiv.org/pdf/2509.04980
+  Poster: https://ismir2025program.ismir.net/poster_360.html
+  Video: https://ismir2025program.ismir.net/poster_360.html
 ---
