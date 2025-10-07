@@ -21,10 +21,10 @@ abstract: >-
 cover:          /assets/images/covers/project-file-transfer.png
 authors:
 - Rui Sang
-- MingXuan Hu
-- ZiQi Liu
-- ZhiXin Li
-- ZhengHao Zhou
+- Mingxuan Hu
+- Ziqi Liu
+- Zhixin Li
+- Zhenghao Zhou
 links:
   Code: https://github.com/richael-sang/Network-Protocol-Implementation
   Report: /assets/pdfs/projects/file-transfer/Report_Part_I.pdf
