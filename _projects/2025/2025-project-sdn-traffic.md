@@ -21,10 +21,10 @@ abstract: >-
 cover:          /assets/images/covers/project-sdn-traffic.png
 authors:
 - Rui Sang
-- MingXuan Hu
-- ZiQi Liu
-- ZhiXin Li
-- ZhengHao Zhou
+- Mingxuan Hu
+- Ziqi Liu
+- Zhixin Li
+- Zhenghao Zhou
 links:
   Code: https://github.com/richael-sang/Software-Defined-Networking
   Report: /assets/pdfs/projects/sdn-traffic/Report_Part_II.pdf
