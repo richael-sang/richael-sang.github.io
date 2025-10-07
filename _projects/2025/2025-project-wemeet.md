@@ -30,10 +30,14 @@ abstract: >-
 cover:          /assets/images/covers/project-wemeet.png
 authors:
 - Rui Sang
-- Yuxin He
-- Ziyang Liu
-- Jiacheng Ni
-- Jiaxin Zhang
+- Peiling Tu
+- Yilin Li
+- Jinhong Jiang
+- Ziqi Liu
+- Fan Wu
+- Ziyang Zhou
+- Zhenghao Zhou
+- Mingxuan Hu
 links:
   Code: https://github.com/richael-sang/WeMeet
   Report: /assets/pdfs/projects/wemeet/CPT202-A2-Report-Group50.pdf
