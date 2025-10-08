@@ -27,6 +27,6 @@ authors:
 links:
   Code: https://github.com/richael-sang/sankey-diagram
   Report: /assets/pdfs/projects/sankey-diagram/CW3_2251576.pdf
-  Presentation: /assets/pdfs/projects/sankey-diagram/CW3_2251576.pptx
+  Slide: /assets/pdfs/projects/sankey-diagram/CW3_2251576.pptx
 ---
 
