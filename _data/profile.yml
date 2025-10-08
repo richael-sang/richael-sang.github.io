@@ -30,12 +30,12 @@ portrait_url: /assets/images/photos/ruisang.jpg
 
 
 education:
-- name: Xi'an Jiaotong-Liverpool University
+- name: '<a href="https://www.xjtlu.edu.cn/">Xi''an Jiaotong-Liverpool University</a>'
   logo: /assets/images/badges/MIT_Social_circle.png
-  position: >- 
+  position: >-
     Department of Electrical Engineering and Computer Science <br/>
     Ph.D. Student
-  date: Sep. 2024 - present
+  date: Sep. 2022 - present
 # - name: Peking University
 #   logo: /assets/images/badges/PKU_red.png
 #   position: B.S. in Computer Science
