@@ -25,6 +25,6 @@ authors:
 links:
   Code: https://github.com/richael-sang/AdvancedJava-RouteOptimization
   Report: /assets/pdfs/projects/advanced-java/report.pdf
-  Slide: /assets/pdfs/projects/advanced-java/ppt.pptx
+  Slide: /assets/pdfs/projects/advanced-java/ppt (1).pdf
   Video: https://youtu.be/1ovasgAADVs
 ---
