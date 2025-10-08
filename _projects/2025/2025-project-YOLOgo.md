@@ -2,7 +2,7 @@
 title:          "YOLOgo – Creating Personalized Student Travel Plans with Generative AI"
 date:           2025-06-01 00:01:00 +0800
 selected:       true
-pub:            "Human-Centric computing"
+pub:            "CPT208-Human-Centric computing"
 pub_date:       "2025"
 abstract: >-
   This project was part of a junior-year HCI course focused on conceptual design. Our team designed an app that leverages generative AI to create personalized travel itineraries. The app was prototyped entirely in Figma, including interactive mockups to simulate user flows and AI-generated content.
