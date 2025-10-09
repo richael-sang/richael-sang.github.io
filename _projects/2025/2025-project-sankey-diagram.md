@@ -5,22 +5,7 @@ selected:       true
 pub:            "CPT111 - Introduction to Computer Programming"
 pub_date:       "2024"
 abstract: >-
-  This sophomore-year Java fundamentals course project focuses on data visualization using Sankey diagrams. The project demonstrates core Java programming concepts including file I/O, data processing, and graphical user interface development with JavaFX.
-
-
-  The application reads data from text files containing hierarchical flow information (such as financial data showing resources, investments, sales, and profits) and visualizes it using an interactive Sankey diagram. Key features include:
-
-
-  File Reading & Data Processing – Implemented custom file reader to parse structured text data and convert it into visualization-ready format using Java collections (Maps).
-
-
-  JavaFX GUI Development – Created an interactive visualization interface with custom components including rectangles, text labels, and flow paths to represent data flows between categories.
-
-
-  Interactive Features – Added a color-changing button to allow users to customize the diagram's appearance, demonstrating event handling in JavaFX.
-
-
-  The project showcases fundamental Java skills including object-oriented programming, GUI design principles, and data structure manipulation, providing an intuitive way to visualize complex data relationships through Sankey diagrams.
+ This sophomore-year Java project visualizes hierarchical flow data using Sankey diagrams. The application reads structured text files and uses a custom JavaFX GUI to render interactive diagrams with custom components like rectangles, labels, and flow paths. Key features include data parsing, an interactive interface, and event handling for UI customization, showcasing fundamental skills in Java OOP and GUI development.
 cover:          /assets/images/covers/project-sankey-diagram.png
 authors:
 - Rui Sang
