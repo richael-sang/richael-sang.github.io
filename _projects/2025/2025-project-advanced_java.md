@@ -7,7 +7,7 @@ pub_date:       "2025"
 abstract: >-
   This Java project explores algorithm efficiency through two components. The first benchmarks classic sorting algorithms (QuickSort, MergeSort, HeapSort) across various data conditions, providing practical insights into computational complexity.
 
- The second component is an intelligent road trip planning system I independently designed, comparing strategies like Dijkstra's Algorithm and Traveling Salesman Problem variations. The project's core is an interactive visualization system that brings these pathfinding algorithms to life, transforming abstract concepts into intuitive, visual processes.
+  The second component is an intelligent road trip planning system I independently designed, comparing strategies like Dijkstra's Algorithm and Traveling Salesman Problem variations. The project's core is an interactive visualization system that brings these pathfinding algorithms to life, transforming abstract concepts into intuitive, visual processes.
 cover:          /assets/images/covers/project-advanced_java.png
 authors:
 - Rui Sang
