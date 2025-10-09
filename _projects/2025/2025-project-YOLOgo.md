@@ -17,6 +17,6 @@ authors:
 - Pengyu Bao
 links:
   Poster: /assets/pdfs/projects/yologo/CPT208_Group45_Poster.pdf
-  Demo Video: https://youtu.be/PNRbvvd2XEs
   Portfolio: /assets/pdfs/projects/yologo/CPT208_Group45_2251576_Portfolio.pdf
+  Video: https://youtu.be/PNRbvvd2XEs
 ---
