@@ -7,7 +7,7 @@ pub_date:       "2024"
 abstract: >-
   This project demonstrates Software-Defined Networking (SDN) by building an intelligent traffic control system in a Mininet virtual environment.
 
-Using the Ryu framework, I developed two custom SDN controller applications: one for standard forwarding and another for intelligent redirection. This second controller can dynamically route traffic to alternative servers, enabling crucial functionalities like load balancing and service failover. Performance tests were conducted to compare network latency and validate the effectiveness of the intelligent routing logic.
+  Using the Ryu framework, I developed two custom SDN controller applications: one for standard forwarding and another for intelligent redirection. This second controller can dynamically route traffic to alternative servers, enabling crucial functionalities like load balancing and service failover. Performance tests were conducted to compare network latency and validate the effectiveness of the intelligent routing logic.
 
 
 cover:          /assets/images/covers/project-sdn-traffic.png
