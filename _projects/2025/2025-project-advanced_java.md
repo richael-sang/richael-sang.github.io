@@ -10,7 +10,7 @@ abstract: >-
   The second component is an intelligent road trip planning system I independently designed, comparing strategies like Dijkstra's Algorithm and Traveling Salesman Problem variations. The project's core is an interactive visualization system that brings these pathfinding algorithms to life, transforming abstract concepts into intuitive, visual processes.
 cover:          /assets/images/covers/project-advanced_java.png
 authors:
-- Rui Sang（Team lead）
+- Rui Sang
 - Yilin Li 
 links:
   Code: https://github.com/richael-sang/AdvancedJava-RouteOptimization
