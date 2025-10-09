@@ -5,9 +5,9 @@ selected:       true
 pub:            "CPT205 - Computer Graphics"
 pub_date:       "2024"
 abstract: >-
-  This junior-year computer graphics project is an interactive 2D animated birthday card built with C++ and OpenGL. It demonstrates 2D transformations, animation techniques, and user interaction.
+  This junior-year computer graphics project is an interactive 2D animated birthday card built with C++ and OpenGL. It demonstrates a strong understanding of the 2D graphics pipeline, including transformations, frame-based animation, and user interaction. The card features a two-page design with a cover and inner page, brought to life with multiple simultaneous animations like breathing stars, a rotating candle, and a smooth page-sliding transition achieved using linear interpolation.
 
-  The card features a two-page design with a cover and inner page, brought to life with multiple simultaneous animations like breathing stars, a rotating candle, and a smooth page-sliding transition. Interactive features, including keyboard controls and click-triggered physics-based effects, showcase proficiency in low-level graphics programming and animation principles.
+  Interactive features are handled through a robust event-driven system using FreeGLUT. Keyboard controls trigger different animation states, while a click-triggered "falling ribbons" effect demonstrates physics-based movement. The project's modular code structure, with separate functions for each visual element, showcases proficiency in low-level graphics programming, 2D transformation mathematics, and the creative application of animation principles to build an engaging experience.
 cover:          /assets/images/covers/project-birthday-card.png
 authors:
 - Rui Sang
