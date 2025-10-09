@@ -11,7 +11,7 @@ abstract: >-
 
 cover:          /assets/images/covers/project-yologo.png
 authors:
-- Rui Sang
+- Rui Sang（Team lead）
 - Peiling Tu
 - Yilin Li 
 - Jinhong Jiang
