@@ -3,6 +3,8 @@ body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     padding-top: 5.0rem;
+    color: #263238;
+    line-height: 1.55;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -38,12 +40,95 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .text-profile-bio {
-    /* font-family: "Raleway"; */
+    font-weight: 400;
+    max-width: 760px;
+}
+
+.profile-portrait {
+    width: 285px;
+    height: 380px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.focus-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.55rem;
+    margin-top: 1rem;
+    color: #315a75;
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.focus-separator {
+    color: #9aa8b2;
     font-weight: 400;
 }
 
 .navbar {
     opacity: 0.95;
+}
+
+.navbar-brand {
+    letter-spacing: 0.01em;
+}
+
+.experience-meta {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: space-between;
+}
+
+.experience-date {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.portfolio-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.item-title-link {
+    color: inherit;
+}
+
+.item-title-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.section-description {
+    max-width: 680px;
+}
+
+.project-detail {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-detail-header h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.project-lead {
+    max-width: 780px;
+    color: #5c6770;
+}
+
+.project-detail-content h2 {
+    margin-top: 2rem;
+    font-size: 1.45rem;
+}
+
+.project-detail-content img {
+    max-width: 100%;
+    height: auto;
 }
 
 .inline-badge {
@@ -89,5 +174,34 @@ div.lazy {
 
 .email-text {
     font-family: Courier, monospace;
+}
+
+@media (max-width: 767.98px) {
+    body {
+        padding-top: 4.5rem;
+    }
+
+    .focus-areas {
+        gap: 0.25rem 0.45rem;
+    }
+
+    .experience-meta {
+        display: block;
+    }
+
+    .experience-date {
+        margin-top: 0.15rem;
+        white-space: normal;
+    }
+
+    .project-detail-header h1 {
+        font-size: 1.65rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .portfolio-link {
+        display: block;
+    }
 }
 

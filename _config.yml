@@ -13,7 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-baseurl: "" # the subpath of your site, e.g. /blog
+title: "Rui Sang"
+description: "Rui Sang's technical and research portfolio in computer vision, multimodal learning, and vision-language models."
+url: "https://richael-sang.github.io"
+baseurl: ""
 
 # Build settings
 markdown: kramdown
@@ -32,10 +35,22 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
-# timezone: Asia/Shanghai
+timezone: Asia/Singapore
 
 collections:
-  - publications
-  - projects
-  - news
-  - showcase
+  publications:
+    output: false
+  projects:
+    output: true
+    permalink: /projects/:name/
+  news:
+    output: false
+  showcase:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project

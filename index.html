@@ -1,13 +1,9 @@
 ---
 layout: default
-title : Homepage
+title: Rui Sang
 navbar_title: Home
 ---
 {% include widgets/profile_card.html %}
-
-{% include widgets/debug_repo_name.html %}
-
-{% include widgets/debug_url.html %}
 
 {% if site.data.display.homepage.show_experience %}
     {% include widgets/experience_card.html %}
@@ -37,3 +33,13 @@ navbar_title: Home
         title='Selected Projects'
     %}
 {% endif %}
+
+<div class="portfolio-link my-3 p-4 bg-white shadow-sm rounded-xl">
+    <div>
+        <h6 class="mb-1">Projects &amp; Technical Portfolio</h6>
+        <p class="small text-muted mb-0">Research, engineering work, and an archive of selected coursework projects.</p>
+    </div>
+    <a class="btn btn-outline-primary btn-sm mt-3 mt-sm-0" href="{{ '/projects' | relative_url }}">
+        Explore projects <i class="fas fa-angle-right ml-1"></i>
+    </a>
+</div>

@@ -9,15 +9,18 @@
                             <h6>Education</h6>
                             <ul class="list-unstyled mb-1">
                                 {% for item in site.data.profile.education %}
-                                <li class="media mb-1">
+                                <li class="media mb-3">
+                                    {% if item.logo %}
                                     <img src="{{ item.logo | relative_url }}" alt="{{ item.name }}" style="width: 18px;" class="mr-1 mt-1">
+                                    {% endif %}
                                     <div class="media-body">
                                         <div>{{ item.name }}</div>
-                                        <div class="small">{{ item.dept }}</div>
-                                        <div class="small d-flex">
+                                        {% if item.dept %}<div class="small text-muted">{{ item.dept }}</div>{% endif %}
+                                        <div class="small experience-meta">
                                             <div>{{ item.position }}</div>
-                                            <div class="mt-auto ml-auto no-break"><em>{{ item.date }}</em></div>
+                                            <div class="experience-date"><em>{{ item.date }}</em></div>
                                         </div>
+                                        {% if item.details %}<div class="small text-muted mt-1">{{ item.details }}</div>{% endif %}
                                     </div>
                                 </li>
                                 {% endfor %}
@@ -32,15 +35,18 @@
                             <h6>Experience</h6>
                             <ul class="list-unstyled mb-1">
                                 {% for item in site.data.profile.experience %}
-                                <li class="media mb-1">
+                                <li class="media mb-3">
+                                    {% if item.logo %}
                                     <img src="{{ item.logo | relative_url }}" alt="{{ item.name }}" style="width: 18px;" class="mr-1 mt-1">
+                                    {% endif %}
                                     <div class="media-body">
                                         <div>{{ item.name }}</div>
-                                        <div class="small">{{ item.dept }}</div>
-                                        <div class="small d-flex">
+                                        {% if item.dept %}<div class="small text-muted">{{ item.dept }}</div>{% endif %}
+                                        <div class="small experience-meta">
                                             <div>{{ item.position }}</div>
-                                            <div class="mt-auto ml-auto no-break"><em>{{ item.date }}</em></div>
+                                            <div class="experience-date"><em>{{ item.date }}</em></div>
                                         </div>
+                                        {% if item.description %}<div class="small text-muted mt-2">{{ item.description }}</div>{% endif %}
                                     </div>
                                 </li>
                                 {% endfor %}

@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<article class="project-detail my-3 p-4 p-md-5 bg-white shadow-sm rounded-xl">
+    <a class="small text-muted" href="{{ '/projects' | relative_url }}">
+        <i class="fas fa-angle-left mr-1"></i>All projects
+    </a>
+    <header class="project-detail-header mt-3 mb-4">
+        <h1>{{ page.title }}</h1>
+        {% if page.authors %}
+        <p class="mb-1">{% include widgets/author_list.html authors=page.authors %}</p>
+        {% endif %}
+        <p class="small text-muted mb-2"><i>{{ page.pub }}</i>{% if page.pub_date %} · {{ page.pub_date }}{% endif %}</p>
+        {% if page.abstract %}<p class="project-lead mb-3">{{ page.abstract }}</p>{% endif %}
+        {% if page.links %}
+        <div class="abstract-links">
+            {% for link in page.links %}
+            {% if link[1].url %}
+            <a class="btn btn-sm btn-outline-primary mr-2 mb-2" target="{{ link[1]['target'] | default: '_blank' }}" href="{{ link[1]['url'] }}">{{ link[0] }}</a>
+            {% else %}
+            <a class="btn btn-sm btn-outline-primary mr-2 mb-2" target="_blank" href="{{ link[1] }}">{{ link[0] }}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </header>
+    <div class="project-detail-content">
+        {{ content }}
+    </div>
+</article>

@@ -1,65 +1,56 @@
-primary_name: "Rui \"Richael\" Sang (桑睿)"
-secondary_name: ""
+primary_name: "Rui Sang"
+secondary_name: "Richael"
 navbar_name: "Rui Sang"
 
 positions:
-# - logo: /assets/images/badges/xjtlu.jpg  # Logo is optional
-#   name: Bachelor Student
+- name: Master of Computing in Artificial Intelligence · National University of Singapore
 
-email: "Rui.Sang22@student.xjtlu.edu.cn"
-gscholar: U4e5Tc8AAAAJ  # This is an example, replace it with your own Google Scholar ID
+email: "ruisang1101@outlook.com"
+gscholar: U4e5Tc8AAAAJ
 github: richael-sang
 cv_link: /assets/pdfs/projects/Rui_Sang_Resume.pdf
-# twitter: your_twitter_id  # Do not include the '@' symbol
-# wechat_qrcode: /assets/images/etc/wechat.jpg
-# wechat_prompt: >-
-#   Please tell me your <strong>name</strong> and <strong>affiliation</strong> (current or past) when adding my wechat. Thanks!
-# linkedin: your-linked-in-id
-# orcid: 0000-0000-0000-0000
 
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    Hello everyone👋
-  </p>
-  <p>
-    My name is Richael, a senior at <a href="https://www.xjtlu.edu.cn/">Xi'an Jiaotong-Liverpool University</a> majoring in Information and Computing Science.
-  </p>
-  <p>
-    I have found immense joy in exploring the fields of machine learning and deep learning through various challenging projects, both as an independent researcher and a collaborative team member.
-  </p>
-  <p>
-    My curiosity also led me to the realm of computer vision👁️, where I investigated how fusing infrared and visible light could enhance task performance.
-  </p>
-  <p>
-    These hands-on research experiences have been incredibly fulfilling and have cemented my aspiration to continue exploring these advanced topics at the graduate level.
+    I am a Master of Computing in Artificial Intelligence student at the
+    <a href="https://www.nus.edu.sg/">National University of Singapore</a>.
+    My work focuses on computer vision and multimodal learning, with recent industry experience
+    developing vision-language-model-based workflows for industrial video understanding.
+    I am particularly interested in vision-language models, multimodal perception, and reliable
+    multimodal reasoning. My earlier research spans audio and speech machine learning, robust
+    machine learning, and generative-model security. This background informs how I approach
+    perception systems across modalities.
   </p>
 
-portrait_url: /assets/images/photos/ruisang.JDP
+focus_areas:
+- Computer Vision
+- Multimodal Learning
+- Vision-Language Models
+- Robust ML
+
+portrait_url: /assets/images/photos/ruisang.JPG
 
 
 education:
+- name: '<a href="https://www.nus.edu.sg/">National University of Singapore</a>'
+  dept: Singapore
+  position: Master of Computing in Artificial Intelligence
+  date: Aug. 2026 – Mar. 2028 (expected)
 - name: '<a href="https://www.xjtlu.edu.cn/">Xi''an Jiaotong-Liverpool University</a>'
-  logo: /assets/images/badges/MIT_Social_circle.png
-  position: >-
-    Department of Electrical Engineering and Computer Science <br/>
-    Ph.D. Student
-  date: Sep. 2022 - present
-# - name: Peking University
-#   logo: /assets/images/badges/PKU_red.png
-#   position: B.S. in Computer Science
-#   date: Sep. 2019 - Jul. 2021
+  logo: /assets/images/badges/XJTLU.jpg
+  dept: Suzhou, China
+  position: BSc in Information and Computing Science, First Class Honours
+  details: Major GPA 4.00 / 4.00 · Overall GPA 3.96 / 4.00
+  date: Sep. 2022 – Jun. 2026
 
 experience:
-- name: Peking University
-  logo: /assets/images/badges/PKU_red.png
-  position: Research Intern
-  date: Sep. 2019 - Jul. 2021
+- name: Bosch China Software Center (BCSC)
+  dept: Wuxi, China
+  position: Multimodal and Machine Learning Algorithm Intern
+  date: May 2026 – Aug. 2026
+  description: Developed a vision-language-model-based workflow for industrial video inspection, focusing on structured temporal evidence, verification, and reliable multimodal reasoning.
 
 awards:
-- name: Award Name 2
-  date: 2024
-- name: Award Name 1 
-  date: 2021
-- name: A quick brown fox jumps over the lazy dog and runs away award
-  date: 2021
+- name: Academic Achievement Award Scholarship
+  date: 2023, 2024, 2025

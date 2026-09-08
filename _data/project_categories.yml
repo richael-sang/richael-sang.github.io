@@ -1,0 +1,11 @@
+- id: research
+  label: Research & Selected Projects
+  description: Current research and technically representative work.
+
+- id: engineering
+  label: Engineering Projects
+  description: Software and systems projects with substantial implementation work.
+
+- id: coursework
+  label: Coursework Archive
+  description: Selected undergraduate course projects retained as an archive.
