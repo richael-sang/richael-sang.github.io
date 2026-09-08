@@ -8,7 +8,10 @@
             <div class="work-entry-heading">
                 <div>
                     <h5 class="font-weight-normal mb-1">{{ item.name }}</h5>
-                    <div class="text-muted">{{ item.position }}</div>
+                    <div class="text-muted">
+                        {{ item.position }}
+                        {% if item.type %}<span class="badge badge-light border ml-2">{{ item.type }}</span>{% endif %}
+                    </div>
                 </div>
                 <div class="small text-muted work-entry-meta">
                     <div>{{ item.date }}</div>
@@ -17,6 +20,13 @@
             </div>
             {% if item.description %}
             <p class="small text-muted mb-0 mt-3 work-description">{{ item.description }}</p>
+            {% endif %}
+            {% if item.highlights %}
+            <ul class="small text-muted mb-0 mt-3 pl-3 work-highlights">
+                {% for highlight in item.highlights %}
+                <li{% unless forloop.last %} class="mb-1"{% endunless %}>{{ highlight }}</li>
+                {% endfor %}
+            </ul>
             {% endif %}
         </div>
         {% endfor %}

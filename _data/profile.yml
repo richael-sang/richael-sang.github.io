@@ -37,17 +37,20 @@ education:
   logo: /assets/images/badges/NUS-logo.jpg
   dept: Singapore
   position: Master of Computing in Artificial Intelligence
-  date: Aug. 2026 – Mar. 2028 (expected)
+  date: Aug. 2026 – Jan. 2028 (expected)
 - name: '<a href="https://www.xjtlu.edu.cn/">Xi''an Jiaotong-Liverpool University</a>'
   logo: /assets/images/badges/XJTLU-logo.svg
   dept: Suzhou, China
   position: BSc in Information and Computing Science, First Class Honours
-  details: Major GPA 4.00 / 4.00 · Overall GPA 3.96 / 4.00 · Academic Achievement Award Scholarship (2023, 2024, 2025)
+  details: Major GPA 4.00 / 4.00 · Academic Achievement Award Scholarship (2023, 2024, 2025)
   date: Sep. 2022 – Jun. 2026
 
 experience:
 - name: Bosch China Software Center (BCSC)
   dept: Wuxi, China
   position: Multimodal and Machine Learning Algorithm Intern
+  type: Internship
   date: May 2026 – Aug. 2026
-  description: Developed a vision-language-model-based workflow for industrial video inspection, focusing on structured temporal evidence, verification, and reliable multimodal reasoning.
+  highlights:
+  - Developed a vision-language-model-based workflow for industrial video inspection and video understanding.
+  - Worked on structured temporal evidence, verification, and multimodal reasoning to support more reliable interpretation of video content.
