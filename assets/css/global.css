@@ -156,11 +156,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .core-project-cover {
-    overflow: hidden;
     margin: 1rem -0.45rem 0;
-    border: 1px solid #d5e5e5;
-    border-radius: 0.5rem;
-    background: #eef7f5;
+    border: 0;
+    background: transparent;
 }
 
 .core-project-cover img {
