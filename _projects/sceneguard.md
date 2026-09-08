@@ -321,13 +321,9 @@ section_nav:
 
 <section class="project-section" id="limitations">
   <div class="section-kicker">Limitations</div>
-  <h2>What the current evidence does not establish</h2>
-  <div class="limitations-list">
-    <div><span>01</span><div><h3>Audible protection</h3><p>The method is not suitable when pristine audio is required, such as studio recording or professional voice production.</p></div></div>
-    <div><span>02</span><div><h3>Perceptual quality</h3><p>PESQ is approximately 2.03 in the usability evaluation, below the paper’s stated ideal target of 3.0.</p></div></div>
-    <div><span>03</span><div><h3>Adaptive attacks</h3><p>Scene-aware source separation and attackers explicitly adapted to SceneGuard have not been comprehensively evaluated.</p></div></div>
-    <div><span>04</span><div><h3>Training-time evidence</h3><p>Full end-to-end TTS fine-tuning was not performed in the workshop experiment because of computational constraints; embedding degradation is used as a proxy.</p></div></div>
-    <div><span>05</span><div><h3>Scene consistency</h3><p>No dedicated human naturalness or scene-matching listening study is reported. The noise is scene-matched by construction, not perceptually validated by listeners.</p></div></div>
+  <h2>Evidence boundary</h2>
+  <div class="evidence-note">
+    SceneGuard trades pristine audio quality for robust, audible protection (reported PESQ ≈ 2.03). The workshop evaluation uses speaker-embedding degradation as a proxy rather than full end-to-end TTS fine-tuning, and does not yet cover human listening studies or adaptive scene-aware attacks.
   </div>
 </section>
 

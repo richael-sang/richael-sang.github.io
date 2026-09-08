@@ -642,33 +642,6 @@
     color: #425d6b;
 }
 
-.limitations-list > div {
-    display: grid;
-    grid-template-columns: 2.2rem 1fr;
-    gap: 0.8rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid #e3e9ec;
-}
-
-.limitations-list > div:last-child {
-    border-bottom: 0;
-}
-
-.limitations-list > div > span {
-    color: #a67550;
-    font-size: 0.75rem;
-    font-weight: 700;
-}
-
-.limitations-list h3 {
-    margin-bottom: 0.25rem;
-}
-
-.limitations-list p {
-    margin-bottom: 0;
-    color: #61737d;
-}
-
 .pipeline {
     display: flex;
     flex-wrap: wrap;
