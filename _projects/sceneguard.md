@@ -18,6 +18,8 @@ paper_url: https://arxiv.org/pdf/2511.16114
 og_type: article
 og_image: /assets/images/projects/sceneguard/cover.svg
 cover: /assets/images/projects/sceneguard/cover.svg
+hero_figure: /assets/images/projects/sceneguard/concept-overview.svg
+hero_figure_alt: Three-step SceneGuard concept showing original speech, scene-matched protection, and useful speech with reduced voice-cloning risk
 pub: "AAAI-26 Workshop on Artificial Intelligence for Cyber Security (AICS)"
 pub_date: "Accepted"
 pub_last: "· First author"
@@ -214,24 +216,29 @@ section_nav:
 <section class="project-section" id="main-results">
   <div class="section-kicker">Paper-reported results</div>
   <h2>Main comparison</h2>
+  <figure class="data-figure">
+    <img src="{{ '/assets/images/projects/sceneguard/main-results.svg' | relative_url }}" alt="Comparison of speaker similarity and word error rate for clean data, random noise, Gaussian noise, and SceneGuard" loading="lazy">
+  </figure>
   <div class="result-highlight-grid">
     <div><span>SIM</span><strong>1.000 → 0.945</strong><small>training-attack proxy comparison</small></div>
     <div><span>STOI</span><strong>0.986</strong><small>95% CI [0.980, 0.992]</small></div>
     <div><span>WER</span><strong>3.60%</strong><small>usability evaluation</small></div>
     <div><span>Effect size</span><strong>2.18</strong><small>Cohen’s d; paper reports p &lt; 10<sup>−15</sup></small></div>
   </div>
-  <div class="table-responsive mt-4">
-    <table class="table technical-table">
-      <caption>Training-attack proxy comparison reported in Table 1 of the workshop paper.</caption>
-      <thead><tr><th>Training data</th><th>SIM ↓</th><th>WER (%) ↓</th><th>PESQ ↑</th><th>STOI ↑</th></tr></thead>
-      <tbody>
-        <tr><td>Clean</td><td>1.000</td><td>0.00</td><td>4.64</td><td>1.00</td></tr>
-        <tr><td>Random noise</td><td>0.965</td><td>5.82</td><td>1.85</td><td>0.97</td></tr>
-        <tr><td>Gaussian noise</td><td>0.968</td><td>5.28</td><td>1.92</td><td>0.98</td></tr>
-        <tr class="table-emphasis"><td>SceneGuard</td><td>0.945</td><td>2.77</td><td>2.22</td><td>0.99</td></tr>
-      </tbody>
-    </table>
-  </div>
+  <details class="technical-details result-table-details mt-4">
+    <summary>View exact values from Paper Table 1</summary>
+    <div class="table-responsive">
+      <table class="table technical-table">
+        <thead><tr><th>Training data</th><th>SIM ↓</th><th>WER (%) ↓</th><th>PESQ ↑</th><th>STOI ↑</th></tr></thead>
+        <tbody>
+          <tr><td>Clean</td><td>1.000</td><td>0.00</td><td>4.64</td><td>1.00</td></tr>
+          <tr><td>Random noise</td><td>0.965</td><td>5.82</td><td>1.85</td><td>0.97</td></tr>
+          <tr><td>Gaussian noise</td><td>0.968</td><td>5.28</td><td>1.92</td><td>0.98</td></tr>
+          <tr class="table-emphasis"><td>SceneGuard</td><td>0.945</td><td>2.77</td><td>2.22</td><td>0.99</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
   <div class="tradeoff-callout">
     <strong>Visible trade-off:</strong> the separate usability evaluation reports PESQ 2.034 (95% CI [1.840, 2.233]), below the paper’s stated ideal threshold of 3.0. SceneGuard preserves high measured intelligibility, but not pristine perceptual quality.
   </div>
@@ -242,6 +249,9 @@ section_nav:
   <div class="section-kicker">Interactive ablation</div>
   <h2>SNR trade-off explorer</h2>
   <p class="section-intro">Move across the four precomputed settings to inspect the reported protection–usability balance.</p>
+  <figure class="data-figure">
+    <img src="{{ '/assets/images/projects/sceneguard/snr-tradeoff.svg' | relative_url }}" alt="SNR ablation showing that lower SNR increases protection but reduces STOI and increases word error rate" loading="lazy">
+  </figure>
   <div class="explorer" data-snr-explorer>
     <label for="snr-range"><strong>SNR range:</strong> <span data-snr-label>10–20 dB</span></label>
     <input id="snr-range" type="range" min="0" max="3" step="1" value="1"
@@ -264,23 +274,11 @@ section_nav:
 
 <section class="project-section" id="robustness-explorer">
   <div class="section-kicker">Preprocessing robustness</div>
-  <h2>Robustness explorer</h2>
-  <div class="explorer" data-robustness-explorer>
-    <div class="robustness-controls" role="group" aria-label="Select an audio preprocessing condition">
-      <button type="button" class="active" data-label="No countermeasure" data-sim="0.937">None</button>
-      <button type="button" data-label="MP3 at 128 kbps" data-sim="0.901">MP3 128</button>
-      <button type="button" data-label="MP3 at 64 kbps" data-sim="0.899">MP3 64</button>
-      <button type="button" data-label="Spectral subtraction" data-sim="0.745">Spectral subtraction</button>
-      <button type="button" data-label="Low-pass at 3400 Hz" data-sim="0.704">Low-pass</button>
-      <button type="button" data-label="Downsampled to 8 kHz" data-sim="0.688">Downsample</button>
-    </div>
-    <div class="robustness-display" aria-live="polite">
-      <div><span data-robustness-label>No countermeasure</span><strong>SIM <span data-robustness-sim>0.937</span></strong></div>
-      <div class="robustness-track"><span data-robustness-bar style="width: 93.7%"></span></div>
-      <small>Lower SIM indicates greater speaker-identity degradation in the paper’s evaluation.</small>
-    </div>
-    <p class="small text-muted mb-0 mt-3"><span class="evidence-chip">Paper Table 3</span> The public repository does not contain the underlying per-sample robustness CSVs or audio needed for independent recomputation.</p>
-  </div>
+  <h2>Protection after common preprocessing</h2>
+  <figure class="data-figure">
+    <img src="{{ '/assets/images/projects/sceneguard/robustness-results.svg' | relative_url }}" alt="Horizontal bar chart of speaker similarity after MP3 compression, spectral subtraction, low-pass filtering, and downsampling" loading="lazy">
+  </figure>
+  <p class="source-line"><span class="evidence-chip">Paper Table 3</span> Lower SIM indicates greater speaker-identity degradation. The public repository does not contain the per-sample files needed for independent recomputation.</p>
 </section>
 
 <section class="project-section" id="zero-shot">

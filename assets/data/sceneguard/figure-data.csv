@@ -1,0 +1,27 @@
+figure,condition,metric,value,unit,source
+main,Clean,Speaker similarity,1.000,score,Paper Table 1
+main,Random noise,Speaker similarity,0.965,score,Paper Table 1
+main,Gaussian noise,Speaker similarity,0.968,score,Paper Table 1
+main,SceneGuard,Speaker similarity,0.945,score,Paper Table 1
+main,Clean,WER,0.00,percent,Paper Table 1
+main,Random noise,WER,5.82,percent,Paper Table 1
+main,Gaussian noise,WER,5.28,percent,Paper Table 1
+main,SceneGuard,WER,2.77,percent,Paper Table 1
+snr,5–10 dB,Protection,7.9,percent,Paper Table 5
+snr,10–20 dB,Protection,5.5,percent,Paper Table 5
+snr,15–25 dB,Protection,3.2,percent,Paper Table 5
+snr,20–30 dB,Protection,1.8,percent,Paper Table 5
+snr,5–10 dB,STOI,0.942,score,Paper Table 5
+snr,10–20 dB,STOI,0.986,score,Paper Table 5
+snr,15–25 dB,STOI,0.993,score,Paper Table 5
+snr,20–30 dB,STOI,0.997,score,Paper Table 5
+snr,5–10 dB,WER,8.2,percent,Paper Table 5
+snr,10–20 dB,WER,3.6,percent,Paper Table 5
+snr,15–25 dB,WER,1.8,percent,Paper Table 5
+snr,20–30 dB,WER,0.9,percent,Paper Table 5
+robustness,None,Speaker similarity,0.937,score,Paper Table 3
+robustness,MP3 128 kbps,Speaker similarity,0.901,score,Paper Table 3
+robustness,MP3 64 kbps,Speaker similarity,0.899,score,Paper Table 3
+robustness,Spectral subtraction,Speaker similarity,0.745,score,Paper Table 3
+robustness,Low-pass 3400 Hz,Speaker similarity,0.704,score,Paper Table 3
+robustness,Downsample 8 kHz,Speaker similarity,0.688,score,Paper Table 3

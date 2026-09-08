@@ -30,6 +30,11 @@ layout: default
             {% endfor %}
         </div>
         {% endif %}
+        {% if page.hero_figure %}
+        <figure class="project-hero-figure">
+            <img src="{{ page.hero_figure | relative_url }}" alt="{{ page.hero_figure_alt | default: page.title }}" fetchpriority="high">
+        </figure>
+        {% endif %}
     </header>
 
     {% if page.section_nav %}
