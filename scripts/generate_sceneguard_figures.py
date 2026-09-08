@@ -13,8 +13,6 @@ matplotlib.use("Agg")
 
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import FancyBboxPatch, PathPatch
-from matplotlib.path import Path as MplPath
 
 
 NAVY = "#234E5A"
@@ -77,6 +75,7 @@ def configure_style() -> None:
             "xtick.color": MUTED,
             "ytick.color": MUTED,
             "svg.fonttype": "none",
+            "svg.hashsalt": "sceneguard-web-figures",
         }
     )
 
@@ -116,11 +115,18 @@ def save_figure(
     preview_dir: Path | None,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
+    svg_path = output_dir / f"{stem}.svg"
     fig.savefig(
-        output_dir / f"{stem}.svg",
+        svg_path,
         format="svg",
         bbox_inches="tight",
         facecolor=WHITE,
+        metadata={"Date": None, "Creator": "SceneGuard figure generator"},
+    )
+    svg_text = svg_path.read_text(encoding="utf-8")
+    svg_path.write_text(
+        "\n".join(line.rstrip() for line in svg_text.splitlines()) + "\n",
+        encoding="utf-8",
     )
     if preview_dir:
         preview_dir.mkdir(parents=True, exist_ok=True)
@@ -131,128 +137,6 @@ def save_figure(
             facecolor=WHITE,
         )
     plt.close(fig)
-
-
-def draw_waveform(
-    ax: plt.Axes,
-    center_x: float,
-    center_y: float,
-    width: float,
-    amplitude: float,
-    color: str,
-    seed: int,
-) -> None:
-    rng = np.random.default_rng(seed)
-    x = np.linspace(center_x - width / 2, center_x + width / 2, 260)
-    envelope = 0.2 + 0.8 * np.sin(np.linspace(0, np.pi, x.size)) ** 1.4
-    signal = (
-        np.sin(np.linspace(0, 25 * np.pi, x.size))
-        + 0.35 * np.sin(np.linspace(0, 53 * np.pi, x.size))
-        + 0.12 * rng.normal(size=x.size)
-    )
-    y = center_y + amplitude * envelope * signal / np.max(np.abs(signal))
-    ax.plot(x, y, color=color, linewidth=1.35)
-    ax.fill_between(x, center_y, y, color=color, alpha=0.16)
-
-
-def draw_shield(ax: plt.Axes, x: float, y: float, scale: float) -> None:
-    vertices = [
-        (x, y + 0.62 * scale),
-        (x + 0.52 * scale, y + 0.42 * scale),
-        (x + 0.42 * scale, y - 0.32 * scale),
-        (x, y - 0.68 * scale),
-        (x - 0.42 * scale, y - 0.32 * scale),
-        (x - 0.52 * scale, y + 0.42 * scale),
-        (x, y + 0.62 * scale),
-    ]
-    codes = [
-        MplPath.MOVETO,
-        MplPath.LINETO,
-        MplPath.CURVE3,
-        MplPath.CURVE3,
-        MplPath.CURVE3,
-        MplPath.LINETO,
-        MplPath.CLOSEPOLY,
-    ]
-    ax.add_patch(
-        PathPatch(
-            MplPath(vertices, codes),
-            facecolor=PALE_MINT,
-            edgecolor=TEAL,
-            linewidth=2.2,
-        )
-    )
-    ax.plot(
-        [x - 0.22 * scale, x - 0.04 * scale, x + 0.27 * scale],
-        [y - 0.02 * scale, y - 0.2 * scale, y + 0.2 * scale],
-        color=TEAL,
-        linewidth=2.4,
-        solid_capstyle="round",
-    )
-
-
-def make_concept_figure(output_dir: Path, preview_dir: Path | None) -> None:
-    fig, ax = plt.subplots(figsize=(12, 3.25))
-    ax.set_xlim(0, 12)
-    ax.set_ylim(0, 3.25)
-    ax.axis("off")
-
-    cards = [
-        (0.15, 3.25, PALE_BLUE, "01 · SPEECH", "Original recording"),
-        (4.38, 3.25, PALE_MINT, "02 · PROTECT", "Scene-matched defense"),
-        (8.61, 3.24, PALE_BLUE, "03 · RELEASE", "Useful, harder to clone"),
-    ]
-    for x, width, fill, kicker, title in cards:
-        ax.add_patch(
-            FancyBboxPatch(
-                (x, 0.2),
-                width,
-                2.75,
-                boxstyle="round,pad=0.02,rounding_size=0.13",
-                facecolor=fill,
-                edgecolor=LINE,
-                linewidth=1.2,
-            )
-        )
-        ax.text(x + 0.28, 2.62, kicker, color=TEAL, fontsize=8, weight="bold")
-        ax.text(x + 0.28, 2.28, title, color=NAVY, fontsize=12, weight="bold")
-
-    draw_waveform(ax, 1.78, 1.3, 2.4, 0.55, SKY, seed=3)
-    ax.text(1.78, 0.55, "speech  x(t)", ha="center", color=MUTED, fontsize=9)
-
-    draw_waveform(ax, 5.98, 1.34, 2.2, 0.45, SKY, seed=5)
-    draw_waveform(ax, 5.98, 1.34, 2.2, 0.27, TEAL, seed=8)
-    draw_shield(ax, 7.1, 1.32, 0.68)
-    ax.text(
-        5.9,
-        0.55,
-        "optimize mask  m(t)  +  gain  γ",
-        ha="center",
-        color=MUTED,
-        fontsize=9,
-    )
-
-    draw_waveform(ax, 9.78, 1.42, 1.25, 0.39, SEA, seed=11)
-    draw_shield(ax, 11.05, 1.42, 0.62)
-    ax.text(
-        10.42,
-        0.63,
-        "intelligibility retained  ·  cloning risk ↓",
-        ha="center",
-        color=TEAL,
-        fontsize=8.3,
-        weight="bold",
-    )
-
-    for start, end in [(3.48, 4.27), (7.71, 8.5)]:
-        ax.annotate(
-            "",
-            xy=(end, 1.58),
-            xytext=(start, 1.58),
-            arrowprops=dict(arrowstyle="-|>", color=TEAL, linewidth=1.8),
-        )
-
-    save_figure(fig, "concept-overview", output_dir, preview_dir)
 
 
 def make_main_results(
@@ -398,7 +282,6 @@ def main() -> None:
     args = parse_args()
     configure_style()
     rows = load_data(args.data)
-    make_concept_figure(args.output_dir, args.preview_dir)
     make_main_results(rows, args.output_dir, args.preview_dir)
     make_snr_tradeoff(rows, args.output_dir, args.preview_dir)
     make_robustness(rows, args.output_dir, args.preview_dir)

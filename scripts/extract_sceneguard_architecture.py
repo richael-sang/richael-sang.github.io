@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Crop surrounding title and caption from the SceneGuard architecture image.
+"""Crop surrounding title and caption from a SceneGuard figure image.
 
 The crop removes the top title, bottom figure caption, and excess margins.
 It does not alter pixels inside the architecture panel.
