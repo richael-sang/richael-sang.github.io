@@ -1,5 +1,5 @@
 primary_name: "Rui Sang"
-secondary_name: "Richael"
+secondary_name: "(Richael)"
 navbar_name: "Rui Sang"
 
 positions:
@@ -13,35 +13,37 @@ cv_link: /assets/pdfs/projects/Rui_Sang_Resume.pdf
 short_bio_text_justify: false
 short_bio: >-
   <p>
-    I am a Master of Computing in Artificial Intelligence student at the
+    Hi, I am Rui 👋, a Master of Computing in Artificial Intelligence student at the
     <a href="https://www.nus.edu.sg/">National University of Singapore</a>.
-    My work focuses on computer vision and multimodal learning, with recent industry experience
-    developing vision-language-model-based workflows for industrial video understanding.
-    I am particularly interested in vision-language models, multimodal perception, and reliable
-    multimodal reasoning. My earlier research spans audio and speech machine learning, robust
-    machine learning, and generative-model security. This background informs how I approach
-    perception systems across modalities.
+    I work across computer vision, robust machine learning, multimodal learning,
+    vision-language models, and audio processing. My technical toolkit includes Python,
+    PyTorch, CUDA, Git, and Docker for research prototyping and applied ML systems.
+    At Bosch BCSC, I developed a VLM-based workflow for industrial video inspection.
+    My research includes first-author SceneGuard, accepted at an AAAI 2026 Workshop,
+    alongside work at ISMIR, CMMR, and DCASE.
   </p>
 
 focus_areas:
-- Computer Vision
-- Multimodal Learning
-- Vision-Language Models
-- Robust ML
+- Computer Vision 👁️
+- Robust ML 🛡️
+- Multimodal Learning 🔗
+- Vision-Language Models 🤖
+- Audio Processing 🎧
 
 portrait_url: /assets/images/photos/ruisang.JPG
 
 
 education:
 - name: '<a href="https://www.nus.edu.sg/">National University of Singapore</a>'
+  logo: /assets/images/badges/NUS-logo.jpg
   dept: Singapore
   position: Master of Computing in Artificial Intelligence
   date: Aug. 2026 – Mar. 2028 (expected)
 - name: '<a href="https://www.xjtlu.edu.cn/">Xi''an Jiaotong-Liverpool University</a>'
-  logo: /assets/images/badges/XJTLU.jpg
+  logo: /assets/images/badges/XJTLU-logo.svg
   dept: Suzhou, China
   position: BSc in Information and Computing Science, First Class Honours
-  details: Major GPA 4.00 / 4.00 · Overall GPA 3.96 / 4.00
+  details: Major GPA 4.00 / 4.00 · Overall GPA 3.96 / 4.00 · Academic Achievement Award Scholarship (2023, 2024, 2025)
   date: Sep. 2022 – Jun. 2026
 
 experience:
@@ -50,7 +52,3 @@ experience:
   position: Multimodal and Machine Learning Algorithm Intern
   date: May 2026 – Aug. 2026
   description: Developed a vision-language-model-based workflow for industrial video inspection, focusing on structured temporal evidence, verification, and reliable multimodal reasoning.
-
-awards:
-- name: Academic Achievement Award Scholarship
-  date: 2023, 2024, 2025

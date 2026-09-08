@@ -1,0 +1,25 @@
+<section class="content-section my-3 bg-white shadow-sm rounded-xl" aria-labelledby="education-heading">
+    <h6 class="section-heading border-bottom border-gray p-3 mb-0" id="education-heading">
+        <i class="fas fa-graduation-cap mr-2" aria-hidden="true"></i>Education
+    </h6>
+    <div class="row no-gutters">
+        {% for item in site.data.profile.education %}
+        <div class="col-12 col-lg-6 p-3 p-md-4">
+            <div class="institution-entry h-100">
+                {% if item.logo %}
+                <div class="institution-logo-wrap">
+                    <img src="{{ item.logo | relative_url }}" alt="{{ item.name | strip_html }} logo" class="institution-logo">
+                </div>
+                {% endif %}
+                <div class="institution-body">
+                    <h5 class="font-weight-normal mb-1">{{ item.name }}</h5>
+                    <div class="small text-muted mb-2">{{ item.dept }}</div>
+                    <div>{{ item.position }}</div>
+                    <div class="small text-muted mt-1">{{ item.date }}</div>
+                    {% if item.details %}<div class="small education-details mt-2">{{ item.details }}</div>{% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>

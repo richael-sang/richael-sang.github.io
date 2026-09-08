@@ -1,0 +1,24 @@
+<section class="content-section my-3 bg-white shadow-sm rounded-xl" aria-labelledby="core-projects-heading">
+    <div class="section-heading border-bottom border-gray p-3">
+        <h6 class="mb-1" id="core-projects-heading">
+            <i class="fas fa-layer-group mr-2" aria-hidden="true"></i>Core Projects
+        </h6>
+        <p class="small text-muted mb-0">Reserved for detailed technical project pages.</p>
+    </div>
+    <div class="row no-gutters core-project-grid">
+        {% for project in site.data.core_projects %}
+        <div class="col-12 col-md-4 p-3">
+            {% if project.url %}
+            <a class="core-project-card d-block h-100" href="{{ project.url | relative_url }}">
+            {% else %}
+            <div class="core-project-card h-100">
+            {% endif %}
+                <div class="core-project-number">{{ project.number }}</div>
+                <div class="small text-uppercase core-project-area">{{ project.area }}</div>
+                <h5 class="font-weight-normal mb-0 mt-2">{{ project.title }}</h5>
+                <div class="small text-muted mt-3">Project page reserved</div>
+            {% if project.url %}</a>{% else %}</div>{% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
