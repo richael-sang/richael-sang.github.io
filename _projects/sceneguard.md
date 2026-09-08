@@ -16,8 +16,9 @@ citation_title: "SceneGuard: Training-Time Voice Protection with Scene-Consisten
 citation_publication_date: "2026-01-26"
 paper_url: https://arxiv.org/pdf/2511.16114
 og_type: article
-og_image: /assets/images/projects/sceneguard/cover.svg
-cover: /assets/images/projects/sceneguard/cover.svg
+og_image: /assets/images/projects/sceneguard/concept-overview.png
+cover: /assets/images/projects/sceneguard/concept-overview.png
+cover_fit: contain
 hero_figure: /assets/images/projects/sceneguard/concept-overview.png
 hero_figure_alt: Three-step SceneGuard concept showing original speech, scene-matched protection, and useful speech with reduced voice-cloning risk
 pub: "AAAI-26 Workshop on Artificial Intelligence for Cyber Security (AICS)"

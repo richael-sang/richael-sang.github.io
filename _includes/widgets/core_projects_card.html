@@ -13,6 +13,11 @@
             {% else %}
             <div class="core-project-card h-100">
             {% endif %}
+                {% if project.cover %}
+                <div class="core-project-cover">
+                    <img src="{{ project.cover | relative_url }}" alt="" loading="lazy">
+                </div>
+                {% endif %}
                 <div class="core-project-number">{{ project.number }}</div>
                 <div class="small text-uppercase core-project-area">{{ project.area }}</div>
                 <h5 class="font-weight-normal mb-0 mt-2">{{ project.title }}</h5>
