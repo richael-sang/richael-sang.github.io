@@ -143,7 +143,7 @@ section_nav:
   </div>
 </section>
 
-<section class="project-section" id="system-architecture">
+<section class="project-section project-section-figure" id="system-architecture">
   <div class="section-kicker">System architecture</div>
   <h2>Pretrained perception, per-sample optimization</h2>
   <p class="section-intro">PANNs, ECAPA-TDNN, and Whisper are pretrained components. SceneGuard does not train them; gradients update only the temporal mask and global gain for each sample.</p>
