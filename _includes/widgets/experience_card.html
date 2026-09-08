@@ -11,7 +11,7 @@
                                 {% for item in site.data.profile.education %}
                                 <li class="media mb-3">
                                     {% if item.logo %}
-                                    <img src="{{ item.logo | relative_url }}" alt="{{ item.name }}" style="width: 18px;" class="mr-1 mt-1">
+                                    <img src="{{ item.logo | relative_url }}" alt="{{ item.name | strip_html }}" style="width: 18px;" class="mr-1 mt-1">
                                     {% endif %}
                                     <div class="media-body">
                                         <div>{{ item.name }}</div>
@@ -37,7 +37,7 @@
                                 {% for item in site.data.profile.experience %}
                                 <li class="media mb-3">
                                     {% if item.logo %}
-                                    <img src="{{ item.logo | relative_url }}" alt="{{ item.name }}" style="width: 18px;" class="mr-1 mt-1">
+                                    <img src="{{ item.logo | relative_url }}" alt="{{ item.name | strip_html }}" style="width: 18px;" class="mr-1 mt-1">
                                     {% endif %}
                                     <div class="media-body">
                                         <div>{{ item.name }}</div>
