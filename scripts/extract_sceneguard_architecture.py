@@ -22,7 +22,7 @@ def parse_args() -> argparse.Namespace:
         type=int,
         nargs=4,
         metavar=("X0", "Y0", "X1", "Y1"),
-        default=(5, 74, 1019, 699),
+        default=(7, 105, 1441, 989),
         help="Crop rectangle in source-image pixels.",
     )
     return parser.parse_args()
