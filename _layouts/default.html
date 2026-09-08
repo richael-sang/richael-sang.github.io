@@ -4,15 +4,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% assign social_image = page.og_image | default: page.cover | default: site.data.profile.portrait_url %}
     <title>{{ page.title }} - {{ site.data.profile.navbar_name }}</title>
     <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
     <link rel="canonical" href="{{ page.url | absolute_url }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{{ page.og_type | default: 'website' }}">
     <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
     <meta property="og:description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
     <meta property="og:site_name" content="{{ site.title | escape }}">
-    <meta property="og:image" content="{{ site.data.profile.portrait_url | absolute_url }}">
+    <meta property="og:image" content="{{ social_image | absolute_url }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title | default: site.title | escape }}">
+    <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <meta name="twitter:image" content="{{ social_image | absolute_url }}">
+    {% if page.citation_title %}
+    <meta name="citation_title" content="{{ page.citation_title | escape }}">
+    {% for author in page.authors %}<meta name="citation_author" content="{{ author | escape }}">{% endfor %}
+    {% if page.citation_publication_date %}<meta name="citation_publication_date" content="{{ page.citation_publication_date }}">{% endif %}
+    {% if page.paper_url %}<meta name="citation_pdf_url" content="{{ page.paper_url }}">{% endif %}
+    {% endif %}
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
@@ -23,6 +34,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ '/assets/css/global.css' | relative_url }}">
+    {% if page.project_page_style %}<link rel="stylesheet" href="{{ '/assets/css/project-page.css' | relative_url }}">{% endif %}
 </head>
 <body class="bg-light" {{ page.body_attr }}>
     {% include navbar.html %}
@@ -46,7 +58,9 @@
             renderMathInElement(document.body, {
               delimiters: [
                   {left: '$$', right: '$$', display: true},
-                  {left: '$', right: '$', display: false}
+                  {left: '\\[', right: '\\]', display: true},
+                  {left: '$', right: '$', display: false},
+                  {left: '\\(', right: '\\)', display: false}
               ],
               throwOnError : false
             });
@@ -55,5 +69,6 @@
     <script src="{{ '/assets/js/common.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/bubble_visual_hash.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/semantic_scholar_citation_count.js' | relative_url }}"></script>
+    {% if page.project_page_script %}<script src="{{ '/assets/js/project-page.js' | relative_url }}"></script>{% endif %}
 </body>
 </html>

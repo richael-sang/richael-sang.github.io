@@ -1,0 +1,10 @@
+{
+  "status": "pending",
+  "conditions": ["clean", "baseline", "sceneguard"],
+  "samples": [],
+  "notes": [
+    "No demo audio is committed until source provenance and redistribution rights are documented.",
+    "LibriTTS is CC BY 4.0 and requires attribution.",
+    "TAU Urban Acoustic Scenes 2022 Mobile carries non-commercial redistribution restrictions; do not publish its source clips without a separate license review."
+  ]
+}

@@ -1,0 +1,13 @@
+status: pending
+note: No redistributable SceneGuard demo audio is currently available in the public repository.
+conditions:
+- id: clean
+  label: Clean
+  description: Original speech before protection.
+- id: baseline
+  label: Random / Gaussian baseline
+  description: A matched-SNR additive-noise baseline.
+- id: sceneguard
+  label: SceneGuard
+  description: Scene-conditioned noise with optimized mask and gain.
+samples: []

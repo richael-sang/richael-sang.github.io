@@ -16,7 +16,7 @@
                 <div class="core-project-number">{{ project.number }}</div>
                 <div class="small text-uppercase core-project-area">{{ project.area }}</div>
                 <h5 class="font-weight-normal mb-0 mt-2">{{ project.title }}</h5>
-                <div class="small text-muted mt-3">Project page reserved</div>
+                <div class="small text-muted mt-3">{% if project.url %}View project page <i class="fas fa-angle-right ml-1" aria-hidden="true"></i>{% else %}Project page reserved{% endif %}</div>
             {% if project.url %}</a>{% else %}</div>{% endif %}
         </div>
         {% endfor %}

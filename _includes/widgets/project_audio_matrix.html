@@ -1,0 +1,49 @@
+{% assign demo = include.demo %}
+<div class="audio-demo" data-audio-demo-status="{{ demo.status }}">
+    {% if demo.samples and demo.samples.size > 0 %}
+        {% for sample in demo.samples %}
+        <section class="audio-sample" aria-labelledby="audio-sample-{{ sample.id }}">
+            <div class="audio-sample-heading">
+                <h3 id="audio-sample-{{ sample.id }}">{{ sample.label }}</h3>
+                {% if sample.scene %}<span class="evidence-chip">{{ sample.scene }}</span>{% endif %}
+            </div>
+            <div class="audio-grid">
+                {% for condition in demo.conditions %}
+                {% assign variant = sample.variants[condition.id] %}
+                <div class="audio-cell">
+                    <h4>{{ condition.label }}</h4>
+                    <p class="small text-muted">{{ condition.description }}</p>
+                    <audio controls preload="none" aria-label="{{ sample.label }} — {{ condition.label }}">
+                        <source src="{{ variant.audio | relative_url }}" type="audio/wav">
+                        Your browser does not support HTML5 audio.
+                    </audio>
+                    {% if variant.waveform %}
+                    <img loading="lazy" src="{{ variant.waveform | relative_url }}" alt="Waveform for {{ sample.label }}, {{ condition.label }}">
+                    {% endif %}
+                    {% if variant.mel %}
+                    <img loading="lazy" src="{{ variant.mel | relative_url }}" alt="Mel spectrogram for {{ sample.label }}, {{ condition.label }}">
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% if sample.attribution %}<p class="audio-attribution small text-muted">{{ sample.attribution }}</p>{% endif %}
+        </section>
+        {% endfor %}
+    {% else %}
+    <div class="audio-empty-state">
+        <div class="audio-grid audio-grid-placeholder" aria-label="Planned audio comparison structure">
+            {% for condition in demo.conditions %}
+            <div class="audio-cell">
+                <div class="audio-placeholder-icon" aria-hidden="true"><i class="fas fa-wave-square"></i></div>
+                <h4>{{ condition.label }}</h4>
+                <p class="small text-muted mb-0">{{ condition.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <p class="audio-demo-note mb-0">
+            <strong>Demo assets pending.</strong> {{ demo.note }}
+            This structure will activate after sample provenance and redistribution rights are documented.
+        </p>
+    </div>
+    {% endif %}
+</div>

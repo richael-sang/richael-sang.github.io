@@ -1,0 +1,96 @@
+project:
+  title: "SceneGuard: Training-Time Voice Protection with Scene-Consistent Audible Background Noise"
+  authors: [Rui Sang, Yuxuan Liu]
+  paper: "arXiv:2511.16114v1"
+  accepted_at: "AAAI-26 Workshop on Artificial Intelligence for Cyber Security (AICS)"
+  evidence: "Paper and official workshop program"
+
+method:
+  transformation: "x'(t) = x(t) + gamma * m(t) * n_k(t)"
+  optimized_parameters: ["temporal mask m(t)", "global gain gamma"]
+  default_losses: ["ECAPA cosine similarity", "mask smoothness", "gain energy"]
+  default_disabled_losses: ["ASR loss", "scene-consistency loss"]
+  snr_db: [10, 20]
+  optimizer: Adam
+  learning_rate: 0.01
+  epochs: 50
+  gradient_clip_norm: 1.0
+  reported_runtime: "~10–15 s/sample on RTX A6000"
+  source: "Paper Sections 3–4, Equations 5–11, Algorithm 1"
+
+pretrained_components:
+  scene_classifier: "PANNs CNN14"
+  speaker_encoder: "ECAPA-TDNN"
+  speaker_embedding_dimensions: 192
+  asr: "Whisper Base"
+  referenced_tts: "BERT-VITS2"
+  tts_caveat: "Full TTS fine-tuning was not performed due to computational constraints."
+  source: "Paper Experimental Setup, Models"
+
+data:
+  speech: LibriTTS
+  noise: "TAU Urban Acoustic Scenes 2022 Mobile"
+  training_attack_samples:
+    train: 100
+    test: 40
+  noise_library:
+    clips: "~50,000"
+    clip_duration_seconds: 3
+    scene_categories: 10
+  source: "Paper Experimental Setup, Datasets"
+
+training_attack_table_1:
+  clean: {sim: 1.000, wer_percent: 0.00, pesq: 4.64, stoi: 1.00}
+  random_noise: {sim: 0.965, wer_percent: 5.82, pesq: 1.85, stoi: 0.97}
+  gaussian_noise: {sim: 0.968, wer_percent: 5.28, pesq: 1.92, stoi: 0.98}
+  sceneguard: {sim: 0.945, wer_percent: 2.77, pesq: 2.22, stoi: 0.99}
+  reported_statistics: {p_value: "< 1e-15", cohens_d: 2.18}
+  source: "Paper Table 1"
+
+usability_table_2:
+  stoi: {value: 0.986, ci_95: [0.980, 0.992]}
+  wer_percent: {value: 3.60, ci_95: [1.40, 6.43]}
+  pesq: {value: 2.034, ci_95: [1.840, 2.233], paper_ideal_threshold: 3.0}
+  caveat: "The paper does not explain why WER/PESQ differ from Table 1."
+  source: "Paper Table 2"
+
+robustness_table_3:
+  none: 0.937
+  mp3_128_kbps: 0.901
+  mp3_64_kbps: 0.899
+  spectral_subtraction: 0.745
+  lowpass_3400_hz: 0.704
+  downsample_8_khz: 0.688
+  metric: "Speaker similarity"
+  source: "Paper Table 3"
+
+zero_shot_table_4:
+  clean_reference: {mean_sim: 0.618, success_rate_percent: 20.0}
+  defended_reference: {mean_sim: 0.588, success_rate_percent: 13.3}
+  source: "Paper Table 4"
+
+snr_ablation_table_5:
+  - {range_db: [5, 10], sim: 0.921, protection_percent: 7.9, stoi: 0.942, wer_percent: 8.2}
+  - {range_db: [10, 20], sim: 0.945, protection_percent: 5.5, stoi: 0.986, wer_percent: 3.6}
+  - {range_db: [15, 25], sim: 0.968, protection_percent: 3.2, stoi: 0.993, wer_percent: 1.8}
+  - {range_db: [20, 30], sim: 0.982, protection_percent: 1.8, stoi: 0.997, wer_percent: 0.9}
+  source: "Paper Table 5"
+
+optimization_ablation_table_6:
+  direct: {sim: 0.972, protection_percent: 2.8, stoi: 0.989, wer_percent: 3.2}
+  optimized: {sim: 0.945, protection_percent: 5.5, stoi: 0.986, wer_percent: 3.6}
+  source: "Paper Table 6"
+
+evidence_boundaries:
+  paper_reported_not_independently_recomputed:
+    - "All result tables and confidence intervals"
+    - "p < 1e-15 and Cohen's d = 2.18"
+    - "Runtime on RTX A6000"
+  repository_diagnostics_excluded:
+    - "Final Speaker Similarity around -0.378 ± 0.110"
+    - "SNR 18.51 ± 0.04 dB and variance-reduction claims"
+  not_established:
+    - "Full end-to-end BERT-VITS2 fine-tuning"
+    - "Human naturalness or scene-matching study"
+    - "Comprehensive adaptive-attack robustness"
+    - "Independent reproduction from public result CSVs"

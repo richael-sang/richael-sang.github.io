@@ -5,14 +5,19 @@ selected:       true
 pub:            "AAAI 2026 Workshop"
 pub_date:       "Accepted"
 pub_last:       "· First author"
+project_url:    /projects/sceneguard/
 abstract: >-
   SceneGuard is a training-time voice protection method that uses scene-consistent audible background noise to defend speech recordings against unauthorized voice cloning.
 summary: >-
-  Training-time voice protection using scene-consistent audible background noise, designed to remain natural within the recording context.
+  Training-time voice protection using audible background noise selected to match the recording context.
+cover:          /assets/images/projects/sceneguard/cover.svg
 authors:
 - Rui Sang
 - Yuxuan Liu
 links:
+  Project Page:
+    url: /projects/sceneguard/
+    target: _self
   Paper: https://arxiv.org/pdf/2511.16114
   Code: https://github.com/richael-sang/SceneGuard
 ---

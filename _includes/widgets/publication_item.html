@@ -1,5 +1,9 @@
 {% assign item = include.item %}
 {% assign item_description = item.abstract %}
+{% assign item_detail_url = item.project_url %}
+{% if item_detail_url == nil and item.detail_page %}
+    {% assign item_detail_url = item.url %}
+{% endif %}
 {% if include.compact and item.summary %}
     {% assign item_description = item.summary %}
 {% endif %}
@@ -14,7 +18,7 @@
         </div>
         <div class="col-md-7 col-xl-10 p-3 pl-md-0">
             <h5 class="mt-0 mb-1 font-weight-normal">
-                {% if item.detail_page %}<a class="item-title-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+                {% if item_detail_url %}<a class="item-title-link" href="{{ item_detail_url | relative_url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
             </h5>
             <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
             <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
@@ -40,7 +44,7 @@
             <div class="mb-auto"></div>
             <div>
                 <h5 class="mt-0 mb-1 font-weight-normal">
-                    {% if item.detail_page %}<a class="item-title-link" href="{{ item.url | relative_url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
+                    {% if item_detail_url %}<a class="item-title-link" href="{{ item_detail_url | relative_url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}
                 </h5>
                 <p class="mt-0 mb-0 small">{% include widgets/author_list.html authors=item.authors %}</p>
                 <p class="mt-0 mb-0 small">{{item.pub_pre}}<i>{{ item.pub }}</i>{{ item.pub_post }} {{ item.pub_date }} {{ item.pub_last }} <span data-semantic-scholar-id="{{ item.semantic_scholar_id }}"></span></p>
