@@ -15,12 +15,11 @@ short_bio: >-
   <p>
     Hi, I am Rui 👋, a Master of Computing in Artificial Intelligence student at the
     <a href="https://www.nus.edu.sg/">National University of Singapore</a>.
-    I work across computer vision, robust machine learning, multimodal learning,
-    vision-language models, and audio processing. My technical toolkit includes Python,
-    PyTorch, CUDA, Git, and Docker for research prototyping and applied ML systems.
-    At Bosch BCSC, I developed a VLM-based workflow for industrial video inspection.
-    My research includes first-author SceneGuard, accepted at an AAAI 2026 Workshop,
-    alongside work at ISMIR, CMMR, and DCASE.
+    I am interested in how machines can see, connect information across modalities,
+    and reason more reliably. My current interests include computer vision, robust
+    machine learning, multimodal learning, vision-language models, and audio processing.
+    I enjoy turning open-ended ideas into careful experiments, and I am naturally curious,
+    collaborative, and always happy to learn from a good technical puzzle. 🔍
   </p>
 
 focus_areas:
