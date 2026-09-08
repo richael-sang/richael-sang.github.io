@@ -145,7 +145,7 @@ section_nav:
   <h2>Pretrained perception, per-sample optimization</h2>
   <p class="section-intro">PANNs, ECAPA-TDNN, and Whisper are pretrained components. SceneGuard does not train them; gradients update only the temporal mask and global gain for each sample.</p>
   <figure class="technical-figure technical-figure-borderless">
-    <img src="{{ '/assets/images/projects/sceneguard/paper-architecture.png' | relative_url }}" alt="SceneGuard architecture: scene-matched noise selection, direct or optimized defense generation, and training-time and zero-shot evaluation" loading="lazy">
+    <img src="{{ '/assets/images/projects/sceneguard/system-architecture.png' | relative_url }}" alt="SceneGuard architecture showing scene and noise selection, mask and gain optimization, protected speech generation, usability and robustness evaluation, and training-time and zero-shot attacks" loading="lazy">
   </figure>
 </section>
 
