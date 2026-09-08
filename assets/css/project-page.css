@@ -100,11 +100,9 @@
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    overflow: hidden;
     margin: 0;
-    border: 1px solid var(--sg-line);
-    border-radius: 0.75rem;
-    background: var(--sg-pale);
+    border: 0;
+    background: transparent;
     justify-self: end;
 }
 
@@ -152,14 +150,6 @@
     border-radius: 0.8rem;
     background: #fff;
     box-shadow: 0 0.125rem 0.45rem rgba(47, 143, 135, 0.055);
-}
-
-.project-section.project-section-figure {
-    padding-right: 0;
-    padding-left: 0;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
 }
 
 .project-section > h2 {
