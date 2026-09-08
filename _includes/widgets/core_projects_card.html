@@ -13,14 +13,14 @@
             {% else %}
             <div class="core-project-card h-100">
             {% endif %}
-                {% if project.cover %}
-                <div class="core-project-cover">
-                    <img src="{{ project.cover | relative_url }}" alt="" loading="lazy">
-                </div>
-                {% endif %}
                 <div class="core-project-number">{{ project.number }}</div>
                 <div class="small text-uppercase core-project-area">{{ project.area }}</div>
                 <h5 class="font-weight-normal mb-0 mt-2">{{ project.title }}</h5>
+                {% if project.cover %}
+                <div class="core-project-cover core-project-cover-bottom">
+                    <img src="{{ project.cover | relative_url }}" alt="" loading="lazy">
+                </div>
+                {% endif %}
                 <div class="small text-muted mt-3">{% if project.url %}View project page <i class="fas fa-angle-right ml-1" aria-hidden="true"></i>{% else %}Project page reserved{% endif %}</div>
             {% if project.url %}</a>{% else %}</div>{% endif %}
         </div>
