@@ -7,6 +7,7 @@ layout: default
         <i class="fas fa-angle-left mr-1" aria-hidden="true"></i>All projects
     </a>
     <header class="project-hero mt-3 p-4 p-md-5 bg-white shadow-sm rounded-xl">
+        {% if page.hero_figure %}<div class="project-hero-grid"><div class="project-hero-copy">{% endif %}
         {% if page.project_type %}<div class="project-eyebrow">{{ page.project_type }}</div>{% endif %}
         <h1 class="project-title mb-2">{{ page.title }}</h1>
         {% if page.subtitle %}<p class="project-subtitle mb-3">{{ page.subtitle }}</p>{% endif %}
@@ -31,9 +32,11 @@ layout: default
         </div>
         {% endif %}
         {% if page.hero_figure %}
+        </div>
         <figure class="project-hero-figure">
             <img src="{{ page.hero_figure | relative_url }}" alt="{{ page.hero_figure_alt | default: page.title }}" fetchpriority="high">
         </figure>
+        </div>
         {% endif %}
     </header>
 
