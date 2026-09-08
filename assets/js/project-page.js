@@ -59,42 +59,6 @@
         });
     }
 
-    function initializeCopyButtons() {
-        document.querySelectorAll("[data-copy-target]").forEach(function (button) {
-            button.addEventListener("click", function () {
-                var target = document.getElementById(button.getAttribute("data-copy-target"));
-                if (!target) return;
-                var text = target.textContent;
-
-                if (navigator.clipboard && window.isSecureContext) {
-                    navigator.clipboard.writeText(text).then(function () {
-                        showCopiedState(button);
-                    });
-                    return;
-                }
-
-                var textarea = document.createElement("textarea");
-                textarea.value = text;
-                textarea.setAttribute("readonly", "");
-                textarea.style.position = "fixed";
-                textarea.style.opacity = "0";
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand("copy");
-                document.body.removeChild(textarea);
-                showCopiedState(button);
-            });
-        });
-    }
-
-    function showCopiedState(button) {
-        var original = button.innerHTML;
-        button.textContent = "Copied";
-        window.setTimeout(function () {
-            button.innerHTML = original;
-        }, 1600);
-    }
-
     function preventSimultaneousAudio() {
         document.querySelectorAll("audio").forEach(function (audio) {
             audio.addEventListener("play", function () {
@@ -108,7 +72,6 @@
     document.addEventListener("DOMContentLoaded", function () {
         initializeSnrExplorer();
         initializeRobustnessExplorer();
-        initializeCopyButtons();
         preventSimultaneousAudio();
     });
 })();

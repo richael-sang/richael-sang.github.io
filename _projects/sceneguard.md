@@ -41,10 +41,6 @@ hero_links:
     url: "#audio-demo"
     target: _self
     icon: fas fa-headphones
-  BibTeX:
-    url: "#citation"
-    target: _self
-    icon: fas fa-quote-right
 links:
   Paper: https://arxiv.org/pdf/2511.16114
   Code: https://github.com/richael-sang/SceneGuard
@@ -61,8 +57,6 @@ section_nav:
   label: Implementation
 - id: limitations
   label: Limitations
-- id: citation
-  label: Citation
 ---
 
 <section class="project-section" id="overview">
@@ -150,9 +144,8 @@ section_nav:
   <div class="section-kicker">System architecture</div>
   <h2>Pretrained perception, per-sample optimization</h2>
   <p class="section-intro">PANNs, ECAPA-TDNN, and Whisper are pretrained components. SceneGuard does not train them; gradients update only the temporal mask and global gain for each sample.</p>
-  <figure class="technical-figure">
-    <img src="{{ '/assets/images/projects/sceneguard/system-architecture.svg' | relative_url }}" alt="SceneGuard system architecture showing scene-conditioned noise selection, mask and gain optimization, pretrained ECAPA feedback, protected speech, and evaluation components">
-    <figcaption>Scene selection provides context-aware noise; ECAPA feedback drives mask and gain optimization under regularization and SNR constraints. Whisper, STOI, PESQ, and preprocessing operations are used for evaluation.</figcaption>
+  <figure class="technical-figure technical-figure-borderless">
+    <img src="{{ '/assets/images/projects/sceneguard/paper-architecture.png' | relative_url }}" alt="SceneGuard architecture: scene-matched noise selection, direct or optimized defense generation, and training-time and zero-shot evaluation" loading="lazy">
   </figure>
 </section>
 
@@ -359,27 +352,4 @@ section_nav:
   <div class="section-kicker">Related work</div>
   <h2>Positioning</h2>
   <p>SceneGuard sits alongside real-time speaker de-identification (VoiceBlock), imperceptible proactive protection (SafeSpeech), purification-aware protection research (De-AntiFake), and diffusion-based voice-cloning protection (VoiceCloak). Numerical cross-paper comparisons are intentionally omitted because threat models, datasets, cloning systems, and metrics differ.</p>
-</section>
-
-<section class="project-section" id="citation">
-  <div class="section-kicker">Citation</div>
-  <h2>Cite SceneGuard</h2>
-  <p class="section-intro">Suggested citation for the accepted AICS workshop paper. Formal proceedings metadata, DOI, and page numbers were not available at the time of publication.</p>
-  <div class="bibtex-block">
-    <button type="button" class="copy-button" data-copy-target="sceneguard-bibtex" aria-label="Copy SceneGuard BibTeX"><i class="far fa-copy mr-1" aria-hidden="true"></i>Copy</button>
-    <pre id="sceneguard-bibtex"><code>@misc{sang2026sceneguard,
-  author       = {Sang, Rui and Liu, Yuxuan},
-  title        = {SceneGuard: Training-Time Voice Protection with
-                  Scene-Consistent Audible Background Noise},
-  howpublished = {Accepted paper at the AAAI-26 Workshop on
-                  Artificial Intelligence for Cyber Security (AICS)},
-  year         = {2026},
-  month        = jan,
-  address      = {Singapore},
-  eprint       = {2511.16114},
-  archivePrefix = {arXiv},
-  primaryClass = {cs.SD},
-  url          = {https://arxiv.org/abs/2511.16114}
-}</code></pre>
-  </div>
 </section>

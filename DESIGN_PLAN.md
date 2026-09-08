@@ -3,8 +3,8 @@
 ## Design references
 
 - [Clarity](https://shikun.io/projects/clarity): restrained technical panels, clear comparison displays, and readable mathematics.
-- [Nerfies](https://nerfies.github.io/): compact academic hero, resource buttons, teaser-first hierarchy, and end-of-page citation.
-- [Academic Project Page Template](https://eliahuhorwitz.github.io/Academic-project-page-template/): project SEO metadata, responsive media, and copyable BibTeX.
+- [Nerfies](https://nerfies.github.io/): compact academic hero, resource buttons, teaser-first hierarchy, and responsive diagrams.
+- [Academic Project Page Template](https://eliahuhorwitz.github.io/Academic-project-page-template/): project SEO metadata, responsive media, and accessible action groups.
 - [Academic Project Astro Template](https://research-template.roman.technology/): reusable figure, comparison, and mobile-stacking component patterns. The Astro stack itself will not be adopted.
 - [De-AntiFake](https://de-antifake.github.io/samples): condition-oriented audio comparisons and demo-first organization.
 - [VoiceBlock](https://interactiveaudiolab.github.io/project/voiceblock.html): concise research landing page with a separate path to deeper audio evidence.
@@ -14,13 +14,13 @@
 
 ## Patterns to adopt
 
-1. A concise academic hero with Paper, Code, Audio Demo, and BibTeX actions.
+1. A concise academic hero with Paper, Code, and Audio Demo actions.
 2. A four-card summary that explains input, output, goal, and core idea in under 30 seconds.
 3. Neutral figure panels for the threat model, signal transformation, and system architecture.
 4. Native, progressively loaded audio controls arranged as a responsive comparison matrix.
 5. Offline-generated waveform and mel-spectrogram assets rather than browser-side signal processing.
 6. Responsive result tables plus small native SVG/CSS visualizations.
-7. Lightweight JavaScript for precomputed SNR and robustness explorers and BibTeX copying.
+7. Lightweight JavaScript for the precomputed SNR and robustness explorers.
 8. A visible limitations section and explicit evidence labels.
 
 ## Patterns to avoid

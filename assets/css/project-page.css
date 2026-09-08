@@ -348,6 +348,13 @@
     background: #fafcfc;
 }
 
+.technical-figure-borderless {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
 .technical-figure img {
     display: block;
     width: 100%;
@@ -717,39 +724,6 @@
     color: #7b8a92;
 }
 
-.bibtex-block {
-    position: relative;
-}
-
-.bibtex-block pre {
-    overflow-x: auto;
-    margin: 0;
-    padding: 1.25rem;
-    border-radius: 0.65rem;
-    background: #22323b;
-    color: #eef4f6;
-    font-size: 0.78rem;
-}
-
-.copy-button {
-    position: absolute;
-    top: 0.65rem;
-    right: 0.65rem;
-    z-index: 1;
-    border: 1px solid #718691;
-    border-radius: 0.35rem;
-    background: #2f4652;
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.72rem;
-    padding: 0.32rem 0.55rem;
-}
-
-.copy-button:hover,
-.copy-button:focus {
-    background: #3b5968;
-}
-
 @media (max-width: 991.98px) {
     .overview-grid,
     .evaluation-grid,
@@ -848,10 +822,6 @@
     .pipeline i {
         transform: rotate(90deg);
         text-align: center;
-    }
-
-    .bibtex-block pre {
-        padding-top: 3.2rem;
     }
 }
 
