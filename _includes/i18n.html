@@ -1,0 +1,9 @@
+{% assign i18n_tag = include.tag | default: "span" %}
+{% if include.class %}
+{% assign i18n_en_class = "i18n-en " | append: include.class %}
+{% assign i18n_zh_class = "i18n-zh " | append: include.class %}
+{% else %}
+{% assign i18n_en_class = "i18n-en" %}
+{% assign i18n_zh_class = "i18n-zh" %}
+{% endif %}
+<{{ i18n_tag }} class="{{ i18n_en_class }}">{{ include.en }}</{{ i18n_tag }}><{{ i18n_tag }} class="{{ i18n_zh_class }}">{{ include.zh }}</{{ i18n_tag }}>

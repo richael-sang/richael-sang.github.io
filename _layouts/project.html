@@ -2,20 +2,40 @@
 layout: default
 ---
 {% if page.advanced_project %}
-<article class="project-detail project-detail-advanced my-3">
-    <a class="small text-muted project-back-link" href="{{ '/projects' | relative_url }}">
-        <i class="fas fa-angle-left mr-1" aria-hidden="true"></i>All projects
-    </a>
+<article class="project-detail project-detail-advanced my-3"{% if page.bilingual %} data-bilingual="true"{% endif %}>
+    <div class="project-toolbar">
+        <a class="small text-muted project-back-link" href="{{ '/projects' | relative_url }}">
+            <i class="fas fa-angle-left mr-1" aria-hidden="true"></i>{% if page.bilingual %}{% include i18n.html en="All projects" zh="全部项目" %}{% else %}All projects{% endif %}
+        </a>
+        {% if page.bilingual %}
+        <div class="project-lang-switch" role="group" aria-label="Language">
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="zh">中文</button>
+        </div>
+        {% endif %}
+    </div>
     <header class="project-hero mt-3 p-4 p-md-5 bg-white shadow-sm rounded-xl">
         {% if page.hero_figure %}<div class="project-hero-grid"><div class="project-hero-copy">{% endif %}
         {% if page.project_type %}<div class="project-eyebrow">{{ page.project_type }}</div>{% endif %}
         <h1 class="project-title mb-2">{{ page.title }}</h1>
-        {% if page.subtitle %}<p class="project-subtitle mb-3">{{ page.subtitle }}</p>{% endif %}
+        {% if page.subtitle %}
+            {% if page.subtitle_zh %}
+                {% include i18n.html tag="p" class="project-subtitle mb-3" en=page.subtitle zh=page.subtitle_zh %}
+            {% else %}
+                <p class="project-subtitle mb-3">{{ page.subtitle }}</p>
+            {% endif %}
+        {% endif %}
         {% if page.authors %}
         <p class="project-authors mb-1">{% include widgets/author_list.html authors=page.authors %}</p>
         {% endif %}
-        <p class="small text-muted mb-3"><i>{{ page.pub }}</i>{% if page.pub_date %} · {{ page.pub_date }}{% endif %} {{ page.pub_last }}</p>
-        {% if page.abstract %}<p class="project-lead mb-4">{{ page.abstract }}</p>{% endif %}
+        <p class="small text-muted mb-3"><i>{{ page.pub }}</i>{% if page.pub_date %} · {% if page.pub_date_zh %}{% include i18n.html en=page.pub_date zh=page.pub_date_zh %}{% else %}{{ page.pub_date }}{% endif %}{% endif %} {% if page.pub_last_zh %}{% include i18n.html en=page.pub_last zh=page.pub_last_zh %}{% else %}{{ page.pub_last }}{% endif %}</p>
+        {% if page.abstract %}
+            {% if page.abstract_zh %}
+                {% include i18n.html tag="p" class="project-lead mb-4" en=page.abstract zh=page.abstract_zh %}
+            {% else %}
+                <p class="project-lead mb-4">{{ page.abstract }}</p>
+            {% endif %}
+        {% endif %}
         {% assign project_links = page.hero_links | default: page.links %}
         {% if project_links %}
         <div class="project-actions" aria-label="Project resources">
@@ -23,7 +43,7 @@ layout: default
             {% assign link_data = link[1] %}
             {% if link_data.url %}
             <a class="btn {% if forloop.first %}btn-primary{% else %}btn-outline-primary{% endif %} btn-sm" target="{{ link_data.target | default: '_blank' }}" href="{{ link_data.url }}">
-                {% if link_data.icon %}<i class="{{ link_data.icon }} mr-1" aria-hidden="true"></i>{% endif %}{{ link[0] }}
+                {% if link_data.icon %}<i class="{{ link_data.icon }} mr-1" aria-hidden="true"></i>{% endif %}{% if link_data.label_zh %}{% assign hero_link_label = link[0] %}{% include i18n.html en=hero_link_label zh=link_data.label_zh %}{% else %}{{ link[0] }}{% endif %}
             </a>
             {% else %}
             <a class="btn {% if forloop.first %}btn-primary{% else %}btn-outline-primary{% endif %} btn-sm" target="_blank" href="{{ link_data }}">{{ link[0] }}</a>
@@ -34,7 +54,7 @@ layout: default
         {% if page.hero_figure %}
         </div>
         <figure class="project-hero-figure">
-            <img src="{{ page.hero_figure | relative_url }}" alt="{{ page.hero_figure_alt | default: page.title }}" fetchpriority="high">
+            <img src="{{ page.hero_figure | relative_url }}" alt="{{ page.hero_figure_alt | default: page.title }}"{% if page.hero_figure_alt_zh %} data-alt-en="{{ page.hero_figure_alt | escape }}" data-alt-zh="{{ page.hero_figure_alt_zh | escape }}"{% endif %} fetchpriority="high">
         </figure>
         </div>
         {% endif %}
@@ -43,7 +63,7 @@ layout: default
     {% if page.section_nav %}
     <nav class="project-section-nav my-3 bg-white shadow-sm rounded-xl" aria-label="SceneGuard page sections">
         {% for item in page.section_nav %}
-        <a href="#{{ item.id }}">{{ item.label }}</a>
+        <a href="#{{ item.id }}">{% if item.label_zh %}{% include i18n.html en=item.label zh=item.label_zh %}{% else %}{{ item.label }}{% endif %}</a>
         {% endfor %}
     </nav>
     {% endif %}

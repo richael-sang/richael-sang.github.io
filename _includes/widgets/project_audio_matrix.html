@@ -12,10 +12,10 @@
                 {% assign variant = sample.variants[condition.id] %}
                 <div class="audio-cell">
                     <h4>{{ condition.label }}</h4>
-                    <p class="small text-muted">{{ condition.description }}</p>
+                    <p class="small text-muted">{% if condition.description_zh %}{% include i18n.html en=condition.description zh=condition.description_zh %}{% else %}{{ condition.description }}{% endif %}</p>
                     <audio controls preload="none" aria-label="{{ sample.label }} — {{ condition.label }}">
                         <source src="{{ variant.audio | relative_url }}" type="audio/wav">
-                        Your browser does not support HTML5 audio.
+                        {% include i18n.html en="Your browser does not support HTML5 audio." zh="当前浏览器不支持 HTML5 音频。" %}
                     </audio>
                     {% if variant.waveform %}
                     <img loading="lazy" src="{{ variant.waveform | relative_url }}" alt="Waveform for {{ sample.label }}, {{ condition.label }}">
@@ -36,13 +36,14 @@
             <div class="audio-cell">
                 <div class="audio-placeholder-icon" aria-hidden="true"><i class="fas fa-wave-square"></i></div>
                 <h4>{{ condition.label }}</h4>
-                <p class="small text-muted mb-0">{{ condition.description }}</p>
+                <p class="small text-muted mb-0">{% if condition.description_zh %}{% include i18n.html en=condition.description zh=condition.description_zh %}{% else %}{{ condition.description }}{% endif %}</p>
             </div>
             {% endfor %}
         </div>
         <p class="audio-demo-note mb-0">
-            <strong>Demo assets pending.</strong> {{ demo.note }}
-            This structure will activate after sample provenance and redistribution rights are documented.
+            {% include i18n.html tag="strong" en="Demo assets pending." zh="演示音频待补充。" %}
+            {% if demo.note_zh %}{% include i18n.html en=demo.note zh=demo.note_zh %}{% else %}{{ demo.note }}{% endif %}
+            {% include i18n.html en="This structure will activate after sample provenance and redistribution rights are documented." zh="在样本来源与再分发权限确认后再启用实际音频。" %}
         </p>
     </div>
     {% endif %}

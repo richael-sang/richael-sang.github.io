@@ -1,13 +1,17 @@
 status: pending
 note: No redistributable SceneGuard demo audio is currently available in the public repository.
+note_zh: 公开仓库目前没有可再分发的 SceneGuard 演示音频。
 conditions:
 - id: clean
   label: Clean
   description: Original speech before protection.
+  description_zh: 保护前的原始语音。
 - id: baseline
   label: Random / Gaussian baseline
   description: A matched-SNR additive-noise baseline.
+  description_zh: 匹配 SNR 的加性噪声基线。
 - id: sceneguard
   label: SceneGuard
   description: Scene-conditioned noise with optimized mask and gain.
+  description_zh: 场景条件噪声，掩码与增益经过优化。
 samples: []

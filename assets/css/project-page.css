@@ -16,9 +16,62 @@
     margin-right: auto;
 }
 
+.project-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    min-width: 0;
+}
+
 .project-back-link {
     display: inline-block;
     margin-left: 0.25rem;
+}
+
+.project-lang-switch {
+    display: inline-flex;
+    flex: 0 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--sg-line);
+    border-radius: 999px;
+    background: #fff;
+}
+
+.project-lang-switch button {
+    border: 0;
+    background: transparent;
+    color: #526873;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.32rem 0.75rem;
+}
+
+.project-lang-switch button[aria-pressed="true"] {
+    background: var(--sg-teal);
+    color: #fff;
+}
+
+.i18n-zh {
+    display: none !important;
+}
+
+html[data-sceneguard-lang="zh"] .i18n-en {
+    display: none !important;
+}
+
+html[data-sceneguard-lang="zh"] .i18n-zh {
+    display: revert !important;
+}
+
+html[data-sceneguard-lang="zh"] .section-kicker,
+html[data-sceneguard-lang="zh"] .project-eyebrow,
+html[data-sceneguard-lang="zh"] .overview-label,
+html[data-sceneguard-lang="zh"] .comparison-label {
+    letter-spacing: 0.04em;
+    text-transform: none;
 }
 
 .project-hero {
@@ -803,6 +856,10 @@
 }
 
 @media (max-width: 575.98px) {
+    .project-toolbar {
+        align-items: flex-start;
+    }
+
     .project-hero {
         padding: 1.35rem !important;
     }

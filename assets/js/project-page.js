@@ -39,7 +39,44 @@
         });
     }
 
+    function currentLanguage() {
+        var lang = document.documentElement.getAttribute("data-sceneguard-lang");
+        return lang === "zh" ? "zh" : "en";
+    }
+
+    function applyLanguage(lang) {
+        var resolved = lang === "zh" ? "zh" : "en";
+        document.documentElement.setAttribute("data-sceneguard-lang", resolved);
+        document.documentElement.lang = resolved === "zh" ? "zh-CN" : "en";
+
+        document.querySelectorAll(".project-lang-switch button").forEach(function (button) {
+            button.setAttribute("aria-pressed", button.getAttribute("data-lang") === resolved ? "true" : "false");
+        });
+
+        document.querySelectorAll("[data-alt-en][data-alt-zh]").forEach(function (image) {
+            image.setAttribute("alt", image.getAttribute("data-alt-" + resolved));
+        });
+
+        try {
+            window.localStorage.setItem("sceneguard-lang", resolved);
+        } catch (error) {}
+    }
+
+    function initializeLanguageSwitch() {
+        var switches = document.querySelectorAll(".project-lang-switch button");
+        if (!switches.length) return;
+
+        switches.forEach(function (button) {
+            button.addEventListener("click", function () {
+                applyLanguage(button.getAttribute("data-lang"));
+            });
+        });
+
+        applyLanguage(currentLanguage());
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
+        initializeLanguageSwitch();
         initializeSnrExplorer();
         preventSimultaneousAudio();
     });
