@@ -1,0 +1,69 @@
+note_default: Detection overlays and TP/FN counts are shown only when they appear on the source qualitative plates. Missing panes are left empty on purpose.
+cases:
+  low-light:
+    label: Low light
+    note: Detection panels are night scene 00449. Dynamic fusion recovers one ground-truth object missed by equal fusion. The infrared plate is from the project’s night-scene RGB–IR pair, not an additional 00449 overlay.
+    visible:
+      src: /assets/images/projects/infrared-visible/demo/lowlight-visible.jpg
+      alt: Low-light visible image with ground-truth boxes
+      caption: Visible input with ground-truth boxes
+    infrared:
+      src: /assets/images/projects/infrared-visible/demo/lowlight-infrared.jpg
+      alt: Registered infrared image of the same night scene
+      caption: Registered infrared pair
+    equal:
+      src: /assets/images/projects/infrared-visible/demo/lowlight-equal.jpg
+      alt: Equal-fusion detections on the low-light scene
+      caption: Equal fusion
+      tp: 12
+      fn: 2
+    dynamic:
+      src: /assets/images/projects/infrared-visible/demo/lowlight-dynamic.jpg
+      alt: Dynamic-fusion detections on the low-light scene
+      caption: Dynamic fusion
+      tp: 13
+      fn: 1
+  rain:
+    label: Rain
+    note: Rainy challenge scene 01078. Dynamic fusion recovers a person missed by equal fusion. No separate infrared plate was available for this frame.
+    visible:
+      src: /assets/images/projects/infrared-visible/demo/rain-visible.jpg
+      alt: Rainy visible image with ground-truth boxes
+      caption: Visible input with ground-truth boxes
+    infrared:
+      empty: No registered infrared plate was available for this rain frame.
+      caption: Infrared
+    equal:
+      src: /assets/images/projects/infrared-visible/demo/rain-equal.jpg
+      alt: Equal-fusion detections on the rainy scene
+      caption: Equal fusion
+      tp: 1
+      fn: 1
+    dynamic:
+      src: /assets/images/projects/infrared-visible/demo/rain-dynamic.jpg
+      alt: Dynamic-fusion detections on the rainy scene
+      caption: Dynamic fusion
+      tp: 2
+      fn: 0
+  glare:
+    label: Glare
+    note: No verified glare example with Visible / Infrared / Equal / Dynamic plates is available in the source materials, so this condition is left empty.
+    visible:
+      empty: No verified glare visible image is available.
+    infrared:
+      empty: No verified glare infrared image is available.
+    equal:
+      empty: No verified equal-fusion glare overlay is available.
+    dynamic:
+      empty: No verified dynamic-fusion glare overlay is available.
+  failure:
+    label: Failure cases
+    note: Failure IDs are recorded in the report, but the corresponding image plates were not included in the available figures. No substitute images were created.
+    visible:
+      empty: No verified failure-case plate is available.
+    infrared:
+      empty: No verified failure-case infrared plate is available.
+    equal:
+      empty: No verified equal-fusion failure overlay is available.
+    dynamic:
+      empty: No verified dynamic-fusion failure overlay is available.

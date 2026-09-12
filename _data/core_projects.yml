@@ -1,6 +1,8 @@
 - number: "01"
-  title: Infrared–Visible Multimodal Detection
+  title: Infrared–Visible Multimodal Object Detection
   area: Multimodal Perception
+  url: /projects/infrared-visible/
+  cover: /assets/images/projects/infrared-visible/concept-overview.png
 
 - number: "02"
   title: Vision-Language Model Project

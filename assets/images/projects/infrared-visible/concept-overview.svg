@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="617.04pt" height="244.476pt" viewBox="0 0 617.04 244.476" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>RGB-IR figure generator</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 244.476
+L 617.04 244.476
+L 617.04 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 25.17876 156.85398
+L 132.34824 156.85398
+Q 138.37464 156.85398 138.37464 150.57918
+L 138.37464 54.67932
+Q 138.37464 48.40452 132.34824 48.40452
+L 25.17876 48.40452
+Q 19.15236 48.40452 19.15236 54.67932
+L 19.15236 150.57918
+Q 19.15236 156.85398 25.17876 156.85398
+z
+" clip-path="url(#p86cb6f623e)" style="fill: #eef4fb; stroke: #3d7cc9; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 25.17876 224.83098
+L 132.34824 224.83098
+Q 138.37464 224.83098 138.37464 218.55618
+L 138.37464 169.71732
+Q 138.37464 163.44252 132.34824 163.44252
+L 25.17876 163.44252
+Q 19.15236 163.44252 19.15236 169.71732
+L 19.15236 218.55618
+Q 19.15236 224.83098 25.17876 224.83098
+z
+" clip-path="url(#p86cb6f623e)" style="fill: #f8ede4; stroke: #e07a3d; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 188.39376 193.45698
+L 338.25024 193.45698
+Q 344.27664 193.45698 344.27664 187.18218
+L 344.27664 65.13732
+Q 344.27664 58.86252 338.25024 58.86252
+L 188.39376 58.86252
+Q 182.36736 58.86252 182.36736 65.13732
+L 182.36736 187.18218
+Q 182.36736 193.45698 188.39376 193.45698
+z
+" clip-path="url(#p86cb6f623e)" style="fill: #f6f9fc; stroke: #3d7cc9; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 394.29576 193.45698
+L 581.81724 193.45698
+Q 587.84364 193.45698 587.84364 187.18218
+L 587.84364 65.13732
+Q 587.84364 58.86252 581.81724 58.86252
+L 394.29576 58.86252
+Q 388.26936 58.86252 388.26936 65.13732
+L 388.26936 187.18218
+Q 388.26936 193.45698 394.29576 193.45698
+z
+" clip-path="url(#p86cb6f623e)" style="fill: #eef4fb; stroke: #2a5f9e; stroke-width: 1.1; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2a5f9e" x="79.0146" y="72.5625" transform="rotate(-0 79.0146 72.5625)">Visible image</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.2px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; fill: #5b6f82" transform="translate(51.672084 95.011793)">texture · colour</text>
+    <text style="font-size: 8.2px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; fill: #5b6f82" transform="translate(58.728569 103.9365)">boundaries</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 11px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #e07a3d" x="79.0146" y="189.1692" transform="rotate(-0 79.0146 189.1692)">Infrared image</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8.2px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #5b6f82" x="79.0146" y="210.0852" transform="rotate(-0 79.0146 210.0852)">thermal contrast</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 144.543455 104.908001
+Q 161.627671 114.39515 177.587835 123.258095
+" clip-path="url(#p86cb6f623e)" style="fill: none; stroke: #3d7cc9; stroke-width: 1.15; stroke-linecap: round"/>
+    <path d="M 174.809216 119.198627
+L 177.587835 123.258095
+L 172.67309 123.045309
+z
+" clip-path="url(#p86cb6f623e)" style="fill: #3d7cc9; stroke: #3d7cc9; stroke-width: 1.15; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 144.226208 191.437674
+Q 161.624981 174.529477 178.101692 158.517341
+" clip-path="url(#p86cb6f623e)" style="fill: none; stroke: #e07a3d; stroke-width: 1.15; stroke-linecap: round"/>
+    <path d="M 173.413022 160.006089
+L 178.101692 158.517341
+L 176.479488 163.161526
+z
+" clip-path="url(#p86cb6f623e)" style="fill: #e07a3d; stroke: #e07a3d; stroke-width: 1.15; stroke-linecap: round"/>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1e3a5f" x="263.322" y="83.0205" transform="rotate(-0 263.322 83.0205)">Adaptive fusion</text>
+   </g>
+   <g id="text_6">
+    <!-- $F = \alpha F_{\mathrm{vis}} + (1-\alpha) F_{\mathrm{ir}}$ -->
+    <g style="fill: #2a5f9e" transform="translate(215.022 114.3945)">
+     <text>
+      <tspan x="0" y="-0.40625" style="font-style: oblique; font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">F</tspan>
+      <tspan x="18.027344" y="-0.40625" style="font-style: oblique; font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">α</tspan>
+      <tspan x="24.619141" y="-0.40625" style="font-style: oblique; font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">F</tspan>
+      <tspan x="75.193359" y="-0.40625" style="font-style: oblique; font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">α</tspan>
+      <tspan x="85.686523" y="-0.40625" style="font-style: oblique; font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">F</tspan>
+      <tspan x="7.700195" y="-0.40625" style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">=</tspan>
+      <tspan x="42.327148" y="-0.40625" style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">+</tspan>
+      <tspan x="52.654297" y="-0.40625" style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">(</tspan>
+      <tspan x="56.555664" y="-0.40625" style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">1</tspan>
+      <tspan x="64.866211" y="-0.40625" style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">−</tspan>
+      <tspan x="81.785156" y="-0.40625" style="font-size: 10px; font-family: 'DejaVu Sans'; fill: #2a5f9e">)</tspan>
+      <tspan x="30.371094" y="1.093745" style="font-size: 7px; font-family: 'DejaVu Sans'; fill: #2a5f9e">v</tspan>
+      <tspan x="34.513672" y="1.093745" style="font-size: 7px; font-family: 'DejaVu Sans'; fill: #2a5f9e">i</tspan>
+      <tspan x="36.458496" y="1.093745" style="font-size: 7px; font-family: 'DejaVu Sans'; fill: #2a5f9e">s</tspan>
+      <tspan x="91.438477" y="1.093745" style="font-size: 7px; font-family: 'DejaVu Sans'; fill: #2a5f9e">i</tspan>
+      <tspan x="93.383301" y="1.093745" style="font-size: 7px; font-family: 'DejaVu Sans'; fill: #2a5f9e">r</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 8.4px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; fill: #5b6f82" transform="translate(227.370656 139.240617)">Learn when to trust</text>
+    <text style="font-size: 8.4px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; fill: #5b6f82" transform="translate(231.34425 148.383)">visible or infrared</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7.8px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #7a4e9a" x="263.322" y="177.1425" transform="rotate(-0 263.322 177.1425)">α may change by scale / input</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 350.696034 127.467
+Q 367.529358 127.467 383.076943 127.467
+" clip-path="url(#p86cb6f623e)" style="fill: none; stroke: #3d7cc9; stroke-width: 1.15; stroke-linecap: round"/>
+    <path d="M 378.676943 125.267
+L 383.076943 127.467
+L 378.676943 129.667
+z
+" clip-path="url(#p86cb6f623e)" style="fill: #3d7cc9; stroke: #3d7cc9; stroke-width: 1.15; stroke-linecap: round"/>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 12px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #1e3a5f" x="488.3076" y="83.0205" transform="rotate(-0 488.3076 83.0205)">Object detection</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9.5px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #2a5f9e" x="488.3076" y="119.6235" transform="rotate(-0 488.3076 119.6235)">boxes  ·  classes  ·  scores</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 8.2px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; fill: #5b6f82" transform="translate(448.885459 143.605766)">Not universally better.</text>
+    <text style="font-size: 8.2px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; fill: #5b6f82" transform="translate(439.543225 152.530633)">More useful when modality</text>
+    <text style="font-size: 8.2px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; fill: #5b6f82" transform="translate(438.856475 161.4555)">reliability becomes uneven.</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #1e3a5f" x="19.755" y="20.2725" transform="rotate(-0 19.755 20.2725)">Visible + infrared  →  adaptive fusion  →  detection</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p86cb6f623e">
+   <rect x="7.2" y="7.2" width="602.64" height="230.076"/>
+  </clipPath>
+ </defs>
+</svg>

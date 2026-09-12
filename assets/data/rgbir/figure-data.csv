@@ -1,0 +1,18 @@
+figure,condition,metric,value,unit,source
+advantage,Visible,AP,48.6583,score,candidate-init official HOD
+advantage,Infrared,AP,42.2017,score,candidate-init official HOD
+advantage,Multimodal seed1,AP,53.1935,score,candidate-init official HOD
+advantage,Multimodal seed2,AP,53.5181,score,candidate-init official HOD
+ablation,Default multimodal,AP,53.1935,score,full-benchmark fusion ablation
+ablation,Default multimodal,AP50,82.3669,score,full-benchmark fusion ablation
+ablation,Static 0.25,AP,52.1932,score,full-benchmark fusion ablation
+ablation,Static 0.50,AP,52.8243,score,full-benchmark fusion ablation
+ablation,Static 0.75,AP,52.8200,score,full-benchmark fusion ablation
+ablation,Dynamic gate,AP,52.9163,score,full-benchmark fusion ablation
+ablation,Residual gate,AP,53.1922,score,full-benchmark fusion ablation
+challenge,Equal fusion,AP,70.91,score,supplementary challenge subset
+challenge,Equal fusion,AP50,94.83,score,supplementary challenge subset
+challenge,Equal fusion,AP75,80.18,score,supplementary challenge subset
+challenge,Dynamic weighting,AP,71.70,score,supplementary challenge subset
+challenge,Dynamic weighting,AP50,96.43,score,supplementary challenge subset
+challenge,Dynamic weighting,AP75,85.27,score,supplementary challenge subset

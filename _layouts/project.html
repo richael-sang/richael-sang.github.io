@@ -2,7 +2,7 @@
 layout: default
 ---
 {% if page.advanced_project %}
-<article class="project-detail project-detail-advanced my-3"{% if page.bilingual %} data-bilingual="true"{% endif %}>
+<article class="project-detail project-detail-advanced{% if page.project_theme %} project-theme-{{ page.project_theme }}{% endif %} my-3"{% if page.bilingual %} data-bilingual="true"{% endif %}>
     <div class="project-toolbar">
         <a class="small text-muted project-back-link" href="{{ '/projects' | relative_url }}">
             <i class="fas fa-angle-left mr-1" aria-hidden="true"></i>{% if page.bilingual %}{% include i18n.html en="All projects" zh="全部项目" %}{% else %}All projects{% endif %}
@@ -61,7 +61,7 @@ layout: default
     </header>
 
     {% if page.section_nav %}
-    <nav class="project-section-nav my-3 bg-white shadow-sm rounded-xl" aria-label="SceneGuard page sections">
+    <nav class="project-section-nav my-3 bg-white shadow-sm rounded-xl" aria-label="{{ page.title }} page sections">
         {% for item in page.section_nav %}
         <a href="#{{ item.id }}">{% if item.label_zh %}{% include i18n.html en=item.label zh=item.label_zh %}{% else %}{{ item.label }}{% endif %}</a>
         {% endfor %}
