@@ -14,11 +14,11 @@ project_theme: rgbir
 project_type: Multimodal Perception · Object Detection
 description: An RGB–infrared object detection project investigating whether lightweight adaptive modality weighting can dynamically balance visual and thermal information under changing scene conditions.
 og_type: article
-og_image: /assets/images/projects/infrared-visible/concept-overview.png
-cover: /assets/images/projects/infrared-visible/concept-overview.png
+og_image: /assets/images/projects/infrared-visible/concept.png
+cover: /assets/images/projects/infrared-visible/concept.png
 cover_fit: contain
-hero_figure: /assets/images/projects/infrared-visible/concept-overview.svg
-hero_figure_alt: Visible and infrared images enter adaptive fusion, then a detector outputs boxes, classes, and scores
+hero_figure: /assets/images/projects/infrared-visible/concept.png
+hero_figure_alt: Adaptive gating of RGB and infrared features into a weighted fused representation
 abstract: >-
   An RGB–infrared object detection project investigating whether lightweight adaptive modality weighting can dynamically balance visual and thermal information under changing scene conditions.
 summary: >-
@@ -125,7 +125,7 @@ section_nav:
   <h2>Two streams, one DiffusionDet head</h2>
   <p class="section-intro">The experimental framework is E2E-MFD-HOD on Detectron2 with a DiffusionDet detection head. The diagram stays conceptual: only the verified pipeline is shown.</p>
   <figure class="technical-figure technical-figure-borderless">
-    <img src="{{ '/assets/images/projects/infrared-visible/architecture.svg' | relative_url }}" alt="Conceptual architecture from visible and infrared images through fusion, multi-scale features, and a DiffusionDet head" loading="lazy">
+    <img src="{{ '/assets/images/projects/infrared-visible/architecture.png' | relative_url }}" alt="RGB and infrared streams, adaptive fusion options, DiffusionDet head, and detection outputs" loading="lazy">
   </figure>
   <div class="pipeline" aria-label="Conceptual detection pipeline">
     <span>Visible features</span><i class="fas fa-angle-right" aria-hidden="true"></i>
