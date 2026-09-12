@@ -71,9 +71,6 @@ section_nav:
 - id: qualitative-demo
   label: Demo
   label_zh: 演示
-- id: limitations
-  label: Limits
-  label_zh: 局限
 ---
 
 <section class="project-section" id="problem">
@@ -352,15 +349,4 @@ section_nav:
     <p class="source-line mt-3" data-rgbir-note></p>
   </div>
   <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Evidence boundary" zh="证据边界" %}</span> {% include i18n.html en=site.data.rgbir_demo.note_default zh=site.data.rgbir_demo.note_default_zh %}</p>
-</section>
-
-<section class="project-section" id="limitations">
-  {% include i18n.html tag="div" class="section-kicker" en="10 · Limitations" zh="10 · 局限" %}
-  {% include i18n.html tag="h2" en="What the results do not say" zh="结果没有说明什么" %}
-  <div class="objective-list">
-    <div>{% include i18n.html tag="strong" en="Full benchmark" zh="全基准" %}{% include i18n.html tag="span" en="Dynamic fusion does not improve the full benchmark relative to default multimodal fusion." zh="相对默认多模态融合，动态融合没有提升全基准结果。" %}</div>
-    <div>{% include i18n.html tag="strong" en="Challenge subset" zh="挑战子集" %}{% include i18n.html tag="span" en="The hard-scene split is automatically constructed and is not an official benchmark." zh="困难场景划分是自动构造的，不是官方基准。" %}</div>
-    <div>{% include i18n.html tag="strong" en="Effect size" zh="效应量" %}{% include i18n.html tag="span" en="Some gains are modest, especially the +0.79 AP movement on the challenge subset." zh="部分增益有限，尤其是挑战子集上 +0.79 AP。" %}</div>
-    <div>{% include i18n.html tag="strong" en="Data provenance" zh="数据来源" %}{% include i18n.html tag="span" en="The raw dataset and split provenance are currently being revalidated." zh="原始数据集与划分来源目前仍在复核。" %}</div>
-  </div>
 </section>
