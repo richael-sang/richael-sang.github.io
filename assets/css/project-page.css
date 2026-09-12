@@ -818,7 +818,7 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 
 .project-theme-rgbir .project-title {
     color: #17324d;
-    font-size: clamp(1.45rem, 2.6vw, 2rem);
+    font-size: clamp(1.75rem, 3.2vw, 2.45rem);
     line-height: 1.2;
     letter-spacing: -0.03em;
 }
@@ -1130,7 +1130,7 @@ html[data-sceneguard-lang="zh"] .comparison-label {
     }
 
     .project-theme-rgbir .project-title {
-        font-size: 1.55rem;
+        font-size: 1.85rem;
     }
 
     .project-actions .btn {

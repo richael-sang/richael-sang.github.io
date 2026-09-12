@@ -147,13 +147,6 @@ section_nav:
   <figure class="technical-figure technical-figure-borderless">
     <img src="{{ '/assets/images/projects/infrared-visible/architecture.png' | relative_url }}" alt="RGB and infrared streams, adaptive fusion options, DiffusionDet head, and detection outputs" data-alt-en="RGB and infrared streams, adaptive fusion options, DiffusionDet head, and detection outputs" data-alt-zh="RGB 与红外双流、自适应融合选项、DiffusionDet 检测头与检测输出" loading="lazy">
   </figure>
-  <div class="pipeline" aria-label="Conceptual detection pipeline">
-    {% include i18n.html tag="span" en="Visible features" zh="可见光特征" %}<i class="fas fa-angle-right" aria-hidden="true"></i>
-    {% include i18n.html tag="span" en="Infrared features" zh="红外特征" %}<i class="fas fa-angle-right" aria-hidden="true"></i>
-    {% include i18n.html tag="span" en="Multimodal fusion" zh="多模态融合" %}<i class="fas fa-angle-right" aria-hidden="true"></i>
-    {% include i18n.html tag="span" en="Multi-scale features" zh="多尺度特征" %}<i class="fas fa-angle-right" aria-hidden="true"></i>
-    {% include i18n.html tag="span" en="Boxes + classes + scores" zh="框 + 类别 + 分数" %}
-  </div>
 </section>
 
 <section class="project-section" id="innovation">
