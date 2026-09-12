@@ -83,11 +83,20 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 .project-hero-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 1.25rem;
+    grid-template-rows: auto 1fr;
+    gap: 0.35rem 1.25rem;
     align-items: center;
 }
 
+.project-hero-heading {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+}
+
 .project-hero-copy {
+    grid-column: 1;
+    grid-row: 2;
     min-width: 0;
 }
 
@@ -150,12 +159,15 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 }
 
 .project-hero-figure {
+    grid-column: 2;
+    grid-row: 1 / span 2;
     width: 100%;
     max-width: 100%;
     min-width: 0;
     margin: 0;
     border: 0;
     background: transparent;
+    align-self: center;
     justify-self: end;
 }
 
@@ -806,6 +818,35 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 
 .project-theme-rgbir .project-title {
     color: #17324d;
+    font-size: clamp(1.45rem, 2.6vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+.project-theme-rgbir .project-subtitle {
+    max-width: none;
+    font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+}
+
+.project-theme-rgbir .project-hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: start;
+}
+
+.project-theme-rgbir .project-hero-heading {
+    grid-column: 1 / -1;
+}
+
+.project-theme-rgbir .project-hero-copy {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.project-theme-rgbir .project-hero-figure {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    justify-self: stretch;
 }
 
 .modality-grid,
@@ -997,7 +1038,15 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 @media (max-width: 991.98px) {
     .project-hero-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
         gap: 1.4rem;
+    }
+
+    .project-hero-heading,
+    .project-hero-copy,
+    .project-hero-figure {
+        grid-column: 1;
+        grid-row: auto;
     }
 
     .project-hero-figure {
@@ -1078,6 +1127,10 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 
     .project-title {
         font-size: 2.55rem;
+    }
+
+    .project-theme-rgbir .project-title {
+        font-size: 1.55rem;
     }
 
     .project-actions .btn {

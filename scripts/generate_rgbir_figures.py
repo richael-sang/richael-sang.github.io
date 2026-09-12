@@ -217,11 +217,11 @@ def make_advantage(rows: list[dict[str, str | float]], output_dir: Path, preview
     colors = [BLUE, IR, BLUE_DEEP, BLUE_DEEP]
     fig, ax = plt.subplots(figsize=(9.6, 4.2), constrained_layout=True)
     fig.set_facecolor(WHITE)
-    ax.set_facecolor(PALE)
+    ax.set_facecolor(WHITE)
     x = np.arange(len(ADVANTAGE_ORDER))
-    bars = ax.bar(x, ap, color=colors, width=0.62, edgecolor="none")
+    bars = ax.bar(x, ap, color=colors, width=0.32, edgecolor="none")
     for bar, value in zip(bars, ap):
-        ax.text(bar.get_x() + bar.get_width() / 2, value + 0.7, f"{value:.2f}", ha="center", color=NAVY, fontsize=9, weight="bold")
+        ax.text(bar.get_x() + bar.get_width() / 2, value + 0.7, f"{value:.2f}", ha="center", color=NAVY, fontsize=9)
     ax.set_xticks(x, ["Visible", "Infrared", "Multimodal\nseed 1", "Multimodal\nseed 2"])
     ax.set_ylim(0, 62)
     ax.set_ylabel("AP")
@@ -238,11 +238,11 @@ def make_ablation(rows: list[dict[str, str | float]], output_dir: Path, preview_
     ap = values(rows, "ablation", "AP", ABLATION_ORDER)
     default = ap[0]
     colors = [BLUE_DEEP if name == "Default multimodal" else GREY for name in ABLATION_ORDER]
-    fig, ax = plt.subplots(figsize=(10.4, 4.35), constrained_layout=True)
+    fig, ax = plt.subplots(figsize=(10.4, 4.55), constrained_layout=True)
     fig.set_facecolor(WHITE)
-    ax.set_facecolor(PALE)
+    ax.set_facecolor(WHITE)
     y = np.arange(len(ABLATION_ORDER))
-    bars = ax.barh(y, ap, color=colors, height=0.58)
+    bars = ax.barh(y, ap, color=colors, height=0.28)
     ax.axvline(default, color=BLUE, linestyle="--", linewidth=1)
     for bar, value in zip(bars, ap):
         delta = value - default
@@ -296,8 +296,8 @@ def make_challenge(rows: list[dict[str, str | float]], output_dir: Path, preview
     fig.set_facecolor(WHITE)
     for ax, metric in zip(axes, CHALLENGE_METRICS):
         vals = values(rows, "challenge", metric, CHALLENGE_ORDER)
-        ax.set_facecolor(PALE)
-        bars = ax.bar([0, 1], vals, color=[GREY, BLUE], width=0.58)
+        ax.set_facecolor(WHITE)
+        bars = ax.bar([0, 1], vals, color=[GREY, BLUE], width=0.28)
         for bar, value in zip(bars, vals):
             ax.text(bar.get_x() + bar.get_width() / 2, value + 0.35, f"{value:.2f}", ha="center", color=NAVY, fontsize=8.5, weight="bold")
         ax.set_xticks([0, 1], ["Equal", "Dynamic"])

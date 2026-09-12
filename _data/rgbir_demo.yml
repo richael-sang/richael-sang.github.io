@@ -1,69 +1,102 @@
 note_default: Detection overlays and TP/FN counts are shown only when they appear on the source qualitative plates. Missing panes are left empty on purpose.
+note_default_zh: 检测框与 TP/FN 仅在原始质性图里已经标注时才显示。缺图的格子会留空，不会用未核实图片填上。
 cases:
   low-light:
     label: Low light
+    label_zh: 低光
     note: Detection panels are night scene 00449. Dynamic fusion recovers one ground-truth object missed by equal fusion. The infrared plate is from the project’s night-scene RGB–IR pair, not an additional 00449 overlay.
+    note_zh: 检测图为夜景 00449。动态融合找回了 equal fusion 漏检的一个真值目标。红外图来自项目夜景 RGB–IR 配对，不是 00449 的逐像素对应图。
     visible:
       src: /assets/images/projects/infrared-visible/demo/lowlight-visible.jpg
       alt: Low-light visible image with ground-truth boxes
+      alt_zh: 带真值框的低光可见光图像
       caption: Visible input with ground-truth boxes
+      caption_zh: 可见光输入 + 真值框
     infrared:
       src: /assets/images/projects/infrared-visible/demo/lowlight-infrared.jpg
-      alt: Registered infrared image of the same night scene
-      caption: Registered infrared pair
+      alt: Registered infrared image of a night scene
+      alt_zh: 夜景配准红外图像
+      caption: Night-scene infrared pair
+      caption_zh: 夜景红外配对
     equal:
       src: /assets/images/projects/infrared-visible/demo/lowlight-equal.jpg
       alt: Equal-fusion detections on the low-light scene
+      alt_zh: 低光场景的等权融合检测
       caption: Equal fusion
+      caption_zh: 等权融合
       tp: 12
       fn: 2
     dynamic:
       src: /assets/images/projects/infrared-visible/demo/lowlight-dynamic.jpg
       alt: Dynamic-fusion detections on the low-light scene
+      alt_zh: 低光场景的动态融合检测
       caption: Dynamic fusion
+      caption_zh: 动态融合
       tp: 13
       fn: 1
   rain:
     label: Rain
+    label_zh: 雨天
     note: Rainy challenge scene 01078. Dynamic fusion recovers a person missed by equal fusion. No separate infrared plate was available for this frame.
+    note_zh: 雨天挑战场景 01078。动态融合找回了 equal fusion 漏检的行人。这一帧没有单独的红外图。
     visible:
       src: /assets/images/projects/infrared-visible/demo/rain-visible.jpg
       alt: Rainy visible image with ground-truth boxes
+      alt_zh: 带真值框的雨天可见光图像
       caption: Visible input with ground-truth boxes
+      caption_zh: 可见光输入 + 真值框
     infrared:
       empty: No registered infrared plate was available for this rain frame.
+      empty_zh: 这一雨天帧没有配准红外图。
       caption: Infrared
+      caption_zh: 红外
     equal:
       src: /assets/images/projects/infrared-visible/demo/rain-equal.jpg
       alt: Equal-fusion detections on the rainy scene
+      alt_zh: 雨天场景的等权融合检测
       caption: Equal fusion
+      caption_zh: 等权融合
       tp: 1
       fn: 1
     dynamic:
       src: /assets/images/projects/infrared-visible/demo/rain-dynamic.jpg
       alt: Dynamic-fusion detections on the rainy scene
+      alt_zh: 雨天场景的动态融合检测
       caption: Dynamic fusion
+      caption_zh: 动态融合
       tp: 2
       fn: 0
   glare:
     label: Glare
+    label_zh: 眩光
     note: No verified glare example with Visible / Infrared / Equal / Dynamic plates is available in the source materials, so this condition is left empty.
+    note_zh: 现有材料里没有核实过的眩光四联图，因此这一条件留空。
     visible:
       empty: No verified glare visible image is available.
+      empty_zh: 暂无已核实的眩光可见光图。
     infrared:
       empty: No verified glare infrared image is available.
+      empty_zh: 暂无已核实的眩光红外图。
     equal:
       empty: No verified equal-fusion glare overlay is available.
+      empty_zh: 暂无已核实的眩光等权融合检测图。
     dynamic:
       empty: No verified dynamic-fusion glare overlay is available.
+      empty_zh: 暂无已核实的眩光动态融合检测图。
   failure:
     label: Failure cases
+    label_zh: 失败例
     note: Failure IDs are recorded in the report, but the corresponding image plates were not included in the available figures. No substitute images were created.
+    note_zh: 报告记录了失败例编号，但现有图里没有对应图板。这里没有用替代图填上。
     visible:
       empty: No verified failure-case plate is available.
+      empty_zh: 暂无已核实的失败例可见光图。
     infrared:
       empty: No verified failure-case infrared plate is available.
+      empty_zh: 暂无已核实的失败例红外图。
     equal:
       empty: No verified equal-fusion failure overlay is available.
+      empty_zh: 暂无已核实的失败例等权融合检测图。
     dynamic:
       empty: No verified dynamic-fusion failure overlay is available.
+      empty_zh: 暂无已核实的失败例动态融合检测图。

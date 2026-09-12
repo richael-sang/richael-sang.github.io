@@ -60,6 +60,8 @@
         try {
             window.localStorage.setItem("sceneguard-lang", resolved);
         } catch (error) {}
+
+        document.dispatchEvent(new CustomEvent("project-lang-change", { detail: resolved }));
     }
 
     function initializeLanguageSwitch() {
@@ -93,7 +95,17 @@
         var panes = root.querySelectorAll("[data-rgbir-pane]");
         var note = root.querySelector("[data-rgbir-note]");
 
+        function localized(item, key, fallback) {
+            if (!item) return fallback || "";
+            var zh = item[key + "_zh"];
+            if (currentLanguage() === "zh" && zh) return zh;
+            return item[key] || fallback || "";
+        }
+
+        var current = root.getAttribute("data-rgbir-initial") || (buttons[0] && buttons[0].getAttribute("data-rgbir-case"));
+
         function render(name) {
+            current = name;
             var selected = cases[name] || {};
             buttons.forEach(function (button) {
                 button.setAttribute("aria-pressed", button.getAttribute("data-rgbir-case") === name ? "true" : "false");
@@ -108,17 +120,17 @@
                 if (item.src) {
                     image.hidden = false;
                     image.src = item.src;
-                    image.alt = item.alt || "";
+                    image.alt = localized(item, "alt");
                     if (empty) empty.hidden = true;
                 } else {
                     image.removeAttribute("src");
                     image.hidden = true;
                     if (empty) {
                         empty.hidden = false;
-                        empty.textContent = item.empty || "No verified image available.";
+                        empty.textContent = localized(item, "empty", currentLanguage() === "zh" ? "暂无已核实图片。" : "No verified image available.");
                     }
                 }
-                if (caption) caption.textContent = item.caption || "";
+                if (caption) caption.textContent = localized(item, "caption");
                 if (stats) {
                     if (item.tp != null || item.fn != null || item.fp != null) {
                         var parts = [];
@@ -133,7 +145,7 @@
                     }
                 }
             });
-            if (note) note.textContent = selected.note || "";
+            if (note) note.textContent = localized(selected, "note");
         }
 
         buttons.forEach(function (button) {
@@ -142,8 +154,11 @@
             });
         });
 
-        var initial = root.getAttribute("data-rgbir-initial") || buttons[0].getAttribute("data-rgbir-case");
-        render(initial);
+        document.addEventListener("project-lang-change", function () {
+            if (current) render(current);
+        });
+
+        if (current) render(current);
     }
 
     document.addEventListener("DOMContentLoaded", function () {

@@ -15,9 +15,19 @@ layout: default
         {% endif %}
     </div>
     <header class="project-hero mt-3 p-4 p-md-5 bg-white shadow-sm rounded-xl">
-        {% if page.hero_figure %}<div class="project-hero-grid"><div class="project-hero-copy">{% endif %}
-        {% if page.project_type %}<div class="project-eyebrow">{{ page.project_type }}</div>{% endif %}
-        <h1 class="project-title mb-2">{{ page.title }}</h1>
+        {% if page.hero_figure %}<div class="project-hero-grid"><div class="project-hero-heading">{% endif %}
+        {% if page.project_type %}
+            {% if page.project_type_zh %}
+                {% include i18n.html tag="div" class="project-eyebrow" en=page.project_type zh=page.project_type_zh %}
+            {% else %}
+                <div class="project-eyebrow">{{ page.project_type }}</div>
+            {% endif %}
+        {% endif %}
+        {% if page.title_zh %}
+            {% include i18n.html tag="h1" class="project-title mb-2" en=page.title zh=page.title_zh %}
+        {% else %}
+            <h1 class="project-title mb-2">{{ page.title }}</h1>
+        {% endif %}
         {% if page.subtitle %}
             {% if page.subtitle_zh %}
                 {% include i18n.html tag="p" class="project-subtitle mb-3" en=page.subtitle zh=page.subtitle_zh %}
@@ -29,6 +39,7 @@ layout: default
         <p class="project-authors mb-1">{% include widgets/author_list.html authors=page.authors %}</p>
         {% endif %}
         <p class="small text-muted mb-3"><i>{{ page.pub }}</i>{% if page.pub_date %} · {% if page.pub_date_zh %}{% include i18n.html en=page.pub_date zh=page.pub_date_zh %}{% else %}{{ page.pub_date }}{% endif %}{% endif %} {% if page.pub_last_zh %}{% include i18n.html en=page.pub_last zh=page.pub_last_zh %}{% else %}{{ page.pub_last }}{% endif %}</p>
+        {% if page.hero_figure %}</div><div class="project-hero-copy">{% endif %}
         {% if page.abstract %}
             {% if page.abstract_zh %}
                 {% include i18n.html tag="p" class="project-lead mb-4" en=page.abstract zh=page.abstract_zh %}
