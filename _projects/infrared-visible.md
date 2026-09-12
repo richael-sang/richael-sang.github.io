@@ -278,7 +278,7 @@ section_nav:
   {% include i18n.html tag="h3" class="mt-5" en="Result 3 — Learned modality preference" zh="结果 3 — 学到的模态偏好" %}
   {% include i18n.html tag="p" class="section-intro" en="The dynamic gate still changes its preference across the feature pyramid. That is a behavioural observation, not a causal proof that the gate “understands” weather or lighting." zh="动态门控在特征金字塔各层上的偏好仍会变化。这是行为观察，不是它“理解”天气或光照的因果证明。" %}
   <figure class="data-figure">
-    <img src="{{ '/assets/images/projects/infrared-visible/modality-preference.svg' | relative_url }}" alt="Feature-pyramid diagram showing infrared-leaning p2, visible-leaning p3, and more balanced p4 and p5" data-alt-en="Feature-pyramid diagram showing infrared-leaning p2, visible-leaning p3, and more balanced p4 and p5" data-alt-zh="特征金字塔：p2 更偏红外，p3 更偏可见光，p4 与 p5 更接近平衡" loading="lazy">
+    <img src="{{ '/assets/images/projects/infrared-visible/modality-preference.png' | relative_url }}" alt="Feature-pyramid diagram showing infrared-leaning p2, visible-leaning p3, and more balanced p4 and p5" data-alt-en="Feature-pyramid diagram showing infrared-leaning p2, visible-leaning p3, and more balanced p4 and p5" data-alt-zh="特征金字塔：p2 更偏红外，p3 更偏可见光，p4 与 p5 更接近平衡" loading="lazy">
   </figure>
   <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Key interpretation" zh="解读" %}</span> {% include i18n.html en="Modality preference changes across feature scales. Causality is not claimed." zh="模态偏好随特征尺度变化。这里不声称因果关系。" %}</p>
 
