@@ -12,3 +12,4 @@ __pycache__/
 
 # Private source materials used for drafting public website content
 /reference_materials/
+*.docx

@@ -64,9 +64,13 @@ layout: default
         {% endif %}
         {% if page.hero_figure %}
         </div>
+        {% if page.hero_figure_slot %}
+        {% include figure_slot.html class="project-hero-figure" src=page.hero_figure alt_en=page.hero_figure_alt alt_zh=page.hero_figure_alt_zh label="Fig. 1" ratio="4 / 3" loading="eager" %}
+        {% else %}
         <figure class="project-hero-figure">
             <img src="{{ page.hero_figure | relative_url }}" alt="{{ page.hero_figure_alt | default: page.title }}"{% if page.hero_figure_alt_zh %} data-alt-en="{{ page.hero_figure_alt | escape }}" data-alt-zh="{{ page.hero_figure_alt_zh | escape }}"{% endif %} fetchpriority="high">
         </figure>
+        {% endif %}
         </div>
         {% endif %}
     </header>

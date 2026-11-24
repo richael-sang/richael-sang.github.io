@@ -1,0 +1,3 @@
+{% assign slot_found = false %}{% for static_file in site.static_files %}{% if static_file.path == include.src %}{% assign slot_found = true %}{% break %}{% endif %}{% endfor %}<figure class="{{ include.class | default: 'technical-figure' }}{% unless slot_found %} figure-slot{% endunless %}">
+    {% if slot_found %}<img src="{{ include.src | relative_url }}" alt="{{ include.alt_en }}" data-alt-en="{{ include.alt_en | escape }}" data-alt-zh="{{ include.alt_zh | escape }}" loading="{{ include.loading | default: 'lazy' }}">{% else %}<div class="figure-slot-box" role="img" aria-label="{{ include.alt_en | escape }}" style="aspect-ratio: {{ include.ratio | default: '16 / 9' }};"><span class="figure-slot-tag">{{ include.label }}</span></div>{% endif %}
+</figure>
