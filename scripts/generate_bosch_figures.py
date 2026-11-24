@@ -64,16 +64,18 @@ def request_reduction(out: Path) -> None:
     h = 0.3
 
     fig, ax = plt.subplots(figsize=(6.6, 2.5))
-    ax.barh(y + h / 2, baseline, height=h, color=BASE, label="Dense baseline")
-    ax.barh(y - h / 2, m1, height=h, color=VIOLET, label="M1 sparse main")
+    ax.barh(y + h / 2, baseline, height=h, color=BASE, label="Before · dense main")
+    ax.barh(y - h / 2, m1, height=h, color=VIOLET, label="After · M1 sparse main")
     for yi, b, m in zip(y, baseline, m1):
         ax.text(b + 3, yi + h / 2, f"{b}", va="center", fontsize=8.5, color=MUTED)
         ax.text(m + 3, yi - h / 2, f"{m}", va="center", fontsize=8.5, color=VIOLET_DEEP, fontweight="bold")
-        ax.text(268, yi, f"−{(b - m) / b * 100:.1f}%", va="center", ha="left", fontsize=9.5,
+        ax.text(264, yi + 0.07, f"−{b - m} calls", va="center", ha="left", fontsize=10.5,
                 color=VIOLET_DEEP, fontweight="bold")
+        ax.text(264, yi - 0.2, f"−{(b - m) / b * 100:.1f}%", va="center", ha="left", fontsize=8.5,
+                color=MUTED)
     ax.set_yticks(y, groups)
     ax.tick_params(axis="y", length=0, labelsize=9, labelcolor=INK)
-    ax.set_xlim(0, 300)
+    ax.set_xlim(0, 305)
     ax.set_xticks([0, 50, 100, 150, 200, 250])
     ax.set_xlabel("Requests in the same three-video regression round")
     ax.grid(axis="x", color=LINE, linewidth=0.6)
