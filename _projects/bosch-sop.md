@@ -19,10 +19,10 @@ project_type: Internship · Multimodal Video Inspection
 project_type_zh: 实习项目 · 多模态视频检测
 description: A vision-language-model workflow that checks whether each step of a manual assembly procedure is supported by visual evidence, and reports the exact missing screw position or label.
 og_type: article
-og_image: /assets/images/projects/bosch-sop/request-reduction.svg
-cover: /assets/images/projects/bosch-sop/request-reduction.svg
+og_image: /assets/images/projects/bosch-sop/01_sop_concept.png
+cover: /assets/images/projects/bosch-sop/01_sop_concept.png
 cover_fit: contain
-hero_figure: /assets/images/projects/bosch-sop/concept.png
+hero_figure: /assets/images/projects/bosch-sop/01_sop_concept.png
 hero_figure_slot: true
 hero_figure_alt: An assembly video turned into a five-step checklist, with one missing screw position flagged
 hero_figure_alt_zh: 装配视频被转换为五步检查清单，其中一个缺失的螺丝位置被标出
@@ -125,7 +125,7 @@ section_nav:
   {% include i18n.html tag="div" class="section-kicker" en="2 · System architecture" zh="2 · 系统架构" %}
   {% include i18n.html tag="h2" en="A state-driven inspection loop" zh="状态驱动的检测闭环" %}
   {% include i18n.html tag="p" class="section-intro" en="Each sample runs one loop: read the current state, choose which observations to collect, ask the VLM for evidence, verify it across frames, update the state, and decide the next call." zh="每个采样时刻执行一次闭环：读取当前状态，选择要收集的观察，向 VLM 获取证据，跨帧校验，更新状态，再决定下一次调用。" %}
-  {% include figure_slot.html src="/assets/images/projects/bosch-sop/architecture.png" label="Fig. 2" ratio="16 / 9" alt_en="Five-layer inspection loop from video input to defect report" alt_zh="从视频输入到缺陷报告的五层检测闭环" %}
+  {% include figure_slot.html src="/assets/images/projects/bosch-sop/02_inspection_workflow.png" label="Fig. 2" ratio="16 / 9" alt_en="Five-layer inspection loop from video input to defect report" alt_zh="从视频输入到缺陷报告的五层检测闭环" %}
   <ol class="layer-list">
     <li><span class="layer-index">1</span>{% include i18n.html tag="strong" en="Video and spatial input" zh="视频与空间输入" %}{% include i18n.html en="OpenCV samples about 1 fps, locates the cover, and builds task-specific crops." zh="OpenCV 按约 1 fps 采样，定位盖板，生成各任务的局部裁剪。" %}</li>
     <li><span class="layer-index">2</span>{% include i18n.html tag="strong" en="VLM evidence" zh="VLM 视觉证据" %}{% include i18n.html en="Qwen3.5-27B-FP16 returns timestamped JSON observations for four tasks: main, screw, label, removal." zh="Qwen3.5-27B-FP16 针对 main、screw、label、removal 四类任务返回带时间戳的 JSON 观察。" %}</li>
@@ -187,7 +187,7 @@ section_nav:
   <div class="evidence-note mt-3">{% include i18n.html tag="strong" en="Challenge." zh="难点：" %} {% include i18n.html en="Screws and labels are small and often hidden by hands, tools, or reflections; a single frame can be wrong, and repeated frames can double-count." zh="螺丝和标签很小，常被手、工具或反光遮挡；单帧可能出错，重复帧还会导致重复计数。" %}</div>
   {% include i18n.html tag="h4" class="solution-title" en="Separate what was seen from what is compliant" zh="把“看到了什么”和“是否合格”分开" %}
   {% include i18n.html tag="p" class="section-intro" en="A single observation can be wrong, occluded, or ambiguous. Observations are aggregated into evidence state, and only then into compliance state used by the report." zh="单次观察可能出错、被遮挡或位置不确定。观察先聚合为证据状态，再形成用于报告的合规状态。" %}
-  {% include figure_slot.html src="/assets/images/projects/bosch-sop/evidence-states.png" label="Fig. 3" ratio="16 / 7" alt_en="Observation, evidence state, and compliance state for the four screw positions" alt_zh="四个螺丝位置的观察、证据状态与合规状态" %}
+  {% include figure_slot.html src="/assets/images/projects/bosch-sop/03_temporal_screw_evidence.png" label="Fig. 3" ratio="16 / 7" alt_en="Observation, evidence state, and compliance state for the four screw positions" alt_zh="四个螺丝位置的观察、证据状态与合规状态" %}
   <div class="overview-grid">
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Screws" zh="螺丝" %}
