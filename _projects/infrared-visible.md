@@ -42,7 +42,7 @@ hero_links:
     url: "#qualitative-demo"
     target: _self
     icon: fas fa-images
-    label_zh: 质性演示
+    label_zh: 检测示例
 section_nav:
 - id: problem
   label: Problem
@@ -76,7 +76,7 @@ section_nav:
 <section class="project-section" id="problem">
   {% include i18n.html tag="div" class="section-kicker" en="1 · Problem" zh="1 · 问题" %}
   {% include i18n.html tag="h2" en="Should RGB and infrared always contribute equally?" zh="RGB 和红外是否应该始终等权贡献？" %}
-  {% include i18n.html tag="p" class="section-intro" en="The technical question on this page is narrower than “does fusion help?”. It asks whether a multimodal detector can learn <em>when</em> to trust visible or infrared information." zh="本页的技术问题比“融合有没有用”更窄：多模态检测器能否学会<em>何时</em>信任可见光或红外信息。" %}
+  {% include i18n.html tag="p" class="section-intro" en="Visible and infrared are complementary, but they are not equally reliable in every scene. The question is whether a multimodal detector can learn <em>when</em> to trust each modality." zh="可见光与红外互补，但并非在每个场景都同样可靠。问题是：多模态检测器能否学会<em>何时</em>信任每一种模态。" %}
   <div class="modality-grid">
     <div class="modality-card modality-card-visible">
       {% include i18n.html tag="div" class="overview-label" en="Visible" zh="可见光" %}
@@ -89,7 +89,7 @@ section_nav:
       {% include i18n.html tag="p" en="Often stronger in low light, but it carries less texture, less colour, and weaker fine detail." zh="低光下通常更稳，但纹理、颜色和细结构更弱。" %}
     </div>
   </div>
-  <div class="question-banner">{% include i18n.html en="Visible and infrared are complementary. Equal contribution is a convenient assumption, not a law." zh="可见光与红外互补。等权贡献只是方便假设，不是定律。" %}</div>
+  <div class="question-banner">{% include i18n.html en="Visible and infrared are complementary, so equal weighting is not always the right fusion rule." zh="可见光与红外互补，因此等权融合并不总是合适。" %}</div>
 </section>
 
 <section class="project-section" id="motivation">
@@ -100,7 +100,7 @@ section_nav:
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Question" zh="问题" %}
       {% include i18n.html tag="h3" en="Can the model learn when to trust RGB or IR?" zh="模型能否学会何时信任 RGB 或红外？" %}
-      {% include i18n.html tag="p" en="The page is organised around this one question, not around platform reproduction or dataset migration." zh="整页围绕这一问展开，而不是平台复现或数据集迁移。" %}
+      {% include i18n.html tag="p" en="The experiments change only the fusion rule, keeping the detector and evaluation protocol fixed." zh="实验只改变融合规则，检测器与评估协议保持不变。" %}
     </div>
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Hypothesis" zh="假设" %}
@@ -114,8 +114,8 @@ section_nav:
     </div>
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Expectation" zh="预期" %}
-      {% include i18n.html tag="h3" en="Not a guaranteed win" zh="并不保证全面更好" %}
-      {% include i18n.html tag="p" en="If default fusion is already strong, adaptive weighting may only appear when modality quality becomes uneven." zh="若默认融合已经很强，自适应加权可能只在模态质量更不均匀时才显现。" %}
+      {% include i18n.html tag="h3" en="When it may help" zh="何时可能有用" %}
+      {% include i18n.html tag="p" en="If default fusion is already strong, adaptive weighting may matter mainly when modality quality becomes uneven." zh="若默认融合已经很强，自适应加权可能主要在模态质量更不均匀时起作用。" %}
     </div>
   </div>
 </section>
@@ -123,7 +123,7 @@ section_nav:
 <section class="project-section" id="input">
   {% include i18n.html tag="div" class="section-kicker" en="3 · Input" zh="3 · 输入" %}
   {% include i18n.html tag="h2" en="A registered RGB–infrared pair" zh="一对已配准的 RGB–红外图像" %}
-  {% include i18n.html tag="p" class="section-intro" en="Each sample is a spatially aligned visible image and infrared image. The pair below is a night scene from the project materials: pedestrians that fade in RGB remain clear in IR." zh="每个样本都是空间对齐的可见光图与红外图。下面是项目材料中的夜景：RGB 里几乎看不见的行人，在红外中仍然清楚。" %}
+  {% include i18n.html tag="p" class="section-intro" en="Each sample is a spatially aligned visible image and infrared image. In the night scene below, pedestrians that fade in RGB remain clear in IR." zh="每个样本都是空间对齐的可见光图与红外图。下图夜景中，RGB 里几乎看不见的行人在红外中仍然清楚。" %}
   <div class="paired-input-grid">
     <figure>
       {% include i18n.html tag="span" class="plate-label plate-visible" en="Visible" zh="可见光" %}
@@ -134,13 +134,12 @@ section_nav:
       <img src="{{ '/assets/images/projects/infrared-visible/demo/pair-infrared.jpg' | relative_url }}" alt="Registered night-time infrared image of the same road scene" data-alt-en="Registered night-time infrared image of the same road scene" data-alt-zh="同一道路场景的已配准夜间红外图像" loading="lazy">
     </figure>
   </div>
-  <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Paired input" zh="成对输入" %}</span> {% include i18n.html en="Same camera geometry, two physical measurements. No extra metadata is required at inference beyond the image pair." zh="同一几何关系，两种物理测量。推理时除图像对外不需要额外元数据。" %}</p>
 </section>
 
 <section class="project-section" id="architecture">
   {% include i18n.html tag="div" class="section-kicker" en="4 · Model architecture" zh="4 · 模型结构" %}
   {% include i18n.html tag="h2" en="Two streams, one DiffusionDet head" zh="双流特征，一个 DiffusionDet 检测头" %}
-  {% include i18n.html tag="p" class="section-intro" en="The experimental framework is E2E-MFD-HOD on Detectron2 with a DiffusionDet detection head. The diagram stays conceptual: only the verified pipeline is shown." zh="实验框架是 Detectron2 上的 E2E-MFD-HOD，检测头为 DiffusionDet。图保持概念层：只画出已核实的流程。" %}
+  {% include i18n.html tag="p" class="section-intro" en="The experimental framework is E2E-MFD-HOD on Detectron2, with a DiffusionDet detection head." zh="实验框架是 Detectron2 上的 E2E-MFD-HOD，检测头为 DiffusionDet。" %}
   <figure class="technical-figure technical-figure-borderless">
     <img src="{{ '/assets/images/projects/infrared-visible/architecture.png' | relative_url }}" alt="RGB and infrared streams, adaptive fusion options, DiffusionDet head, and detection outputs" data-alt-en="RGB and infrared streams, adaptive fusion options, DiffusionDet head, and detection outputs" data-alt-zh="RGB 与红外双流、自适应融合选项、DiffusionDet 检测头与检测输出" loading="lazy">
   </figure>
@@ -171,13 +170,13 @@ section_nav:
     </div>
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Goal" zh="目标" %}
-      {% include i18n.html tag="h3" en="Preference, not a hand-set mix" zh="学习偏好，而不是手调混合比" %}
-      {% include i18n.html tag="p" en="Ask the model to allocate trust instead of freezing it." zh="让模型分配信任，而不是把比例冻死。" %}
+      {% include i18n.html tag="h3" en="Learned preference" zh="学习得到的偏好" %}
+      {% include i18n.html tag="p" en="The model allocates visible and infrared weight from features rather than using a fixed ratio." zh="模型根据特征分配可见光与红外权重，而不是使用固定比例。" %}
     </div>
   </div>
   <div class="evidence-note mt-3">
-    {% include i18n.html tag="strong" en="Secondary idea — modality-robust training." zh="次要想法 — 模态稳健训练。" %}
-    {% include i18n.html en="During training, one modality is mildly attenuated to simulate a degraded sensor. The aim is to reduce over-reliance on a single stream. This remains a supporting probe, not the main claim." zh="训练时轻微衰减其中一个模态，以模拟传感器退化，目标是减少对单一通路的过度依赖。这只是辅助探针，不是主结论。" %}
+    {% include i18n.html tag="strong" en="Also explored: modality-robust training." zh="同时探索：模态稳健训练。" %}
+    {% include i18n.html en="During training, one modality is mildly attenuated to simulate a degraded sensor and reduce over-reliance on a single stream." zh="训练时轻微衰减其中一个模态，以模拟传感器退化，并减少对单一通路的过度依赖。" %}
   </div>
 </section>
 
@@ -203,15 +202,15 @@ section_nav:
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Task" zh="任务" %}
       {% include i18n.html tag="h3" en="Multiclass object detection" zh="多类目标检测" %}
-      {% include i18n.html tag="p" en="No extra heads beyond detection are claimed here." zh="这里不声称检测以外的额外任务头。" %}
+      {% include i18n.html tag="p" en="The output of the system is a standard detection result." zh="系统输出为标准目标检测结果。" %}
     </div>
   </div>
 </section>
 
 <section class="project-section" id="metrics">
   {% include i18n.html tag="div" class="section-kicker" en="7 · Metrics" zh="7 · 指标" %}
-  {% include i18n.html tag="h2" en="AP, and only AP" zh="只用 AP" %}
-  {% include i18n.html tag="p" class="section-intro" en="The report uses standard COCO-style detection metrics. Hover or focus a card for the short definition used on this page." zh="报告使用标准 COCO 风格检测指标。把指针放在卡片上，或聚焦卡片，即可看到本页使用的简短定义。" %}
+  {% include i18n.html tag="h2" en="Detection metrics" zh="检测指标" %}
+  {% include i18n.html tag="p" class="section-intro" en="Results are reported with standard COCO-style detection metrics." zh="结果按标准 COCO 风格检测指标报告。" %}
   <div class="metric-tooltip-grid">
     <div class="metric-tip" tabindex="0" title="Mean Average Precision averaged over IoU thresholds from 0.50 to 0.95.">
       <strong>AP</strong>
@@ -227,17 +226,17 @@ section_nav:
     </div>
     <div class="metric-tip" tabindex="0" title="Average Precision computed independently for each object category.">
       {% include i18n.html tag="strong" en="Per-class AP" zh="逐类 AP" %}
-      {% include i18n.html tag="span" en="Same AP, one value per category. Used to see which classes move." zh="同一套 AP，每个类别一个值，用来看哪些类在动。" %}
+      {% include i18n.html tag="span" en="Average precision computed separately for each object category." zh="按每个目标类别分别计算的平均精度。" %}
     </div>
   </div>
 </section>
 
 <section class="project-section" id="results">
   {% include i18n.html tag="div" class="section-kicker" en="8 · Results" zh="8 · 结果" %}
-  {% include i18n.html tag="h2" en="Four readings of the same question" zh="同一问题的四种读法" %}
+  {% include i18n.html tag="h2" en="Main findings" zh="主要发现" %}
 
   {% include i18n.html tag="h3" class="mt-4" en="Result 1 — Multimodal advantage" zh="结果 1 — 多模态优势" %}
-  {% include i18n.html tag="p" class="section-intro" en="On the candidate-init official route, combining RGB and infrared produces the strongest overall detector. Two multimodal seeds stay within 0.33 AP of each other." zh="在 candidate-init 官方路线上，RGB 与红外结合得到最强整体检测器。两个多模态随机种子相差不超过 0.33 AP。" %}
+  {% include i18n.html tag="p" class="section-intro" en="Combining RGB and infrared produces the strongest overall detector. Two multimodal seeds stay within 0.33 AP of each other." zh="结合 RGB 与红外得到最强的整体检测器。两个多模态随机种子相差不超过 0.33 AP。" %}
   <figure class="data-figure">
     <img src="{{ '/assets/images/projects/infrared-visible/multimodal-advantage.svg' | relative_url }}" alt="Bar chart comparing visible-only, infrared-only, and two multimodal seeds" data-alt-en="Bar chart comparing visible-only, infrared-only, and two multimodal seeds" data-alt-zh="可见光、红外与两个多模态种子的 AP 柱状图" loading="lazy">
   </figure>
@@ -250,7 +249,7 @@ section_nav:
   <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Key message" zh="要点" %}</span> {% include i18n.html en="Combining RGB and infrared produces the strongest overall detector." zh="结合 RGB 与红外得到最强的整体检测器。" %}</p>
 
   {% include i18n.html tag="h3" class="mt-5" en="Result 2 — Full-benchmark fusion ablation" zh="结果 2 — 全基准融合消融" %}
-  {% include i18n.html tag="p" class="section-intro" en="Once the default multimodal detector is strong, simple adaptive reweighting does not beat it on the full benchmark. The negative result is part of the answer." zh="默认多模态检测器已经较强时，简单自适应再加权在全基准上没有超过它。这一负结果也是答案的一部分。" %}
+  {% include i18n.html tag="p" class="section-intro" en="Once the default multimodal detector is strong, simple adaptive reweighting does not improve it on the full benchmark." zh="默认多模态检测器已经较强时，简单自适应再加权在全基准上没有进一步提升。" %}
   <figure class="data-figure">
     <img src="{{ '/assets/images/projects/infrared-visible/fusion-ablation.svg' | relative_url }}" alt="Horizontal bar chart of default multimodal fusion versus static and gated alternatives" data-alt-en="Horizontal bar chart of default multimodal fusion versus static and gated alternatives" data-alt-zh="默认多模态融合与静态、门控方案的水平柱状图" loading="lazy">
   </figure>
@@ -273,14 +272,14 @@ section_nav:
   <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Key message" zh="要点" %}</span> {% include i18n.html en="Simple adaptive reweighting does not outperform the strong default fusion on the full benchmark." zh="简单自适应再加权在全基准上没有超过较强的默认融合。" %}</p>
 
   {% include i18n.html tag="h3" class="mt-5" en="Result 3 — Learned modality preference" zh="结果 3 — 学到的模态偏好" %}
-  {% include i18n.html tag="p" class="section-intro" en="The dynamic gate still changes its preference across the feature pyramid. That is a behavioural observation, not a causal proof that the gate “understands” weather or lighting." zh="动态门控在特征金字塔各层上的偏好仍会变化。这是行为观察，不是它“理解”天气或光照的因果证明。" %}
+  {% include i18n.html tag="p" class="section-intro" en="The dynamic gate still changes its preference across the feature pyramid: p2 is more infrared-oriented, p3 is more visible-oriented, and p4 / p5 stay closer to balanced." zh="动态门控在特征金字塔各层上的偏好并不相同：p2 更偏红外，p3 更偏可见光，p4 / p5 更接近平衡。" %}
   <figure class="data-figure">
     <img src="{{ '/assets/images/projects/infrared-visible/modality-preference.png' | relative_url }}" alt="Feature-pyramid diagram showing infrared-leaning p2, visible-leaning p3, and more balanced p4 and p5" data-alt-en="Feature-pyramid diagram showing infrared-leaning p2, visible-leaning p3, and more balanced p4 and p5" data-alt-zh="特征金字塔：p2 更偏红外，p3 更偏可见光，p4 与 p5 更接近平衡" loading="lazy">
   </figure>
-  <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Key interpretation" zh="解读" %}</span> {% include i18n.html en="Modality preference changes across feature scales. Causality is not claimed." zh="模态偏好随特征尺度变化。这里不声称因果关系。" %}</p>
+  <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Observation" zh="观察" %}</span> {% include i18n.html en="Modality preference changes across feature scales." zh="模态偏好随特征尺度变化。" %}</p>
 
   {% include i18n.html tag="h3" class="mt-5" en="Result 4 — Supplementary challenge-scene evaluation" zh="结果 4 — 补充性挑战场景评估" %}
-  {% include i18n.html tag="p" class="section-intro" en="This split is automatically constructed from image statistics. It is <strong>not</strong> an official benchmark. It only asks whether adaptive fusion looks more useful when modality quality is more uneven." zh="该划分由图像统计自动构造，<strong>不是</strong>官方基准。它只用来问：当模态质量更不均匀时，自适应融合是否显得更有用。" %}
+  {% include i18n.html tag="p" class="section-intro" en="On an automatically constructed hard-scene subset, adaptive fusion shows a modest gain when modality quality is more uneven. This subset is not an official benchmark." zh="在自动构造的困难场景子集上，当模态质量更不均匀时，自适应融合出现小幅提升。该子集不是官方基准。" %}
   <figure class="data-figure">
     <img src="{{ '/assets/images/projects/infrared-visible/challenge-scenes.svg' | relative_url }}" alt="Bar charts of AP, AP50, and AP75 for equal fusion versus dynamic weighting on the challenge subset" data-alt-en="Bar charts of AP, AP50, and AP75 for equal fusion versus dynamic weighting on the challenge subset" data-alt-zh="挑战子集上 equal fusion 与动态加权的 AP、AP50、AP75 柱状图" loading="lazy">
   </figure>
@@ -291,15 +290,14 @@ section_nav:
     <div><span>Δ AP75</span><strong>+5.09</strong>{% include i18n.html tag="small" en="largest reported movement" zh="报告中最大的变动" %}</div>
   </div>
   <div class="tradeoff-callout mt-3">
-    {% include i18n.html tag="strong" en="How to read this." zh="怎么读。" %}
-    {% include i18n.html en="Adaptive fusion shows a positive signal when modality quality becomes more uneven under difficult visual conditions. The subset is automatically constructed and does not replace the full-benchmark conclusion." zh="在困难视觉条件下、模态质量更不均匀时，自适应融合出现正向信号。该子集是自动构造的，不能取代全基准结论。" %}
+    {% include i18n.html en="Adaptive fusion is more promising when visual conditions make the two modalities uneven, but this does not replace the full-benchmark result." zh="当视觉条件使两种模态更不均匀时，自适应融合更有前景，但不能取代全基准结果。" %}
   </div>
 </section>
 
 <section class="project-section" id="qualitative-demo">
-  {% include i18n.html tag="div" class="section-kicker" en="9 · Qualitative demo" zh="9 · 质性演示" %}
+  {% include i18n.html tag="div" class="section-kicker" en="9 · Qualitative demo" zh="9 · 检测示例" %}
   {% include i18n.html tag="h2" en="Visible, infrared, equal fusion, dynamic fusion" zh="可见光、红外、等权融合、动态融合" %}
-  {% include i18n.html tag="p" class="section-intro" en="Switch condition. Only plates that exist in the source materials are shown. Glare and failure-case images were not available, so those tabs stay empty rather than being filled with substitutes." zh="切换条件查看。只展示源材料里已有的图。眩光和失败例当时没有图，因此对应页签留空，不用替代图填上。" %}
+  {% include i18n.html tag="p" class="section-intro" en="Compare detections under low light and rain." zh="对比低光与雨天条件下的检测结果。" %}
   <div data-rgbir-demo='{{ site.data.rgbir_demo.cases | jsonify }}' data-rgbir-initial="low-light">
     <div class="rgbir-demo-tabs" role="tablist" aria-label="Scene condition">
       {% for item in site.data.rgbir_demo.cases %}
@@ -348,5 +346,4 @@ section_nav:
     </div>
     <p class="source-line mt-3" data-rgbir-note></p>
   </div>
-  <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Evidence boundary" zh="证据边界" %}</span> {% include i18n.html en=site.data.rgbir_demo.note_default zh=site.data.rgbir_demo.note_default_zh %}</p>
 </section>

@@ -117,17 +117,20 @@
                 var empty = pane.querySelector("[data-empty]");
                 var caption = pane.querySelector("[data-caption]");
                 var stats = pane.querySelector("[data-stats]");
+                var figure = pane.closest("figure");
                 if (item.src) {
+                    if (figure) figure.hidden = false;
                     image.hidden = false;
                     image.src = item.src;
                     image.alt = localized(item, "alt");
                     if (empty) empty.hidden = true;
                 } else {
+                    if (figure) figure.hidden = true;
                     image.removeAttribute("src");
                     image.hidden = true;
                     if (empty) {
-                        empty.hidden = false;
-                        empty.textContent = localized(item, "empty", currentLanguage() === "zh" ? "暂无已核实图片。" : "No verified image available.");
+                        empty.hidden = true;
+                        empty.textContent = "";
                     }
                 }
                 if (caption) caption.textContent = localized(item, "caption");
