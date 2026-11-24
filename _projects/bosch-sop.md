@@ -81,11 +81,29 @@ section_nav:
 <section class="project-section" id="architecture">
   {% include i18n.html tag="div" class="section-kicker" en="2 · System architecture" zh="2 · 系统架构" %}
   {% include i18n.html tag="h2" en="A state-driven inspection loop" zh="状态驱动的检测闭环" %}
-  {% include i18n.html tag="p" class="section-intro" en="Each sample runs one loop: read the current state, choose which observations to collect, ask the VLM for evidence, verify it across frames, update the state, and decide the next call." zh="每个采样时刻执行一次闭环：读取当前状态，选择要收集的观察，向 VLM 获取证据，跨帧校验，更新状态，再决定下一次调用。" %}
+  {% include i18n.html tag="p" class="section-intro" en="Every sample runs one loop through five layers: input, VLM evidence, verification, state and scheduling, and reporting. The design choices behind the loop are below." zh="每个采样时刻沿五层走一次闭环：输入、VLM 证据、校验、状态与调度、报告。闭环背后的设计取舍如下。" %}
   {% include figure_slot.html src="/assets/images/projects/bosch-sop/02_inspection_workflow.png" label="Fig. 2" ratio="16 / 9" alt_en="Five-layer inspection loop from video input to defect report" alt_zh="从视频输入到缺陷报告的五层检测闭环" %}
-  <div class="evidence-note mt-3">
-    {% include i18n.html tag="strong" en="One model, four tasks." zh="一个模型，四类任务。" %}
-    {% include i18n.html en="The four tasks share the same endpoint and differ only in prompt, image input, and output schema." zh="四类任务共用同一个模型服务，只在 prompt、图像输入与输出契约上不同。" %}
+  <div class="overview-grid overview-grid-2 mt-4">
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Separation" zh="职责分离" %}
+      {% include i18n.html tag="h3" en="The VLM observes, the code decides" zh="VLM 负责观察，程序负责判断" %}
+      {% include i18n.html tag="p" en="The model only returns timestamped evidence fields. Whether a step passes is decided by verifiers and the state machine, so every verdict can be explained." zh="模型只返回带时间戳的证据字段；某一步是否合格由校验器和状态机决定，因此每个结论都能解释。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="One model" zh="一个模型" %}
+      {% include i18n.html tag="h3" en="Four tasks, one endpoint" zh="四类任务，共用一个服务" %}
+      {% include i18n.html tag="p" en="main, screw, label, and removal share the same Qwen3.5-27B service and differ only in prompt, image crop, and output schema. No extra models are trained." zh="main、screw、label、removal 共用同一个 Qwen3.5-27B 服务，只在 prompt、图像裁剪与输出契约上不同，无需额外训练模型。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Two states" zh="两套状态" %}
+      {% include i18n.html tag="h3" en="Phase moves on, defects stay" zh="阶段可推进，缺陷会保留" %}
+      {% include i18n.html tag="p" en="The observed phase and the compliance checklist are tracked separately, so one missed screw never blocks the checks on labels and removal." zh="观察阶段与合规清单分开维护，漏一颗螺丝不会卡住后面的标签和移除检查。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Feedback" zh="反馈" %}
+      {% include i18n.html tag="h3" en="State chooses the next call" zh="由状态决定下一次调用" %}
+      {% include i18n.html tag="p" en="The scheduler uses the current state to pick the next task, crop, and call frequency. This is what later makes the cost savings possible." zh="调度器根据当前状态选择下一次的任务、裁剪区域和调用频率，这也是后续降低调用成本的基础。" %}
+    </div>
   </div>
 </section>
 
