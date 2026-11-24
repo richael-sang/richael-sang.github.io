@@ -73,9 +73,6 @@ section_nav:
 - id: results
   label: Results
   label_zh: 结果
-- id: contributions
-  label: Contributions
-  label_zh: 贡献
 ---
 
 <section class="project-section" id="problem">
@@ -368,32 +365,5 @@ section_nav:
   </details>
   <div class="tradeoff-callout mt-3">
     {% include i18n.html en="Every optimisation was accepted only if it kept the defect report intact: speed was never traded for a missed screw or label." zh="每项优化都必须保证缺陷报告完整才会被采用：从不以漏掉一颗螺丝或一张标签为代价换取速度。" %}
-  </div>
-</section>
-
-<section class="project-section" id="contributions">
-  {% include i18n.html tag="div" class="section-kicker" en="10 · Contributions" zh="10 · 贡献" %}
-  {% include i18n.html tag="h2" en="What I worked on" zh="我负责的工作" %}
-  <div class="overview-grid">
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Evidence modelling" zh="证据建模" %}
-      {% include i18n.html tag="h3" en="Prompts and schemas" zh="Prompt 与输出契约" %}
-      {% include i18n.html tag="p" en="Split objects, relations, actions, results, and phases into fields that code can consume." zh="把对象、关系、动作、结果与阶段拆成程序可读取的字段。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Constraints" zh="约束" %}
-      {% include i18n.html tag="h3" en="Position and time" zh="位置与时间" %}
-      {% include i18n.html tag="p" en="Per-position screw deduplication, action–static aggregation, stage windows, and bounded rescue." zh="螺丝按孔位去重、动作与静态证据聚合、阶段窗口与受限补查。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Scheduling" zh="调度" %}
-      {% include i18n.html tag="h3" en="State-driven calls" zh="按状态调用" %}
-      {% include i18n.html tag="p" en="Gating, sparse main, conflict-triggered re-checks, and early stop, with a reason logged for every call." zh="门控、稀疏 main、冲突补查与早停，每次调用都记录原因。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Experiments" zh="实验" %}
-      {% include i18n.html tag="h3" en="Controlled comparisons" zh="受控对照" %}
-      {% include i18n.html tag="p" en="Same-round baselines, real payload checks, and rejecting speed-ups that broke defect detection." zh="同轮对照、核对真实载荷，并拒绝破坏缺陷识别的提速方案。" %}
-    </div>
   </div>
 </section>
