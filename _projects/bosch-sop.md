@@ -74,50 +74,7 @@ section_nav:
     <div class="stage-card"><b>S4</b>{% include i18n.html tag="strong" en="Two labels" zh="两张标签" %}{% include i18n.html tag="span" en="Center and side labels each attached" zh="center 与 side 标签分别贴附" %}</div>
     <div class="stage-card"><b>S5</b>{% include i18n.html tag="strong" en="Removal" zh="移除工件" %}{% include i18n.html tag="span" en="Cover leaves and the workbench is visible again" zh="盖板离开，工作台恢复可见" %}</div>
   </div>
-  <div class="overview-grid">
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Not classification" zh="不是分类" %}
-      {% include i18n.html tag="h3" en="One label per image is not enough" zh="一张图一个类别不够" %}
-      {% include i18n.html tag="p" en="The task asks where an object is relative to the part, and whether an action actually finished." zh="任务需要判断对象相对工件的位置，以及动作是否真正完成。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Not detection" zh="不是检测" %}
-      {% include i18n.html tag="h3" en="Presence is not completion" zh="出现不等于完成" %}
-      {% include i18n.html tag="p" en="A visible drill or a label in hand does not mean a screw is installed or a label is attached." zh="看到电钻或手里拿着标签，不代表螺丝已经装好、标签已经贴上。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Task" zh="任务" %}
-      {% include i18n.html tag="h3" en="State estimation over time" zh="随时间的状态估计" %}
-      {% include i18n.html tag="p" en="Structured state estimation and process-compliance checking over a video." zh="在视频上做结构化状态估计与流程合规检查。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Output" zh="输出" %}
-      {% include i18n.html tag="h3" en="Where and what is missing" zh="缺了什么、缺在哪里" %}
-      {% include i18n.html tag="p" en="Final status, missing screw positions, missing label type, evidence timestamps, and error codes." zh="最终状态、缺失螺丝位置、缺失标签类型、证据时间戳与错误码。" %}
-    </div>
-  </div>
-  <div class="overview-grid mt-3">
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Data" zh="数据" %}
-      {% include i18n.html tag="h3" en="Six regression videos" zh="六条回归视频" %}
-      {% include i18n.html tag="p" en="OK runs plus missing-screw and missing-label cases, used for development and same-round regression." zh="包含 OK 流程以及漏装螺丝、漏贴标签等缺陷案例，用于开发与同轮回归。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Model" zh="模型" %}
-      {% include i18n.html tag="h3" en="One pretrained VLM" zh="一个预训练 VLM" %}
-      {% include i18n.html tag="p" en="Qwen3.5-27B-FP16 behind an OpenAI-compatible API; no task-specific training data." zh="通过 OpenAI 兼容接口调用 Qwen3.5-27B-FP16，没有任务专用训练数据。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Sampling" zh="采样" %}
-      {% include i18n.html tag="h3" en="About 1 fps" zh="约 1 fps" %}
-      {% include i18n.html tag="p" en="Each sampled frame can trigger several task-specific VLM calls." zh="每个采样帧都可能触发多次任务专用的 VLM 调用。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Cost" zh="成本" %}
-      {% include i18n.html tag="h3" en="Seconds per call" zh="每次调用数秒" %}
-      {% include i18n.html tag="p" en="Each remote VLM call takes seconds, so the number of calls drives total run time." zh="每次远程 VLM 调用需要数秒，调用次数决定总运行时间。" %}
-    </div>
-  </div>
+  <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Setup" zh="条件" %}</span> {% include i18n.html en="6 regression videos · Qwen3.5-27B-FP16 · ~1 fps sampling · output: OK / NG with the exact missing screw position or label" zh="6 条回归视频 · Qwen3.5-27B-FP16 · 约 1 fps 采样 · 输出：OK / NG 及具体缺失的螺丝位置或标签" %}</p>
   <div class="question-banner">{% include i18n.html en="Reaching the next step does not mean the previous step passed." zh="进入下一步，不代表上一步已经合格。" %}</div>
 </section>
 
