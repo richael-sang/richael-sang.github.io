@@ -316,41 +316,43 @@ section_nav:
     <div>{% include i18n.html tag="span" en="Key checks" zh="关键检查点" %}<strong>14 / 14</strong>{% include i18n.html tag="small" en="zero regressions" zh="零回退" %}</div>
   </div>
 
-  {% include i18n.html tag="h3" class="mt-5" en="Result 1 — Sparse main scheduling cuts calls at no accuracy cost" zh="结果 1 — 稀疏 main 调度：降调用，不降准确性" %}
-  {% include i18n.html tag="p" class="section-intro" en="In a same-round comparison on all six regression videos, M1 removed 38 requests per round, 22 of them global main calls, while every OK / NG verdict and all 14 key checks stayed exactly the same." zh="在全部六条回归视频的同轮对照中，M1 每轮少发 38 次请求，其中 22 次是全局 main 调用；所有 OK / NG 判断与 14 个关键检查点保持完全一致。" %}
+  {% include i18n.html tag="h3" class="mt-5" en="Result 1 — Up to 2 / 3 fewer global calls in stable stages" zh="结果 1 — 稳定阶段的全局调用最多减少 2 / 3" %}
+  {% include i18n.html tag="p" class="section-intro" en="Once the part is in place, M1 calls the global main check only every 2nd sample during screwing and labelling, and every 3rd sample during removal. Across a full regression round this removed 22 main calls and 38 requests in total, with every OK / NG verdict and all 14 key checks unchanged." zh="工件就位后，M1 在拧螺丝和贴标阶段每 2 次采样才调用一次全局 main，在移除阶段每 3 次采样才调用一次。整轮回归下来少了 22 次 main 调用、共 38 次请求，所有 OK / NG 判断和 14 个关键检查点都没有变化。" %}
+  <div class="result-highlight-grid">
+    <div>{% include i18n.html tag="span" en="S3–S4 main frequency" zh="S3–S4 main 调用频率" %}<strong>−50%</strong>{% include i18n.html tag="small" en="every 2nd sample" zh="每 2 次采样一次" %}</div>
+    <div>{% include i18n.html tag="span" en="S5 main frequency" zh="S5 main 调用频率" %}<strong>−67%</strong>{% include i18n.html tag="small" en="every 3rd sample" zh="每 3 次采样一次" %}</div>
+    <div>{% include i18n.html tag="span" en="Measured main calls" zh="实测 main 调用" %}<strong>−19.6%</strong><small>112 → 90</small></div>
+    <div>{% include i18n.html tag="span" en="Measured total requests" zh="实测总请求" %}<strong>−15.8%</strong><small>240 → 202</small></div>
+  </div>
   <figure class="data-figure">
     <img src="{{ '/assets/images/projects/bosch-sop/request-reduction.svg' | relative_url }}" alt="Requests before and after M1: total 240 to 202, main 112 to 90, non-main 128 to 112" data-alt-en="Requests before and after M1: total 240 to 202, main 112 to 90, non-main 128 to 112" data-alt-zh="M1 前后的请求数：总计 240 到 202，main 112 到 90，非 main 128 到 112" loading="lazy">
   </figure>
-  <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Headroom" zh="后续空间" %}</span> {% include i18n.html en="In the OK video, 14 main calls were triggered by verifier conflicts; separating verdict-changing conflicts from minor ones is the next lever for further savings." zh="OK 视频中有 14 次 main 由校验冲突触发；区分会改变结论的冲突与轻微不一致，是进一步降低调用的下一个抓手。" %}</p>
+  <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Headroom" zh="后续空间" %}</span> {% include i18n.html en="Event-triggered re-checks (14 in the OK video alone) still force extra main calls; filtering out minor conflicts is the next lever to push the measured saving towards the scheduled one." zh="事件触发的补查仍会强制额外的 main 调用（仅 OK 视频就有 14 次）；过滤掉轻微冲突，是让实测降幅进一步接近调度设计降幅的下一个抓手。" %}</p>
 
-  {% include i18n.html tag="h3" class="mt-5" en="Result 2 — Regression gating: aggressive speed-ups, zero risky adoptions" zh="结果 2 — 回归把关：大胆提速，零风险上线" %}
-  {% include i18n.html tag="p" class="section-intro" en="Module-level speed-ups of up to 36.6% were identified and measured, then gated by full-system regression. Two failed the full-system check, one of them missing key defects in two rounds, and both were blocked before adoption." zh="识别并测量了最高 36.6% 的模块级提速，再交由全系统回归把关。其中两项未通过全系统回归（一项连续两轮漏掉关键缺陷），均在采用前被拦下。" %}
+  {% include i18n.html tag="h3" class="mt-5" en="Result 2 — Faster alone is not enough" zh="结果 2 — 只是更快还不够" %}
+  {% include i18n.html tag="p" class="section-intro" en="Three more speed-ups were tried. Each looked faster when measured on its own, so each was then run through the full regression videos. Only a change that keeps every verdict correct is adopted." zh="我们另外试了三种提速办法。单独测时都更快，所以接着用全部回归视频完整跑一遍系统：只有结论全部正确的改动才会被采用。" %}
   <figure class="data-figure">
-    <img src="{{ '/assets/images/projects/bosch-sop/optimisation-outcomes.svg' | relative_url }}" alt="Reported time reductions of three optimisation attempts and their regression outcomes" data-alt-en="Reported time reductions of three optimisation attempts and their regression outcomes" data-alt-zh="三项优化尝试的时间降幅及其回归结果" loading="lazy">
+    <img src="{{ '/assets/images/projects/bosch-sop/optimisation-outcomes.svg' | relative_url }}" alt="Time reductions of three speed-up attempts and whether each passed the full regression" data-alt-en="Time reductions of three speed-up attempts and whether each passed the full regression" data-alt-zh="三种提速办法的时间降幅，以及是否通过完整回归" loading="lazy">
   </figure>
-  <div class="result-highlight-grid">
-    <div>{% include i18n.html tag="span" en="Removal module latency" zh="removal 模块延迟" %}<strong>−36.6%</strong><small>2.950 → 1.870 s</small></div>
-    <div>{% include i18n.html tag="span" en="Removal output length" zh="removal 输出长度" %}<strong>−46%</strong>{% include i18n.html tag="small" en="prompt slimming" zh="prompt 精简" %}</div>
-    <div>{% include i18n.html tag="span" en="End-to-end wall time" zh="端到端总耗时" %}<strong>−32%</strong>{% include i18n.html tag="small" en="best single round" zh="最佳单轮" %}</div>
-    <div>{% include i18n.html tag="span" en="Risky speed-ups blocked" zh="拦下的风险方案" %}<strong>2 / 2</strong>{% include i18n.html tag="small" en="caught by regression" zh="均由回归发现" %}</div>
-  </div>
-  <details class="technical-details result-table-details mt-3">
-    <summary>{% include i18n.html en="Optimisation log" zh="优化记录" %}</summary>
-    <div class="table-responsive">
-      <table class="table technical-table">
-        <thead><tr><th>{% include i18n.html en="Change" zh="改动" %}</th><th>{% include i18n.html en="Measured effect" zh="测得效果" %}</th><th>{% include i18n.html en="Decision" zh="决定" %}</th></tr></thead>
-        <tbody>
-          <tr class="table-emphasis"><td>{% include i18n.html en="M1 sparse main" zh="M1 稀疏 main" %}</td><td>{% include i18n.html en="Requests 240 → 202, main 112 → 90, verdicts kept" zh="请求 240 → 202，main 112 → 90，结论保持" %}</td><td>{% include i18n.html en="Adopted" zh="采用" %}</td></tr>
-          <tr><td>{% include i18n.html en="Removal prompt slimming" zh="removal prompt 精简" %}</td><td>{% include i18n.html en="Output −46%, module latency 2.950 → 1.870 s" zh="输出 −46%，模块延迟 2.950 → 1.870 秒" %}</td><td>{% include i18n.html en="Blocked: system regression failed" zh="拦下：系统回归未通过" %}</td></tr>
-          <tr><td>{% include i18n.html en="Sparse main + removal slimming" zh="稀疏 main + removal 精简" %}</td><td>{% include i18n.html en="Wall time −32% in one round" zh="单轮总耗时 −32%" %}</td><td>{% include i18n.html en="Blocked: key defects missed in two rounds" zh="拦下：两轮均漏掉关键缺陷" %}</td></tr>
-          <tr><td>{% include i18n.html en="Shared client + warmup" zh="共享客户端 + 预热" %}</td><td>{% include i18n.html en="Wall time −11.7% in one round" zh="单轮总耗时 −11.7%" %}</td><td>{% include i18n.html en="Promising, under further validation" zh="有潜力，继续验证中" %}</td></tr>
-          <tr><td>{% include i18n.html en="Concurrency of 2" zh="并发数 2" %}</td><td>{% include i18n.html en="Tail latency worse" zh="尾延迟变差" %}</td><td>{% include i18n.html en="Not adopted" zh="未采用" %}</td></tr>
-        </tbody>
-      </table>
+  <div class="overview-grid overview-grid-3">
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Shorter removal prompt" zh="精简 removal prompt" %}
+      {% include i18n.html tag="h3" en="37% faster module, but breaks the system" zh="模块快了 37%，但系统出错" %}
+      {% include i18n.html tag="p" en="The removal check dropped from 2.95 s to 1.87 s per call, but the full system no longer passed regression. Not adopted." zh="removal 检查单次从 2.95 秒降到 1.87 秒，但完整系统回归不再通过。不采用。" %}
     </div>
-  </details>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Combined with sparse main" zh="叠加稀疏 main" %}
+      {% include i18n.html tag="h3" en="32% faster, but misses defects" zh="总耗时快 32%，但漏检缺陷" %}
+      {% include i18n.html tag="p" en="One round finished 32% sooner, but key defects were missed in two rounds. Not adopted." zh="有一轮总耗时缩短 32%，但连续两轮漏掉了关键缺陷。不采用。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Reused connection + warmup" zh="复用连接 + 预热" %}
+      {% include i18n.html tag="h3" en="11.7% faster, still being confirmed" zh="快了 11.7%，还在确认" %}
+      {% include i18n.html tag="p" en="A request-level gain seen in a single round so far, so it is kept under further testing." zh="目前只在一轮中观察到请求层面的提速，因此继续测试确认。" %}
+    </div>
+  </div>
   <div class="tradeoff-callout mt-3">
-    {% include i18n.html en="Every optimisation was accepted only if it kept the defect report intact: speed was never traded for a missed screw or label." zh="每项优化都必须保证缺陷报告完整才会被采用：从不以漏掉一颗螺丝或一张标签为代价换取速度。" %}
+    {% include i18n.html en="Bottom line: speed is only accepted when the defect report stays correct. Sparse main scheduling is the change that passed and went into the final pipeline." zh="一句话：只有缺陷报告保持正确，提速才算数。最终进入流程的是通过回归的稀疏 main 调度。" %}
   </div>
 
   {% include i18n.html tag="h3" class="mt-5" en="Final outcome" zh="最终效果" %}

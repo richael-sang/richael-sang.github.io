@@ -113,9 +113,9 @@ def m1_schedule(out: Path) -> None:
 
 def optimisation_outcomes(out: Path) -> None:
     rows = [
-        ("Removal prompt slimming", "module latency, 2.950 → 1.870 s", 36.6, "Rejected · system regression failed", LAVENDER),
-        ("Sparse main + removal slimming", "wall time, single round", 32.0, "Rejected · key defects missed in two rounds", LAVENDER),
-        ("Shared client + warmup", "wall time, single round", 11.7, "Kept as signal · not yet stable", SLATE),
+        ("Removal prompt slimming", "module latency, 2.950 → 1.870 s", 36.6, "Not adopted · full regression failed", LAVENDER),
+        ("Sparse main + removal slimming", "wall time, single round", 32.0, "Not adopted · missed key defects", LAVENDER),
+        ("Shared client + warmup", "wall time, single round", 11.7, "Still being confirmed", SLATE),
     ]
     y = np.arange(len(rows))[::-1]
 
