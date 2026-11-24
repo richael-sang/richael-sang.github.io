@@ -83,13 +83,6 @@ section_nav:
   {% include i18n.html tag="h2" en="A state-driven inspection loop" zh="状态驱动的检测闭环" %}
   {% include i18n.html tag="p" class="section-intro" en="Each sample runs one loop: read the current state, choose which observations to collect, ask the VLM for evidence, verify it across frames, update the state, and decide the next call." zh="每个采样时刻执行一次闭环：读取当前状态，选择要收集的观察，向 VLM 获取证据，跨帧校验，更新状态，再决定下一次调用。" %}
   {% include figure_slot.html src="/assets/images/projects/bosch-sop/02_inspection_workflow.png" label="Fig. 2" ratio="16 / 9" alt_en="Five-layer inspection loop from video input to defect report" alt_zh="从视频输入到缺陷报告的五层检测闭环" %}
-  <ol class="layer-list">
-    <li><span class="layer-index">1</span>{% include i18n.html tag="strong" en="Video and spatial input" zh="视频与空间输入" %}{% include i18n.html en="OpenCV samples about 1 fps, locates the cover, and builds task-specific crops." zh="OpenCV 按约 1 fps 采样，定位盖板，生成各任务的局部裁剪。" %}</li>
-    <li><span class="layer-index">2</span>{% include i18n.html tag="strong" en="VLM evidence" zh="VLM 视觉证据" %}{% include i18n.html en="Qwen3.5-27B-FP16 returns timestamped JSON observations for four tasks: main, screw, label, removal." zh="Qwen3.5-27B-FP16 针对 main、screw、label、removal 四类任务返回带时间戳的 JSON 观察。" %}</li>
-    <li><span class="layer-index">3</span>{% include i18n.html tag="strong" en="Multi-frame verifiers" zh="多帧校验器" %}{% include i18n.html en="Five verifiers (cover, black box, screw, label, removal) aggregate observations into step-level evidence." zh="五类校验器（盖板、黑盒、螺丝、标签、移除）把观察聚合为步骤级证据。" %}</li>
-    <li><span class="layer-index">4</span>{% include i18n.html tag="strong" en="FSM and scheduling" zh="状态机与调度" %}{% include i18n.html en="The state machine keeps process semantics; gating and sparse main calls decide what to observe next." zh="状态机维护流程语义；门控与稀疏 main 调用决定下一步观察什么。" %}</li>
-    <li><span class="layer-index">5</span>{% include i18n.html tag="strong" en="Report and trace" zh="报告与追溯" %}{% include i18n.html en="Final status and error codes, plus a trace of every call, verifier decision, and state change." zh="最终状态与错误码，以及每次调用、校验结论和状态变化的追溯记录。" %}</li>
-  </ol>
   <div class="evidence-note mt-3">
     {% include i18n.html tag="strong" en="One model, four tasks." zh="一个模型，四类任务。" %}
     {% include i18n.html en="The four tasks share the same endpoint and differ only in prompt, image input, and output schema." zh="四类任务共用同一个模型服务，只在 prompt、图像输入与输出契约上不同。" %}
