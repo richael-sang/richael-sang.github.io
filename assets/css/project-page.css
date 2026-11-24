@@ -1134,26 +1134,76 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 
 .challenge-block {
     scroll-margin-top: 125px;
-    margin-top: 2.2rem;
-    padding-top: 1.8rem;
-    border-top: 1px solid var(--sg-line);
+    margin-top: 2.5rem;
+    padding: 2rem 2.1rem 2.2rem;
+    border: 1px solid var(--sg-line);
+    border-radius: 0.8rem;
+    background: #fff;
 }
 
 .challenge-block:first-of-type {
-    margin-top: 1.4rem;
+    margin-top: 1.6rem;
 }
 
 .project-section h3.challenge-title {
     margin-bottom: 0;
     color: var(--sg-navy);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    line-height: 1.35;
+}
+
+.challenge-block .evidence-note {
+    margin-top: 1rem !important;
+    padding: 1rem 1.15rem;
+    line-height: 1.65;
 }
 
 .project-section h4.solution-title {
-    margin: 1.2rem 0 0.6rem;
+    margin: 1.8rem 0 0.7rem;
     color: var(--sg-teal);
-    font-size: 0.98rem;
+    font-size: 1rem;
     font-weight: 700;
+}
+
+.challenge-block .section-intro {
+    margin-bottom: 1.3rem;
+    line-height: 1.75;
+}
+
+.challenge-block .overview-grid,
+.challenge-block .overview-grid.overview-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.challenge-block .overview-card {
+    padding: 1.3rem 1.4rem;
+}
+
+.challenge-block .overview-card p {
+    line-height: 1.65;
+}
+
+.challenge-block .table-responsive,
+.challenge-block .technical-figure,
+.challenge-block .walkthrough,
+.challenge-block .tradeoff-callout,
+.challenge-block .layer-list {
+    margin-top: 1.6rem !important;
+}
+
+.challenge-block .walkthrough li {
+    padding-bottom: 1.25rem;
+    line-height: 1.65;
+}
+
+.challenge-block .technical-table td,
+.challenge-block .technical-table th {
+    padding: 0.7rem 0.8rem;
+}
+
+.challenge-block > h3:not(.challenge-title) {
+    margin-top: 2rem !important;
 }
 
 .figure-slot {
@@ -1431,8 +1481,14 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 
     .stage-strip,
     .overview-grid.overview-grid-2,
-    .overview-grid.overview-grid-3 {
+    .overview-grid.overview-grid-3,
+    .challenge-block .overview-grid,
+    .challenge-block .overview-grid.overview-grid-3 {
         grid-template-columns: 1fr;
+    }
+
+    .challenge-block {
+        padding: 1.3rem 1.1rem 1.4rem;
     }
 
     .project-actions .btn {
