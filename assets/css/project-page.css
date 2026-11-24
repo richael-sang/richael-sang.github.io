@@ -1051,22 +1051,22 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 }
 
 .project-theme-bosch {
-    --sg-navy: #5a1f28;
-    --sg-teal: #b8323f;
-    --sg-sea: #d9737c;
-    --sg-sky: #ebb3b8;
-    --sg-pale-blue: #fbf3f4;
-    --sg-pale-mint: #f7eeef;
-    --sg-pale: #fdf8f8;
-    --sg-line: #ecd6d8;
+    --sg-navy: #3f2a66;
+    --sg-teal: #6b4fa0;
+    --sg-sea: #9c84c9;
+    --sg-sky: #cdbfe6;
+    --sg-pale-blue: #f6f3fb;
+    --sg-pale-mint: #f0ebf8;
+    --sg-pale: #faf8fd;
+    --sg-line: #e2daf0;
 }
 
 .project-theme-bosch .project-section {
-    box-shadow: 0 0.125rem 0.45rem rgba(184, 50, 63, 0.05);
+    box-shadow: 0 0.125rem 0.45rem rgba(107, 79, 160, 0.05);
 }
 
 .project-theme-bosch .project-title {
-    color: #3e1b21;
+    color: #2a1f3d;
     font-size: clamp(1.75rem, 3.2vw, 2.45rem);
     line-height: 1.2;
     letter-spacing: -0.03em;
@@ -1107,8 +1107,8 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 }
 
 .project-theme-bosch .question-banner {
-    background: #fbf3f4;
-    color: #5a1f28;
+    background: #f6f3fb;
+    color: #3f2a66;
 }
 
 .project-theme-bosch .metric-tip {
@@ -1116,12 +1116,12 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 }
 
 .project-theme-bosch .metric-tip strong {
-    color: #5a1f28;
+    color: #3f2a66;
 }
 
 .project-theme-bosch .metric-tip span,
 .project-theme-bosch .overview-card p {
-    color: #6e5e60;
+    color: #625a6e;
 }
 
 .figure-slot {
@@ -1174,13 +1174,13 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 .stage-card strong {
     display: block;
     margin: 0.25rem 0 0.3rem;
-    color: #3e1b21;
+    color: #2a1f3d;
     font-size: 0.95rem;
 }
 
 .stage-card > span {
     display: block;
-    color: #6e5e60;
+    color: #625a6e;
     font-size: 0.8rem;
     line-height: 1.4;
 }
@@ -1199,7 +1199,7 @@ html[data-sceneguard-lang="zh"] .comparison-label {
     align-items: baseline;
     padding: 0.75rem 0;
     border-bottom: 1px solid var(--sg-line);
-    color: #6e5e60;
+    color: #625a6e;
     font-size: 0.9rem;
 }
 
@@ -1220,7 +1220,7 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 }
 
 .layer-list strong {
-    color: #3e1b21;
+    color: #2a1f3d;
 }
 
 .walkthrough {
@@ -1232,7 +1232,7 @@ html[data-sceneguard-lang="zh"] .comparison-label {
     margin-left: 0.6rem;
     padding: 0 0 1rem 1.6rem;
     border-left: 2px solid var(--sg-line);
-    color: #6e5e60;
+    color: #625a6e;
     font-size: 0.9rem;
     counter-increment: walk;
 }
@@ -1266,7 +1266,7 @@ html[data-sceneguard-lang="zh"] .comparison-label {
 
 .walkthrough li > strong {
     display: block;
-    color: #3e1b21;
+    color: #2a1f3d;
 }
 
 @media (max-width: 991.98px) {

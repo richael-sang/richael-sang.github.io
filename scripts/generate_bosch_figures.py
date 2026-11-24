@@ -14,15 +14,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-INK = "#3E1B21"
-CRIMSON = "#B8323F"
-CRIMSON_DEEP = "#8E2430"
-ROSE = "#D9737C"
-ROSE_SOFT = "#EBB3B8"
-BASE = "#C9C1C2"
+INK = "#2A1F3D"
+VIOLET = "#6B4FA0"
+VIOLET_DEEP = "#4A3373"
+LAVENDER = "#9C84C9"
+LAVENDER_SOFT = "#CDBFE6"
+BASE = "#C7C2CF"
 SLATE = "#6F7F8F"
-MUTED = "#6E5E60"
-LINE = "#ECD6D8"
+MUTED = "#625A6E"
+LINE = "#E2DAF0"
 WHITE = "#FFFFFF"
 
 
@@ -65,12 +65,12 @@ def request_reduction(out: Path) -> None:
 
     fig, ax = plt.subplots(figsize=(6.6, 2.5))
     ax.barh(y + h / 2, baseline, height=h, color=BASE, label="Dense baseline")
-    ax.barh(y - h / 2, m1, height=h, color=CRIMSON, label="M1 sparse main")
+    ax.barh(y - h / 2, m1, height=h, color=VIOLET, label="M1 sparse main")
     for yi, b, m in zip(y, baseline, m1):
         ax.text(b + 3, yi + h / 2, f"{b}", va="center", fontsize=8.5, color=MUTED)
-        ax.text(m + 3, yi - h / 2, f"{m}", va="center", fontsize=8.5, color=CRIMSON_DEEP, fontweight="bold")
+        ax.text(m + 3, yi - h / 2, f"{m}", va="center", fontsize=8.5, color=VIOLET_DEEP, fontweight="bold")
         ax.text(268, yi, f"−{(b - m) / b * 100:.1f}%", va="center", ha="left", fontsize=9.5,
-                color=CRIMSON_DEEP, fontweight="bold")
+                color=VIOLET_DEEP, fontweight="bold")
     ax.set_yticks(y, groups)
     ax.tick_params(axis="y", length=0, labelsize=9, labelcolor=INK)
     ax.set_xlim(0, 300)
@@ -87,7 +87,7 @@ def m1_schedule(out: Path) -> None:
     stages = ["S1 · Cover", "S2 · Black box", "S3 · Screws", "S4 · Labels", "S5 · Removal"]
     stride = [1, 1, 2, 2, 3]
     max_gap = [None, None, 2.5, 2.5, 3.5]
-    colors = [ROSE_SOFT, ROSE_SOFT, ROSE, ROSE, CRIMSON]
+    colors = [LAVENDER_SOFT, LAVENDER_SOFT, LAVENDER, LAVENDER, VIOLET]
     x = np.arange(len(stages))
 
     fig, ax = plt.subplots(figsize=(6.6, 2.5))
@@ -111,8 +111,8 @@ def m1_schedule(out: Path) -> None:
 
 def optimisation_outcomes(out: Path) -> None:
     rows = [
-        ("Removal prompt slimming", "module latency, 2.950 → 1.870 s", 36.6, "Rejected · system regression failed", ROSE),
-        ("Sparse main + removal slimming", "wall time, single round", 32.0, "Rejected · key defects missed in two rounds", ROSE),
+        ("Removal prompt slimming", "module latency, 2.950 → 1.870 s", 36.6, "Rejected · system regression failed", LAVENDER),
+        ("Sparse main + removal slimming", "wall time, single round", 32.0, "Rejected · key defects missed in two rounds", LAVENDER),
         ("Shared client + warmup", "wall time, single round", 11.7, "Kept as signal · not yet stable", SLATE),
     ]
     y = np.arange(len(rows))[::-1]
@@ -122,7 +122,7 @@ def optimisation_outcomes(out: Path) -> None:
         ax.barh(yi, value, height=0.32, color=color)
         ax.text(value + 0.8, yi, f"−{value:.1f}%", va="center", fontsize=9, color=INK, fontweight="bold")
         ax.text(48, yi, verdict, va="center", ha="left", fontsize=8.3,
-                color=CRIMSON_DEEP if color == ROSE else SLATE)
+                color=VIOLET_DEEP if color == LAVENDER else SLATE)
     ax.set_yticks(y, [f"{name}\n{unit}" for name, unit, *_ in rows])
     ax.tick_params(axis="y", length=0, labelsize=8.4, labelcolor=INK)
     ax.set_xlim(0, 90)
