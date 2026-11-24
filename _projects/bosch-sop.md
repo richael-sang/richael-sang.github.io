@@ -110,7 +110,6 @@ section_nav:
 <section class="project-section" id="challenges">
   {% include i18n.html tag="div" class="section-kicker" en="3 · Challenges and solutions" zh="3 · 项目难点与解决方法" %}
   {% include i18n.html tag="h2" en="Four challenges, four design decisions" zh="四个难点，四项设计决策" %}
-  {% include i18n.html tag="p" class="section-intro" en="Each challenge below maps to one layer of the system and the method used to address it." zh="下面每个难点都对应系统中的一层，以及针对它的解决方法。" %}
   <div class="challenge-block" id="evidence">
   {% include i18n.html tag="h3" class="challenge-title" en="3.1 · Look-alike objects → structured evidence" zh="3.1 · 相似负例 → 结构化证据" %}
   <div class="evidence-note mt-3">{% include i18n.html tag="strong" en="Challenge." zh="难点：" %} {% include i18n.html en="A pre-existing black bracket looks like the black box, a printer label looks like an attached label, and a visible drill looks like a finished screw." zh="原有黑色支架像黑盒，打印机出纸像已贴标签，看到电钻像螺丝已装好。" %}</div>
