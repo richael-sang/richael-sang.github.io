@@ -46,37 +46,25 @@ hero_links:
     icon: fas fa-chart-bar
     label_zh: 结果
 section_nav:
-- id: problem
-  label: Problem
-  label_zh: 问题
-- id: challenges
-  label: Challenges
-  label_zh: 难点
+- id: background
+  label: Background
+  label_zh: 项目背景
 - id: architecture
-  label: System
-  label_zh: 系统
-- id: evidence
-  label: Evidence
-  label_zh: 证据
-- id: verification
-  label: Verification
-  label_zh: 校验
-- id: scheduling
-  label: Scheduling
-  label_zh: 调度
-- id: input
-  label: Input
-  label_zh: 输入
-- id: metrics
-  label: Metrics
-  label_zh: 指标
+  label: Architecture
+  label_zh: 系统架构
+- id: challenges
+  label: Challenges & solutions
+  label_zh: 难点与方法
+- id: optimisation
+  label: Optimisation
+  label_zh: 优化思路
 - id: results
   label: Results
-  label_zh: 结果
+  label_zh: 优化结果
 ---
 
-<section class="project-section" id="problem">
-  {% include i18n.html tag="div" class="section-kicker" en="1 · Problem" zh="1 · 问题" %}
+<section class="project-section" id="background">
+  {% include i18n.html tag="div" class="section-kicker" en="1 · Background" zh="1 · 项目背景" %}
   {% include i18n.html tag="h2" en="A finished-looking part can still be missing a step" zh="看起来已经完成的工件，仍可能漏了一步" %}
   {% include i18n.html tag="p" class="section-intro" en="A manual assembly station follows a fixed procedure. At the end of a video the part has been carried away, yet one screw or one label may never have been installed. The goal is a per-step evidence record that says which requirement is supported and which position is missing." zh="人工装配工位遵循固定流程。视频结束时工件已经被移走，但可能有一颗螺丝或一张标签始终没有装上。目标是建立逐步的证据记录：哪项要求得到支持，哪个位置缺失。" %}
   <div class="stage-strip">
@@ -108,38 +96,33 @@ section_nav:
       {% include i18n.html tag="p" en="Final status, missing screw positions, missing label type, evidence timestamps, and error codes." zh="最终状态、缺失螺丝位置、缺失标签类型、证据时间戳与错误码。" %}
     </div>
   </div>
-  <div class="question-banner">{% include i18n.html en="Reaching the next step does not mean the previous step passed." zh="进入下一步，不代表上一步已经合格。" %}</div>
-</section>
-
-<section class="project-section" id="challenges">
-  {% include i18n.html tag="div" class="section-kicker" en="2 · Challenges" zh="2 · 难点" %}
-  {% include i18n.html tag="h2" en="Few videos, small targets, look-alike negatives" zh="视频少、目标小、相似负例多" %}
-  <div class="overview-grid">
+  <div class="overview-grid mt-3">
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Data" zh="数据" %}
-      {% include i18n.html tag="h3" en="Three regression videos" zh="三条回归视频" %}
-      {% include i18n.html tag="p" en="One OK run, one missing the upper-right screw, one missing the center label. Useful for debugging, too few to represent workers, cameras, and lighting." zh="一条 OK、一条漏右上螺丝、一条漏 center 标签。适合调试，但不足以代表不同工人、机位与光照。" %}
+      {% include i18n.html tag="h3" en="Six regression videos" zh="六条回归视频" %}
+      {% include i18n.html tag="p" en="OK runs plus missing-screw and missing-label cases, used for development and same-round regression." zh="包含 OK 流程以及漏装螺丝、漏贴标签等缺陷案例，用于开发与同轮回归。" %}
     </div>
     <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Vision" zh="视觉" %}
-      {% include i18n.html tag="h3" en="Small, occluded targets" zh="小目标且常被遮挡" %}
-      {% include i18n.html tag="p" en="Screws and labels occupy few pixels and are often hidden by hands, tools, or reflections." zh="螺丝和标签在画面中占比很小，常被手、工具或反光遮挡。" %}
+      {% include i18n.html tag="div" class="overview-label" en="Model" zh="模型" %}
+      {% include i18n.html tag="h3" en="One pretrained VLM" zh="一个预训练 VLM" %}
+      {% include i18n.html tag="p" en="Qwen3.5-27B-FP16 behind an OpenAI-compatible API; no task-specific training data." zh="通过 OpenAI 兼容接口调用 Qwen3.5-27B-FP16，没有任务专用训练数据。" %}
     </div>
     <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Confusions" zh="易混淆" %}
-      {% include i18n.html tag="h3" en="Hard negatives" zh="困难负例" %}
-      {% include i18n.html tag="p" en="A pre-existing black bracket looks like the black box; a printer label looks like an attached label; a drill looks like a finished screw." zh="原有黑色支架像黑盒；打印机出纸像已贴标签；电钻出现像螺丝已装好。" %}
+      {% include i18n.html tag="div" class="overview-label" en="Sampling" zh="采样" %}
+      {% include i18n.html tag="h3" en="About 1 fps" zh="约 1 fps" %}
+      {% include i18n.html tag="p" en="Each sampled frame can trigger several task-specific VLM calls." zh="每个采样帧都可能触发多次任务专用的 VLM 调用。" %}
     </div>
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Cost" zh="成本" %}
       {% include i18n.html tag="h3" en="Seconds per call" zh="每次调用数秒" %}
-      {% include i18n.html tag="p" en="Frames are sampled at about 1 fps, but each remote VLM call takes seconds, so the number of calls drives total run time." zh="帧按约 1 fps 采样，但每次远程 VLM 调用需要数秒，调用次数决定总运行时间。" %}
+      {% include i18n.html tag="p" en="Each remote VLM call takes seconds, so the number of calls drives total run time." zh="每次远程 VLM 调用需要数秒，调用次数决定总运行时间。" %}
     </div>
   </div>
+  <div class="question-banner">{% include i18n.html en="Reaching the next step does not mean the previous step passed." zh="进入下一步，不代表上一步已经合格。" %}</div>
 </section>
 
 <section class="project-section" id="architecture">
-  {% include i18n.html tag="div" class="section-kicker" en="3 · System" zh="3 · 系统" %}
+  {% include i18n.html tag="div" class="section-kicker" en="2 · System architecture" zh="2 · 系统架构" %}
   {% include i18n.html tag="h2" en="A state-driven inspection loop" zh="状态驱动的检测闭环" %}
   {% include i18n.html tag="p" class="section-intro" en="Each sample runs one loop: read the current state, choose which observations to collect, ask the VLM for evidence, verify it across frames, update the state, and decide the next call." zh="每个采样时刻执行一次闭环：读取当前状态，选择要收集的观察，向 VLM 获取证据，跨帧校验，更新状态，再决定下一次调用。" %}
   {% include figure_slot.html src="/assets/images/projects/bosch-sop/architecture.png" label="Fig. 2" ratio="16 / 9" alt_en="Five-layer inspection loop from video input to defect report" alt_zh="从视频输入到缺陷报告的五层检测闭环" %}
@@ -156,9 +139,14 @@ section_nav:
   </div>
 </section>
 
-<section class="project-section" id="evidence">
-  {% include i18n.html tag="div" class="section-kicker" en="4 · Structured evidence" zh="4 · 结构化证据" %}
-  {% include i18n.html tag="h2" en="The model reports evidence; the verifier decides" zh="模型只报告证据，结论由校验器决定" %}
+<section class="project-section" id="challenges">
+  {% include i18n.html tag="div" class="section-kicker" en="3 · Challenges and solutions" zh="3 · 项目难点与解决方法" %}
+  {% include i18n.html tag="h2" en="Four challenges, four design decisions" zh="四个难点，四项设计决策" %}
+  {% include i18n.html tag="p" class="section-intro" en="Each challenge below maps to one layer of the system and the method used to address it." zh="下面每个难点都对应系统中的一层，以及针对它的解决方法。" %}
+  <div class="challenge-block" id="evidence">
+  {% include i18n.html tag="h3" class="challenge-title" en="3.1 · Look-alike objects → structured evidence" zh="3.1 · 相似负例 → 结构化证据" %}
+  <div class="evidence-note mt-3">{% include i18n.html tag="strong" en="Challenge." zh="难点：" %} {% include i18n.html en="A pre-existing black bracket looks like the black box, a printer label looks like an attached label, and a visible drill looks like a finished screw." zh="原有黑色支架像黑盒，打印机出纸像已贴标签，看到电钻像螺丝已装好。" %}</div>
+  {% include i18n.html tag="h4" class="solution-title" en="The model reports evidence; the verifier decides" zh="模型只报告证据，结论由校验器决定" %}
   {% include i18n.html tag="p" class="section-intro" en="Instead of asking the model whether a step is done, each prompt splits the question into separate fields: object, spatial relation, action cue, and static result. Downstream code can then control how these fields combine." zh="不直接问模型某一步是否完成，而是把问题拆成独立字段：对象、空间关系、动作线索和静态结果。下游代码再控制这些字段如何组合。" %}
   <div class="overview-grid">
     <div class="overview-card">
@@ -193,11 +181,11 @@ section_nav:
       </tbody>
     </table>
   </div>
-</section>
-
-<section class="project-section" id="verification">
-  {% include i18n.html tag="div" class="section-kicker" en="5 · Multi-frame verification" zh="5 · 多帧校验" %}
-  {% include i18n.html tag="h2" en="Separate what was seen from what is compliant" zh="把“看到了什么”和“是否合格”分开" %}
+  </div>
+  <div class="challenge-block" id="verification">
+  {% include i18n.html tag="h3" class="challenge-title" en="3.2 · Unstable single frames → multi-frame verification" zh="3.2 · 单帧不稳定 → 多帧校验" %}
+  <div class="evidence-note mt-3">{% include i18n.html tag="strong" en="Challenge." zh="难点：" %} {% include i18n.html en="Screws and labels are small and often hidden by hands, tools, or reflections; a single frame can be wrong, and repeated frames can double-count." zh="螺丝和标签很小，常被手、工具或反光遮挡；单帧可能出错，重复帧还会导致重复计数。" %}</div>
+  {% include i18n.html tag="h4" class="solution-title" en="Separate what was seen from what is compliant" zh="把“看到了什么”和“是否合格”分开" %}
   {% include i18n.html tag="p" class="section-intro" en="A single observation can be wrong, occluded, or ambiguous. Observations are aggregated into evidence state, and only then into compliance state used by the report." zh="单次观察可能出错、被遮挡或位置不确定。观察先聚合为证据状态，再形成用于报告的合规状态。" %}
   {% include figure_slot.html src="/assets/images/projects/bosch-sop/evidence-states.png" label="Fig. 3" ratio="16 / 7" alt_en="Observation, evidence state, and compliance state for the four screw positions" alt_zh="四个螺丝位置的观察、证据状态与合规状态" %}
   <div class="overview-grid">
@@ -234,30 +222,17 @@ section_nav:
   <div class="tradeoff-callout mt-2">
     {% include i18n.html en="The observed phase and the compliance checklist are kept apart. Otherwise a single missed screw would block the system from ever checking the labels." zh="观察阶段与合规清单分开维护。否则漏一颗螺丝就会让系统卡住，永远查不到后面的标签。" %}
   </div>
-</section>
-
-<section class="project-section" id="scheduling">
-  {% include i18n.html tag="div" class="section-kicker" en="6 · State-driven scheduling" zh="6 · 按状态调用" %}
-  {% include i18n.html tag="h2" en="Call only what the current state needs" zh="只调用当前状态需要的检测" %}
-  {% include i18n.html tag="p" class="section-intro" en="Calling all four tasks on every sample costs requests and invites out-of-stage false positives. Gating decides which tasks are eligible; the M1 schedule thins out the global main call once the scene is stable." zh="每个采样都调用四类任务，既浪费请求，又会制造阶段外误报。门控决定哪些任务有资格调用；M1 调度在场景稳定后降低全局 main 的调用频率。" %}
-  <figure class="data-figure">
-    <img src="{{ '/assets/images/projects/bosch-sop/m1-schedule.svg' | relative_url }}" alt="Main stride per stage: every sample in S1 and S2, every 2 in S3 and S4, every 3 in S5, with maximum gaps" data-alt-en="Main stride per stage: every sample in S1 and S2, every 2 in S3 and S4, every 3 in S5, with maximum gaps" data-alt-zh="各阶段 main 调用步长：S1、S2 每次采样，S3、S4 每 2 次，S5 每 3 次，并标注最大间隔" loading="lazy">
-  </figure>
-  <div class="overview-grid">
+  </div>
+  <div class="challenge-block" id="scheduling">
+  {% include i18n.html tag="h3" class="challenge-title" en="3.3 · Out-of-stage false positives → state-driven gating" zh="3.3 · 阶段外误报 → 按状态调用" %}
+  <div class="evidence-note mt-3">{% include i18n.html tag="strong" en="Challenge." zh="难点：" %} {% include i18n.html en="Running every task on every frame wastes calls and lets label or screw checks fire in the wrong stage." zh="每帧都跑全部任务既浪费调用，又会让标签或螺丝检查在错误阶段误报。" %}</div>
+  {% include i18n.html tag="h4" class="solution-title" en="Call only what the current state needs" zh="只调用当前状态需要的检测" %}
+  {% include i18n.html tag="p" class="section-intro" en="Calling all four tasks on every sample costs requests and invites out-of-stage false positives. Stage gating decides which tasks are eligible at each sample." zh="每个采样都调用四类任务，既浪费请求，又会制造阶段外误报。阶段门控决定每个采样时刻哪些任务有资格调用。" %}
+  <div class="overview-grid overview-grid-3">
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Gating" zh="门控" %}
       {% include i18n.html tag="h3" en="Eligibility by stage" zh="按阶段决定调用资格" %}
       {% include i18n.html tag="p" en="Screw, label, and removal checks are collected according to stage, strong signals, visibility, and lock state." zh="螺丝、标签、移除检查根据阶段、强信号、可见性和锁定状态决定是否收集。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Forced main" zh="强制 main" %}
-      {% include i18n.html tag="h3" en="Events override the stride" zh="事件优先于步长" %}
-      {% include i18n.html tag="p" en="Key positives, FSM changes, stage transitions, verifier conflicts, and the final report all force a global look." zh="关键正例、状态机变化、阶段转场、校验冲突和生成报告前都会强制一次全局观察。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Max gap" zh="最大间隔" %}
-      {% include i18n.html tag="h3" en="Never stale for long" zh="不会长期使用过期信息" %}
-      {% include i18n.html tag="p" en="A cap on the time since the last main call bounds how long the stage estimate can go unrefreshed." zh="限制距上次 main 的最长时间，使阶段估计不会长时间得不到更新。" %}
     </div>
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Rule-based" zh="规则式" %}
@@ -265,11 +240,11 @@ section_nav:
       {% include i18n.html tag="p" en="Every call or skip is logged with its reason, so request savings can be traced back to the schedule." zh="每次调用或跳过都记录原因，请求节省可以追溯到具体调度规则。" %}
     </div>
   </div>
-</section>
-
-<section class="project-section" id="input">
-  {% include i18n.html tag="div" class="section-kicker" en="7 · Input integrity" zh="7 · 输入完整性" %}
-  {% include i18n.html tag="h2" en="Verify the pixels the model actually receives" zh="核对模型实际收到的像素" %}
+  </div>
+  <div class="challenge-block" id="input">
+  {% include i18n.html tag="h3" class="challenge-title" en="3.4 · Silently corrupted inputs → input integrity checks" zh="3.4 · 输入悄悄出错 → 输入完整性校验" %}
+  <div class="evidence-note mt-3">{% include i18n.html tag="strong" en="Challenge." zh="难点：" %} {% include i18n.html en="A wrong crop or a preprocessing step that silently falls back corrupts every rule built on top of it." zh="裁错区域或预处理静默回退，会让上层所有规则都建立在错误证据上。" %}</div>
+  {% include i18n.html tag="h4" class="solution-title" en="Verify the pixels the model actually receives" zh="核对模型实际收到的像素" %}
   {% include i18n.html tag="p" class="section-intro" en="A wrong crop silently corrupts every rule built on top of it, so preprocessing is treated as part of perception and logged like a model call." zh="裁错区域会让上层所有规则都建立在错误证据上，因此预处理被视为感知的一部分，并像模型调用一样记录。" %}
   <div class="overview-grid">
     <div class="overview-card">
@@ -293,11 +268,15 @@ section_nav:
       {% include i18n.html tag="p" en="Compression was switched on, but image reads failed on a non-ASCII path and the code fell back to the original image. The fix was to check real payload size, not the config flag." zh="压缩配置已开启，但在中文路径下读图失败，代码回退到原图。解决思路是检查实际载荷大小，而不是配置开关。" %}
     </div>
   </div>
+  </div>
 </section>
 
-<section class="project-section" id="metrics">
-  {% include i18n.html tag="div" class="section-kicker" en="8 · Metrics" zh="8 · 指标" %}
-  {% include i18n.html tag="h2" en="Correctness and cost, measured separately" zh="正确性与成本分开度量" %}
+<section class="project-section" id="optimisation">
+  {% include i18n.html tag="div" class="section-kicker" en="4 · Optimisation approach" zh="4 · 优化思路与方法" %}
+  {% include i18n.html tag="h2" en="Cut cost without giving up a single defect" zh="降低成本，但不放过任何一个缺陷" %}
+  {% include i18n.html tag="p" class="section-intro" en="Optimisation is framed as a constrained problem: reduce requests and run time while defect escapes and false rejects stay unchanged on the regression set." zh="优化被定义为带约束的问题：在回归集上缺陷漏放与误拒保持不变的前提下，减少请求数与运行时间。" %}
+
+  {% include i18n.html tag="h3" class="mt-4" en="How each change is measured" zh="每项改动怎样衡量" %}
   {% include i18n.html tag="p" class="section-intro" en="NG (defective) videos are the positive class. A correct NG verdict with the wrong defect is not a success." zh="以 NG（缺陷）视频为正类。判成 NG 但缺陷类型报错，不算成功。" %}
   <div class="metric-tooltip-grid">
     <div class="metric-tip">
@@ -317,21 +296,61 @@ section_nav:
       {% include i18n.html tag="span" en="Logical vs raw requests, p50 / p95 latency, and wall time per video." zh="逻辑调用与实际请求、p50 / p95 延迟，以及每条视频的总耗时。" %}
     </div>
   </div>
+
+  {% include i18n.html tag="h3" class="mt-5" en="Method 1 — M1 sparse main scheduling" zh="方法 1 — M1 稀疏 main 调度" %}
+  {% include i18n.html tag="p" class="section-intro" en="Once the cover and black box are confirmed, the global main call no longer needs to run on every sample. M1 widens the main stride by stage, while event triggers and a maximum gap keep the stage estimate fresh." zh="盖板与黑盒确认后，全局 main 无需每个采样都调用。M1 按阶段放宽 main 的调用步长，同时用事件触发和最大间隔保证阶段估计不过期。" %}
+  <figure class="data-figure">
+    <img src="{{ '/assets/images/projects/bosch-sop/m1-schedule.svg' | relative_url }}" alt="Main stride per stage: every sample in S1 and S2, every 2 in S3 and S4, every 3 in S5, with maximum gaps" data-alt-en="Main stride per stage: every sample in S1 and S2, every 2 in S3 and S4, every 3 in S5, with maximum gaps" data-alt-zh="各阶段 main 调用步长：S1、S2 每次采样，S3、S4 每 2 次，S5 每 3 次，并标注最大间隔" loading="lazy">
+  </figure>
+  <div class="overview-grid overview-grid-2">
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Forced main" zh="强制 main" %}
+      {% include i18n.html tag="h3" en="Events override the stride" zh="事件优先于步长" %}
+      {% include i18n.html tag="p" en="Key positives, FSM changes, stage transitions, verifier conflicts, and the final report all force a global look." zh="关键正例、状态机变化、阶段转场、校验冲突和生成报告前都会强制一次全局观察。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Max gap" zh="最大间隔" %}
+      {% include i18n.html tag="h3" en="Never stale for long" zh="不会长期使用过期信息" %}
+      {% include i18n.html tag="p" en="A cap on the time since the last main call bounds how long the stage estimate can go unrefreshed." zh="限制距上次 main 的最长时间，使阶段估计不会长时间得不到更新。" %}
+    </div>
+  </div>
+
+  {% include i18n.html tag="h3" class="mt-5" en="Methods 2–4 — Prompt, client, and concurrency" zh="方法 2–4 — Prompt、客户端与并发" %}
+  <div class="overview-grid overview-grid-3">
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Prompt" zh="Prompt" %}
+      {% include i18n.html tag="h3" en="Slim the removal prompt" zh="精简 removal prompt" %}
+      {% include i18n.html tag="p" en="Shorter instructions and output fields to cut decode time on the removal check." zh="缩短指令与输出字段，降低 removal 检查的生成耗时。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Client" zh="客户端" %}
+      {% include i18n.html tag="h3" en="Shared client and warmup" zh="共享客户端与预热" %}
+      {% include i18n.html tag="p" en="Reuse one HTTP client and warm the connection before the first request." zh="复用同一个 HTTP 客户端，并在首次请求前预热连接。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Concurrency" zh="并发" %}
+      {% include i18n.html tag="h3" en="Parallel requests" zh="并行请求" %}
+      {% include i18n.html tag="p" en="Send two task requests at once and compare tail latency against sequential calls." zh="同时发送两个任务请求，与串行调用比较尾延迟。" %}
+    </div>
+  </div>
+  <div class="tradeoff-callout mt-3">
+    {% include i18n.html en="Every change is compared against a same-round baseline, changes one factor at a time, and is adopted only if the full-system regression keeps every defect report intact." zh="每项改动都与同轮基线对照，一次只改一个因素，只有全系统回归保证缺陷报告完整时才会采用。" %}
+  </div>
 </section>
 
 <section class="project-section" id="results">
-  {% include i18n.html tag="div" class="section-kicker" en="9 · Results" zh="9 · 结果" %}
+  {% include i18n.html tag="div" class="section-kicker" en="5 · Optimisation results and final outcome" zh="5 · 优化结果与最终效果" %}
   {% include i18n.html tag="h2" en="~20% fewer global VLM calls, zero verdict changes" zh="全局 VLM 调用减少近 20%，检测结论零变化" %}
   {% include i18n.html tag="p" class="section-intro" en="State-driven scheduling removed redundant model calls without losing a single defect: every final verdict and every key check survived the cut." zh="状态驱动调度砍掉了冗余的模型调用，同时没有漏掉任何一个缺陷：所有最终判断与关键检查点全部保留。" %}
   <div class="result-highlight-grid">
     <div>{% include i18n.html tag="span" en="Global main calls" zh="全局 main 调用" %}<strong>−19.6%</strong><small>112 → 90</small></div>
     <div>{% include i18n.html tag="span" en="Total VLM requests" zh="VLM 总请求" %}<strong>−38</strong>{% include i18n.html tag="small" en="per regression round · −15.8%" zh="每轮回归 · −15.8%" %}</div>
-    <div>{% include i18n.html tag="span" en="Final verdicts" zh="最终判断" %}<strong>100%</strong>{% include i18n.html tag="small" en="3 / 3 preserved" zh="3 / 3 全部保持" %}</div>
+    <div>{% include i18n.html tag="span" en="Final verdicts" zh="最终判断" %}<strong>100%</strong>{% include i18n.html tag="small" en="6 / 6 preserved" zh="6 / 6 全部保持" %}</div>
     <div>{% include i18n.html tag="span" en="Key checks" zh="关键检查点" %}<strong>14 / 14</strong>{% include i18n.html tag="small" en="zero regressions" zh="零回退" %}</div>
   </div>
 
   {% include i18n.html tag="h3" class="mt-5" en="Result 1 — Sparse main scheduling cuts calls at no accuracy cost" zh="结果 1 — 稀疏 main 调度：降调用，不降准确性" %}
-  {% include i18n.html tag="p" class="section-intro" en="In a same-round comparison on the regression videos, M1 removed 38 requests per round, 22 of them global main calls, while every OK / NG verdict and all 14 key checks stayed exactly the same." zh="在回归视频的同轮对照中，M1 每轮少发 38 次请求，其中 22 次是全局 main 调用；所有 OK / NG 判断与 14 个关键检查点保持完全一致。" %}
+  {% include i18n.html tag="p" class="section-intro" en="In a same-round comparison on all six regression videos, M1 removed 38 requests per round, 22 of them global main calls, while every OK / NG verdict and all 14 key checks stayed exactly the same." zh="在全部六条回归视频的同轮对照中，M1 每轮少发 38 次请求，其中 22 次是全局 main 调用；所有 OK / NG 判断与 14 个关键检查点保持完全一致。" %}
   <figure class="data-figure">
     <img src="{{ '/assets/images/projects/bosch-sop/request-reduction.svg' | relative_url }}" alt="Requests before and after M1: total 240 to 202, main 112 to 90, non-main 128 to 112" data-alt-en="Requests before and after M1: total 240 to 202, main 112 to 90, non-main 128 to 112" data-alt-zh="M1 前后的请求数：总计 240 到 202，main 112 到 90，非 main 128 到 112" loading="lazy">
   </figure>
@@ -365,5 +384,29 @@ section_nav:
   </details>
   <div class="tradeoff-callout mt-3">
     {% include i18n.html en="Every optimisation was accepted only if it kept the defect report intact: speed was never traded for a missed screw or label." zh="每项优化都必须保证缺陷报告完整才会被采用：从不以漏掉一颗螺丝或一张标签为代价换取速度。" %}
+  </div>
+
+  {% include i18n.html tag="h3" class="mt-5" en="Final outcome" zh="最终效果" %}
+  <div class="overview-grid">
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Verdicts" zh="判断" %}
+      {% include i18n.html tag="h3" en="6 / 6 videos match the expected report" zh="6 / 6 条视频与预期报告一致" %}
+      {% include i18n.html tag="p" en="OK runs pass; defective runs are flagged NG with the right error codes." zh="OK 流程通过；缺陷流程判为 NG，并给出对应错误码。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Localisation" zh="定位" %}
+      {% include i18n.html tag="h3" en="Exact missing item" zh="精确到缺失项" %}
+      {% include i18n.html tag="p" en="Reports which screw position or which label is missing, with evidence timestamps." zh="报告具体缺失的螺丝位置或标签类型，并附证据时间戳。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Cost" zh="成本" %}
+      {% include i18n.html tag="h3" en="~20% fewer global calls" zh="全局调用减少近 20%" %}
+      {% include i18n.html tag="p" en="Sparse main scheduling is adopted in the final pipeline with no loss in key checks." zh="稀疏 main 调度进入最终流程，关键检查点无损失。" %}
+    </div>
+    <div class="overview-card">
+      {% include i18n.html tag="div" class="overview-label" en="Traceability" zh="可追溯" %}
+      {% include i18n.html tag="h3" en="Every decision is logged" zh="每个决策都有记录" %}
+      {% include i18n.html tag="p" en="Each call, skip, verifier decision, and state change can be traced back from the report." zh="每次调用、跳过、校验结论与状态变化都能从报告回溯。" %}
+    </div>
   </div>
 </section>

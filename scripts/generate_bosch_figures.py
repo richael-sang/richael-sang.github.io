@@ -77,7 +77,7 @@ def request_reduction(out: Path) -> None:
     ax.tick_params(axis="y", length=0, labelsize=9, labelcolor=INK)
     ax.set_xlim(0, 305)
     ax.set_xticks([0, 50, 100, 150, 200, 250])
-    ax.set_xlabel("Requests in the same three-video regression round")
+    ax.set_xlabel("Requests in the same regression round (six videos)")
     ax.grid(axis="x", color=LINE, linewidth=0.6)
     ax.set_axisbelow(True)
     ax.legend(loc="upper center", bbox_to_anchor=(0.45, 1.2), ncol=2, frameon=False, fontsize=8.5,

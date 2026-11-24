@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-24T22:03:30.395979</dc:date>
+    <dc:date>2026-11-24T22:28:14.552581</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -134,7 +134,7 @@ L 387.157759 29.23
      </g>
     </g>
     <g id="text_7">
-     <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #625a6e" x="269.428906" y="193.828535" transform="rotate(-0 269.428906 193.828535)">Requests in the same three-video regression round</text>
+     <text style="font-size: 9px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #625a6e" x="269.428906" y="193.828535" transform="rotate(-0 269.428906 193.828535)">Requests in the same regression round (six videos)</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">

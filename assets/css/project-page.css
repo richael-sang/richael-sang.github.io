@@ -1124,6 +1124,38 @@ html[data-sceneguard-lang="zh"] .comparison-label {
     color: #625a6e;
 }
 
+.overview-grid.overview-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.overview-grid.overview-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.challenge-block {
+    scroll-margin-top: 125px;
+    margin-top: 2.2rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--sg-line);
+}
+
+.challenge-block:first-of-type {
+    margin-top: 1.4rem;
+}
+
+.project-section h3.challenge-title {
+    margin-bottom: 0;
+    color: var(--sg-navy);
+    font-size: 1.2rem;
+}
+
+.project-section h4.solution-title {
+    margin: 1.2rem 0 0.6rem;
+    color: var(--sg-teal);
+    font-size: 0.98rem;
+    font-weight: 700;
+}
+
 .figure-slot {
     padding: 0;
     border: 0;
@@ -1281,6 +1313,10 @@ html[data-sceneguard-lang="zh"] .comparison-label {
     .layer-list li > :last-child {
         grid-column: 2;
     }
+
+    .overview-grid.overview-grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 991.98px) {
@@ -1393,7 +1429,9 @@ html[data-sceneguard-lang="zh"] .comparison-label {
         font-size: 1.85rem;
     }
 
-    .stage-strip {
+    .stage-strip,
+    .overview-grid.overview-grid-2,
+    .overview-grid.overview-grid-3 {
         grid-template-columns: 1fr;
     }
 
