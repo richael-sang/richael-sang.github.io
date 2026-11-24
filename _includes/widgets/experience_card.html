@@ -28,6 +28,9 @@
                 {% endfor %}
             </ul>
             {% endif %}
+            {% if item.url %}
+            <a class="small d-inline-block mt-3" href="{{ item.url | relative_url }}">View project page <i class="fas fa-angle-right ml-1" aria-hidden="true"></i></a>
+            {% endif %}
         </div>
         {% endfor %}
     </div>

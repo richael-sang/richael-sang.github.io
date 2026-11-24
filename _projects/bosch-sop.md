@@ -5,9 +5,10 @@ title_zh: 工业装配视频的多模态 SOP 检测
 subtitle: VLM Evidence, Multi-frame Verification, and State-driven Scheduling
 subtitle_zh: VLM 视觉证据、多帧校验与状态驱动调度
 date: 2026-08-01 00:00:00 +0800
-category: research
-selected: true
+category: internship
+selected: false
 detail_page: true
+back_to_home: true
 permalink: /projects/bosch-sop/
 advanced_project: true
 bilingual: true

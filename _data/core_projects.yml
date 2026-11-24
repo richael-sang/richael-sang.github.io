@@ -5,12 +5,6 @@
   cover: /assets/images/projects/infrared-visible/concept.png
 
 - number: "02"
-  title: Multimodal SOP Inspection for Industrial Assembly Video
-  area: Vision-Language Models · Bosch Internship
-  url: /projects/bosch-sop/
-  cover: /assets/images/projects/bosch-sop/request-reduction.svg
-
-- number: "03"
   title: SceneGuard
   area: Robust Audio & Generative-Model Security
   url: /projects/sceneguard/
