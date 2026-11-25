@@ -481,6 +481,12 @@ html[data-sceneguard-lang="zh"] .comparison-label {
     background: transparent;
 }
 
+.technical-figure.diagram-figure {
+    max-width: none;
+    margin-top: 1.6rem;
+    margin-bottom: 1.4rem;
+}
+
 .technical-figure img {
     display: block;
     width: 100%;

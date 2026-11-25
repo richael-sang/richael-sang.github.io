@@ -126,7 +126,7 @@ section_nav:
 
   {% include i18n.html tag="h3" class="mt-5" en="How the lightweight gate works" zh="轻量门控如何工作" %}
   {% include i18n.html tag="p" class="section-intro" en="<strong>The gate predicts an input-dependent modality weight at each feature level, allowing the detector to adjust the contribution of RGB and infrared features.</strong>" zh="<strong>门控根据当前两路特征，在不同特征层预测模态权重，动态调整可见光与红外信息的贡献。</strong>" %}
-  {% include figure_slot.html src="/assets/images/projects/infrared-visible/gate-computation.png" label="Gate" ratio="16 / 7" alt_en="Visible and infrared features are pooled to predict a weight, which then rescales the full feature maps before fusion" alt_zh="可见光与红外特征经池化预测权重，再对完整特征图加权后融合" %}
+  {% include figure_slot.html class="technical-figure technical-figure-borderless diagram-figure" src="/assets/images/projects/infrared-visible/lightweight_gate_mechanism.svg" label="Gate" ratio="1118 / 464" alt_en="Visible and infrared features are pooled to predict a weight, which then rescales the full feature maps before fusion" alt_zh="可见光与红外特征经池化预测权重，再对完整特征图加权后融合" %}
   <div class="math-panel">
     <span class="evidence-chip">{% include i18n.html en="Scale-matched illustration" zh="尺度保持示意" %}</span>
     <div class="math-block">\[\alpha_l = g_l\big(F_v^l,\, F_i^l\big)\]</div>
@@ -184,7 +184,7 @@ section_nav:
   {% include i18n.html tag="div" class="section-kicker" en="4 · Training" zh="4 · 训练过程与损失" %}
   {% include i18n.html tag="h2" en="How the model learns modality weights" zh="模型如何学会分配模态权重" %}
   {% include i18n.html tag="p" class="section-intro" en="<strong>The gate is trained through detection supervision. Classification and localisation errors propagate through the fused features to update the gating network.</strong> Over training, it learns the modality split that is most useful for detection." zh="<strong>门控通过检测监督学习。分类与定位误差经融合特征反向传播，更新门控参数</strong>，使模型逐渐学会对当前检测任务更有用的模态分配。" %}
-  {% include figure_slot.html src="/assets/images/projects/infrared-visible/training-flow.png" label="Training" ratio="16 / 6" alt_en="Forward pass from inputs to detections, and the training-only backward path from the detection loss through the head and fused features into the gate" alt_zh="从输入到检测结果的前向计算，以及仅在训练时从检测损失经检测头、融合特征回到门控的反向传播路径" %}
+  {% include figure_slot.html class="technical-figure technical-figure-borderless diagram-figure" src="/assets/images/projects/infrared-visible/detection_supervised_gate_training.svg" label="Training" ratio="1119 / 421" alt_en="Forward pass from inputs to detections, and the training-only backward path from the detection loss through the head and fused features into the gate" alt_zh="从输入到检测结果的前向计算，以及仅在训练时从检测损失经检测头、融合特征回到门控的反向传播路径" %}
   <div class="evidence-note mt-3">
     {% include i18n.html tag="strong" en="Inference requires only a forward pass to generate the weights." zh="推理时只需一次前向计算即可生成权重。" %}
     {% include i18n.html en="The gate adapts to each new image without any retraining." zh="门控会针对每张新图像自动调整，无需重新训练。" %}
