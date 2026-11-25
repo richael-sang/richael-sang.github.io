@@ -108,13 +108,44 @@ section_nav:
 </section>
 
 <section class="project-section" id="audio-demo">
-  {% include i18n.html tag="div" class="section-kicker" en="Interactive evidence" zh="交互证据" %}
-  {% include i18n.html tag="h2" en="Audio demo" zh="音频演示" %}
-  {% include i18n.html tag="p" class="section-intro" en="The comparison interface is ready for curated Clean / Baseline / SceneGuard samples, with matching waveforms and mel spectrograms." zh="对比界面已预留 Clean / Baseline / SceneGuard 样本位置，并配套波形图与 Mel 频谱。" %}
-  {% include widgets/project_audio_matrix.html demo=site.data.sceneguard_audio %}
-  <div class="evidence-note mt-3">
-    {% include i18n.html en="No audio is embedded yet. The public repository contains no WAV examples, and the TAU noise dataset has non-commercial redistribution restrictions. No synthetic or untraceable sample has been substituted." zh="目前尚未嵌入音频。公开仓库没有 WAV 样例，且 TAU 噪声数据有非商业再分发限制。这里没有用无法追溯来源的合成样本代替。" %}
+  {% include i18n.html tag="div" class="section-kicker" en="Listen" zh="试听" %}
+  {% include i18n.html tag="h2" en="Audio demo: one airport scene, three noise levels" zh="音频演示：同一机场场景，三档噪声强度" %}
+  {% include i18n.html tag="p" class="section-intro" en="The same utterance mixed with airport background noise at three SNR levels. Loudness is matched, so the only difference is how much of the signal is scene noise. Lower SNR means stronger cover over the speaker’s voice." zh="同一段语音以三档 SNR 混入机场背景噪声。三段整体响度一致，差别只在于噪声所占比例。SNR 越低，对说话人声音的遮蔽越强。" %}
+  <div class="audio-grid snr-audio-grid">
+    <div class="audio-cell snr-audio-cell">
+      <div class="snr-audio-head">
+        <h4>{% include i18n.html en="Light" zh="轻度" %} · SNR 25 dB</h4>
+      </div>
+      <p class="small text-muted">{% include i18n.html en="Background is audible, speech stays fully clear." zh="背景可闻，语音完全清晰。" %}</p>
+      <audio controls preload="none" aria-label="Airport scene, SNR 25 dB">
+        <source src="{{ '/assets/images/projects/sceneguard/audio/airport-snr25.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <img loading="lazy" src="{{ '/assets/images/projects/sceneguard/audio/airport-snr25.png' | relative_url }}" alt="Waveform and mel spectrogram, airport scene at SNR 25 dB" data-alt-en="Waveform and mel spectrogram, airport scene at SNR 25 dB" data-alt-zh="机场场景 SNR 25 dB 的波形与 Mel 频谱">
+    </div>
+    <div class="audio-cell snr-audio-cell">
+      <div class="snr-audio-head">
+        <h4>{% include i18n.html en="Moderate" zh="中度" %} · SNR 20 dB</h4>
+        <span class="evidence-chip">{% include i18n.html en="Default range" zh="默认区间内" %}</span>
+      </div>
+      <p class="small text-muted">{% include i18n.html en="Upper end of the default protection range." zh="默认保护区间的上限。" %}</p>
+      <audio controls preload="none" aria-label="Airport scene, SNR 20 dB">
+        <source src="{{ '/assets/images/projects/sceneguard/audio/airport-snr20.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <img loading="lazy" src="{{ '/assets/images/projects/sceneguard/audio/airport-snr20.png' | relative_url }}" alt="Waveform and mel spectrogram, airport scene at SNR 20 dB" data-alt-en="Waveform and mel spectrogram, airport scene at SNR 20 dB" data-alt-zh="机场场景 SNR 20 dB 的波形与 Mel 频谱">
+    </div>
+    <div class="audio-cell snr-audio-cell">
+      <div class="snr-audio-head">
+        <h4>{% include i18n.html en="Strong" zh="较明显" %} · SNR 15 dB</h4>
+        <span class="evidence-chip">{% include i18n.html en="Default range" zh="默认区间内" %}</span>
+      </div>
+      <p class="small text-muted">{% include i18n.html en="Noise fills the speech pauses; words remain intelligible." zh="噪声填满语音间隙，内容仍可听懂。" %}</p>
+      <audio controls preload="none" aria-label="Airport scene, SNR 15 dB">
+        <source src="{{ '/assets/images/projects/sceneguard/audio/airport-snr15.mp3' | relative_url }}" type="audio/mpeg">
+      </audio>
+      <img loading="lazy" src="{{ '/assets/images/projects/sceneguard/audio/airport-snr15.png' | relative_url }}" alt="Waveform and mel spectrogram, airport scene at SNR 15 dB" data-alt-en="Waveform and mel spectrogram, airport scene at SNR 15 dB" data-alt-zh="机场场景 SNR 15 dB 的波形与 Mel 频谱">
+    </div>
   </div>
+  <p class="source-line mt-3"><span class="evidence-chip">{% include i18n.html en="How to read" zh="怎么看" %}</span> {% include i18n.html en="Waveform on top, mel spectrogram below. As SNR drops, the dark gaps between words fill with broadband airport noise. The paper’s default operating range is 10–20 dB; the trade-off is quantified in the SNR explorer below." zh="上方为波形，下方为 Mel 频谱。SNR 降低时，词与词之间的暗色间隙逐渐被宽带机场噪声填满。论文默认工作区间为 10–20 dB，具体权衡见下方 SNR 查看器。" %}</p>
 </section>
 
 <section class="project-section" id="threat-model">

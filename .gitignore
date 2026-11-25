@@ -13,3 +13,6 @@ __pycache__/
 # Private source materials used for drafting public website content
 /reference_materials/
 *.docx
+
+# Source audio; the page serves compressed MP3 copies
+assets/images/projects/sceneguard/*.wav

@@ -322,6 +322,24 @@ html[data-sceneguard-lang="zh"] .comparison-label {
     margin-bottom: 0.75rem;
 }
 
+.snr-audio-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    margin-bottom: 0.35rem;
+}
+
+.snr-audio-head h4 {
+    margin: 0;
+    font-size: 0.98rem;
+}
+
+.snr-audio-cell audio {
+    margin: 0.3rem 0 0.7rem;
+}
+
 .audio-cell {
     min-width: 0;
     padding: 1rem;
