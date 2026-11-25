@@ -1158,21 +1158,6 @@ html[data-sceneguard-lang="zh"] .comparison-label {
     font-weight: 700;
 }
 
-.future-target {
-    margin: 1rem 0 0.9rem;
-    padding: 0.85rem 1rem;
-    border-left: 3px solid #3d7cc9;
-    border-radius: 0.4rem;
-    background: rgba(255, 255, 255, 0.75);
-    color: #3d5166;
-}
-
-.future-target strong {
-    display: block;
-    margin-bottom: 0.2rem;
-    color: #1e3a5f;
-}
-
 .future-list {
     margin: 0.4rem 0 0;
     padding-left: 1.2rem;
