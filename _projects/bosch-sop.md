@@ -154,7 +154,6 @@ section_nav:
   <div class="evidence-note mt-3">{% include i18n.html tag="strong" en="Challenge." zh="难点：" %} {% include i18n.html en="Screws and labels are small and often hidden by hands, tools, or reflections; a single frame can be wrong, and repeated frames can double-count." zh="螺丝和标签很小，常被手、工具或反光遮挡；单帧可能出错，重复帧还会导致重复计数。" %}</div>
   {% include i18n.html tag="h4" class="solution-title" en="Separate what was seen from what is compliant" zh="把“看到了什么”和“是否合格”分开" %}
   {% include i18n.html tag="p" class="section-intro" en="A single observation can be wrong, occluded, or ambiguous. Observations are aggregated into evidence state, and only then into compliance state used by the report." zh="单次观察可能出错、被遮挡或位置不确定。观察先聚合为证据状态，再形成用于报告的合规状态。" %}
-  {% include figure_slot.html src="/assets/images/projects/bosch-sop/03_temporal_screw_evidence.png" label="Fig. 3" ratio="16 / 7" alt_en="Observation, evidence state, and compliance state for the four screw positions" alt_zh="四个螺丝位置的观察、证据状态与合规状态" %}
   <div class="overview-grid">
     <div class="overview-card">
       {% include i18n.html tag="div" class="overview-label" en="Screws" zh="螺丝" %}
@@ -177,6 +176,7 @@ section_nav:
       {% include i18n.html tag="p" en="Reliable removal ends the cycle and skips the idle tail, without overwriting earlier missing items." zh="可靠确认移除后结束本轮观察、跳过尾部空帧，但不覆盖之前的缺失项。" %}
     </div>
   </div>
+  {% include figure_slot.html src="/assets/images/projects/bosch-sop/03_temporal_screw_evidence.png" label="Fig. 3" ratio="16 / 7" alt_en="Observation, evidence state, and compliance state for the four screw positions" alt_zh="四个螺丝位置的观察、证据状态与合规状态" %}
 
   {% include i18n.html tag="h3" class="mt-4" en="Walkthrough — the upper-right screw is missing" zh="推演 — 漏装右上螺丝" %}
   <ol class="walkthrough">
