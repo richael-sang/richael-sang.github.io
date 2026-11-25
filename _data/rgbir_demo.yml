@@ -2,8 +2,8 @@ cases:
   low-light:
     label: Low light
     label_zh: 低光
-    note: Night scene. Dynamic fusion recovers one ground-truth object missed by equal fusion.
-    note_zh: 夜景。动态融合找回了等权融合漏检的一个真值目标。
+    note: "Sample 00449 · night traffic with glare. Recovered one additional target missed by equal fusion (FN 2 → 1)."
+    note_zh: 样本 00449 · 夜间眩光路况。找回了一个等权融合漏检的目标（FN 2 → 1）。
     visible:
       src: /assets/images/projects/infrared-visible/demo/lowlight-visible.jpg
       alt: Low-light visible image with ground-truth boxes
@@ -35,8 +35,8 @@ cases:
   rain:
     label: Rain
     label_zh: 雨天
-    note: Rainy scene. Dynamic fusion recovers a person missed by equal fusion.
-    note_zh: 雨天场景。动态融合找回了等权融合漏检的行人。
+    note: "Sample 01078 · rain, challenge test set. Recovered one additional target missed by equal fusion (FN 1 → 0); per-image AP 0.517 → 0.700."
+    note_zh: 样本 01078 · 雨天，挑战测试集。找回了一个等权融合漏检的目标（FN 1 → 0）；单图 AP 0.517 → 0.700。
     visible:
       src: /assets/images/projects/infrared-visible/demo/rain-visible.jpg
       alt: Rainy visible image with ground-truth boxes

@@ -148,6 +148,9 @@
                     }
                 }
             });
+            root.querySelectorAll("[data-rgbir-row]").forEach(function (row) {
+                row.setAttribute("data-count", row.querySelectorAll("figure:not([hidden])").length);
+            });
             if (note) note.textContent = localized(selected, "note");
         }
 
