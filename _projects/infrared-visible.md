@@ -370,6 +370,10 @@ section_nav:
     </div>
     {% include i18n.html tag="h2" en="Next: object-level modality utility supervision" zh="下一步：对象级模态效用监督" %}
     {% include i18n.html tag="p" en="The current lightweight gate learns modality preferences per feature level. Next, I plan to study object-level modality utility: measure how the classification and localisation losses of the same object change when one modality is removed or attenuated, and use those changes to supervise a spatial gate. The experiments will isolate the contributions of utility supervision, object-level granularity, and degradation training, while tracking both detection gains and inference cost." zh="当前轻量门控学习的是不同特征层的模态偏好。下一步，我计划研究对象级模态效用：比较移除或削弱某一路后，同一目标的分类和定位损失如何变化，并用这些变化监督空间门控。实验将分别验证效用监督、对象级粒度和退化训练的贡献，同时评估检测收益与推理开销。" %}
+    <div class="future-target">
+      {% include i18n.html tag="strong" en="Validation target (in progress)" zh="验证目标（进行中）" %}
+      {% include i18n.html en="Lift the dynamic gate from 52.92 to ≥ 53.3 AP on the full M3FD test set, surpassing the default fusion (53.19 AP), while keeping the challenge-subset gains." zh="在完整 M3FD 测试集上，将动态门控从 52.92 提升到 53.3 AP 以上，超过默认融合（53.19 AP），同时保持挑战子集上的提升。" %}
+    </div>
     <ul class="future-list">
       <li>{% include i18n.html en="Original gate vs utility-supervised gate." zh="原门控与效用监督门控的对照。" %}</li>
       <li>{% include i18n.html en="Concatenation, standard attention, and the new method under identical settings." zh="拼接、普通注意力与新方法的同条件比较。" %}</li>
