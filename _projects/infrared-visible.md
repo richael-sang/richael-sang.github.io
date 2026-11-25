@@ -219,20 +219,7 @@ section_nav:
   {% include i18n.html tag="h2" en="Where adaptive fusion pays off" zh="自适应融合在哪里见效" %}
   <p class="source-line metric-line"><span class="evidence-chip">{% include i18n.html en="Metrics" zh="指标" %}</span> {% include i18n.html en="<strong>AP</strong> averages precision over IoU 0.50–0.95 · <strong>AP50</strong> counts a box at IoU ≥ 0.50 · <strong>AP75</strong> requires IoU ≥ 0.75, i.e. tighter boxes." zh="<strong>AP</strong>：IoU 0.50–0.95 上的平均精度 · <strong>AP50</strong>：IoU ≥ 0.50 即计入 · <strong>AP75</strong>：IoU ≥ 0.75 才计入，即框更准。" %}</p>
 
-  {% include i18n.html tag="h3" class="mt-4" en="Result 1 — Dynamic gating wins on hard scenes" zh="结果 1 — 困难场景中动态门控胜出" %}
-  {% include i18n.html tag="p" class="section-intro" en="When visual conditions make the two modalities uneven, the dynamic gate beats equal fusion on every headline metric, with the largest gain on tight, high-IoU boxes." zh="当视觉条件让两种模态质量不均时，动态门控在全部主要指标上超过等权融合，其中高 IoU 的精确定位提升最大。" %}
-  <figure class="data-figure">
-    <img src="{{ '/assets/images/projects/infrared-visible/challenge-scenes.svg' | relative_url }}" alt="Bar charts of AP, AP50, and AP75 for equal fusion versus dynamic weighting on the challenge subset" data-alt-en="Bar charts of AP, AP50, and AP75 for equal fusion versus dynamic weighting on the challenge subset" data-alt-zh="挑战子集上等权融合与动态加权的 AP、AP50、AP75 柱状图" loading="lazy">
-  </figure>
-  <div class="result-highlight-grid">
-    <div>{% include i18n.html tag="span" en="AP75" zh="AP75" %}<strong>+5.09</strong><small>80.18 → 85.27</small></div>
-    <div>{% include i18n.html tag="span" en="AP50" zh="AP50" %}<strong>+1.60</strong><small>94.83 → 96.43</small></div>
-    <div>{% include i18n.html tag="span" en="AP" zh="AP" %}<strong>+0.79</strong><small>70.91 → 71.70</small></div>
-    <div>{% include i18n.html tag="span" en="Motorcycle AP" zh="摩托车 AP" %}<strong>+8.86</strong><small>59.60 → 68.47</small></div>
-  </div>
-  <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Protocol" zh="协议" %}</span> {% include i18n.html en="<strong>Both methods were fine-tuned from the same multimodal checkpoint on 361 challenge-training images and evaluated on 138 challenge-test images.</strong> The subset is built automatically from brightness, contrast, entropy, haze, and low-light signals." zh="<strong>两种方法从同一多模态检查点出发，在 361 张挑战训练图上微调，并在 138 张挑战测试图上评估。</strong>子集根据亮度、对比度、熵、雾霾和低光信号自动构造。" %}</p>
-
-  {% include i18n.html tag="h3" class="mt-5" en="Result 2 — Two modalities beat one" zh="结果 2 — 双模态显著优于单模态" %}
+  {% include i18n.html tag="h3" class="mt-4" en="Result 1 — Two modalities beat one" zh="结果 1 — 双模态显著优于单模态" %}
   {% include i18n.html tag="p" class="section-intro" en="On the full M3FD test set, combining RGB and infrared lifts AP by 4.5 over visible-only and by 11.0 over infrared-only, and two independent seeds agree within 0.33 AP." zh="在完整 M3FD 测试集上，RGB 与红外结合比仅可见光高 4.5 AP，比仅红外高 11.0 AP，两个独立种子相差不超过 0.33 AP。" %}
   <figure class="data-figure">
     <img src="{{ '/assets/images/projects/infrared-visible/multimodal-advantage.svg' | relative_url }}" alt="Bar chart comparing visible-only, infrared-only, and two multimodal seeds" data-alt-en="Bar chart comparing visible-only, infrared-only, and two multimodal seeds" data-alt-zh="可见光、红外与两个多模态种子的 AP 柱状图" loading="lazy">
@@ -244,8 +231,8 @@ section_nav:
     <div>{% include i18n.html tag="span" en="Multimodal seed 2" zh="多模态种子 2" %}<strong>53.52</strong><small>AP</small></div>
   </div>
 
-  {% include i18n.html tag="h3" class="mt-5" en="Result 3 — Full-benchmark ablation" zh="结果 3 — 完整测试集消融" %}
-  {% include i18n.html tag="p" class="section-intro" en="On the full benchmark, where most scenes are easy, the strong default fusion (53.19 AP) stays on top and the dynamic gate reaches 52.92 AP. Adaptive weighting matters most when modality quality becomes uneven, which motivates more explicit supervision of modality utility." zh="在以普通场景为主的完整测试集上，较强的默认融合（53.19 AP）仍然最好，动态门控为 52.92 AP。自适应加权主要在模态质量不均时发挥作用，这也促使我进一步研究更明确的模态效用监督。" %}
+  {% include i18n.html tag="h3" class="mt-5" en="Result 2 — Full-benchmark ablation" zh="结果 2 — 完整测试集消融" %}
+  {% include i18n.html tag="p" class="section-intro" en="On the full benchmark, where most scenes are easy, the strong default fusion (53.19 AP) stays on top and the dynamic gate reaches 52.92 AP. Adaptive weighting matters most when modality quality becomes uneven, as the challenge-scene test in Result 4 shows." zh="在以普通场景为主的完整测试集上，较强的默认融合（53.19 AP）仍然最好，动态门控为 52.92 AP。自适应加权主要在模态质量不均时发挥作用，结果 4 的困难场景测试印证了这一点。" %}
   <figure class="data-figure">
     <img src="{{ '/assets/images/projects/infrared-visible/fusion-ablation.svg' | relative_url }}" alt="Horizontal bar chart of default multimodal fusion versus static and gated alternatives" data-alt-en="Horizontal bar chart of default multimodal fusion versus static and gated alternatives" data-alt-zh="默认多模态融合与静态、门控方案的水平柱状图" loading="lazy">
   </figure>
@@ -266,7 +253,7 @@ section_nav:
     </div>
   </details>
 
-  {% include i18n.html tag="h3" class="mt-5" en="Result 4 — What the gate learned" zh="结果 4 — 门控学到了什么" %}
+  {% include i18n.html tag="h3" class="mt-5" en="Result 3 — What the gate learned" zh="结果 3 — 门控学到了什么" %}
   {% include i18n.html tag="p" class="section-intro" en="The learned weights are structured, not random: p2 leans towards infrared, p3 towards visible, and p4 / p5 stay closer to balanced." zh="学到的权重有结构而非随机：p2 偏红外，p3 偏可见光，p4 / p5 更接近平衡。" %}
   <figure class="data-figure">
     <img src="{{ '/assets/images/projects/infrared-visible/modality-preference.png' | relative_url }}" alt="Feature-pyramid diagram showing infrared-leaning p2, visible-leaning p3, and more balanced p4 and p5" data-alt-en="Feature-pyramid diagram showing infrared-leaning p2, visible-leaning p3, and more balanced p4 and p5" data-alt-zh="特征金字塔：p2 更偏红外，p3 更偏可见光，p4 与 p5 更接近平衡" loading="lazy">
@@ -274,6 +261,19 @@ section_nav:
   <div class="tradeoff-callout mt-3">
     {% include i18n.html en="<strong>Different feature levels learned different modality preferences, motivating more targeted supervision of modality contribution.</strong>" zh="<strong>不同特征层学到了不同的模态偏好，这促使我对模态贡献做更有针对性的监督。</strong>" %}
   </div>
+
+  {% include i18n.html tag="h3" class="mt-5" en="Result 4 — Dynamic gating wins on hard scenes" zh="结果 4 — 困难场景中动态门控胜出" %}
+  {% include i18n.html tag="p" class="section-intro" en="When visual conditions make the two modalities uneven, the dynamic gate beats equal fusion on every headline metric, with the largest gain on tight, high-IoU boxes." zh="当视觉条件让两种模态质量不均时，动态门控在全部主要指标上超过等权融合，其中高 IoU 的精确定位提升最大。" %}
+  <figure class="data-figure">
+    <img src="{{ '/assets/images/projects/infrared-visible/challenge-scenes.svg' | relative_url }}" alt="Bar charts of AP, AP50, and AP75 for equal fusion versus dynamic weighting on the challenge subset" data-alt-en="Bar charts of AP, AP50, and AP75 for equal fusion versus dynamic weighting on the challenge subset" data-alt-zh="挑战子集上等权融合与动态加权的 AP、AP50、AP75 柱状图" loading="lazy">
+  </figure>
+  <div class="result-highlight-grid">
+    <div>{% include i18n.html tag="span" en="AP75" zh="AP75" %}<strong>+5.09</strong><small>80.18 → 85.27</small></div>
+    <div>{% include i18n.html tag="span" en="AP50" zh="AP50" %}<strong>+1.60</strong><small>94.83 → 96.43</small></div>
+    <div>{% include i18n.html tag="span" en="AP" zh="AP" %}<strong>+0.79</strong><small>70.91 → 71.70</small></div>
+    <div>{% include i18n.html tag="span" en="Motorcycle AP" zh="摩托车 AP" %}<strong>+8.86</strong><small>59.60 → 68.47</small></div>
+  </div>
+  <p class="source-line"><span class="evidence-chip">{% include i18n.html en="Protocol" zh="协议" %}</span> {% include i18n.html en="<strong>Both methods were fine-tuned from the same multimodal checkpoint on 361 challenge-training images and evaluated on 138 challenge-test images.</strong> The subset is built automatically from brightness, contrast, entropy, haze, and low-light signals." zh="<strong>两种方法从同一多模态检查点出发，在 361 张挑战训练图上微调，并在 138 张挑战测试图上评估。</strong>子集根据亮度、对比度、熵、雾霾和低光信号自动构造。" %}</p>
 </section>
 
 <section class="project-section" id="qualitative-demo">
