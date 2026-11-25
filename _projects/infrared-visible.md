@@ -212,38 +212,6 @@ section_nav:
     </div>
   </div>
   {% include i18n.html tag="p" class="source-line" en="Intermediate detection stages also receive supervision to support progressive box refinement." zh="中间检测阶段同样接受监督，以支持检测框的逐步细化。" %}
-  <details class="technical-details mt-3">
-    <summary>{% include i18n.html en="Auxiliary image-fusion branch" zh="辅助图像融合分支" %}</summary>
-    <div class="details-body">
-      <div class="math-block">\[\mathcal{L}_{\mathrm{total}} = \mathcal{L}_{\mathrm{det}} + \lambda_{\mathrm{fusion}}\,\mathcal{L}_{\mathrm{fusion}}\]</div>
-      {% include i18n.html tag="p" en="The image-fusion term comes from the E2E-MFD baseline framework and follows its configuration. The gate adds no separate loss: it is learned entirely from the existing objective." zh="图像融合项来自 E2E-MFD 基线框架，按其配置使用。门控没有额外损失项，完全从已有目标中学习。" %}
-    </div>
-  </details>
-
-  {% include i18n.html tag="h3" class="mt-5" en="Training pipeline" zh="训练流程" %}
-  <ol class="walkthrough">
-    <li><strong>{% include i18n.html en="Data preparation" zh="数据准备" %}</strong>{% include i18n.html en="Pair checks, synchronised geometric transforms for both modalities, and box-coordinate handling." zh="配对检查、两种模态同步几何变换、检测框坐标处理。" %}</li>
-    <li><strong>{% include i18n.html en="Baseline training" zh="基线训练" %}</strong>{% include i18n.html en="Visible-only, infrared-only, and multimodal runs; initialisation and evaluation checked against released weights." zh="仅可见光、仅红外与多模态三组训练；对照官方权重检查初始化与评估。" %}</li>
-    <li><strong>{% include i18n.html en="Module integration" zh="模块接入" %}</strong>{% include i18n.html en="Gate parameters, gradients, and output ranges checked before long runs." zh="长时间训练前检查门控参数、梯度和输出范围。" %}</li>
-    <li><strong>{% include i18n.html en="Model optimisation" zh="模型优化" %}</strong>{% include i18n.html en="Fusion and detection trained jointly through classification and localisation supervision." zh="通过分类与定位监督联合训练融合与检测。" %}</li>
-    <li><strong>{% include i18n.html en="Controlled evaluation" zh="受控评估" %}</strong>{% include i18n.html en="Detector and evaluator fixed; only the fusion rule differs between runs." zh="固定检测器与评估器，各组之间只有融合规则不同。" %}</li>
-  </ol>
-  <details class="technical-details mt-3">
-    <summary>{% include i18n.html en="Training configuration" zh="训练配置" %}</summary>
-    <div class="table-responsive">
-      <table class="table technical-table">
-        <tbody>
-          <tr><td>{% include i18n.html en="Framework" zh="框架" %}</td><td>{% include i18n.html en="E2E-MFD-HOD · Detectron2 · DiffusionDet" zh="E2E-MFD-HOD · Detectron2 · DiffusionDet" %}</td></tr>
-          <tr><td>{% include i18n.html en="Dataset" zh="数据集" %}</td><td>{% include i18n.html en="M3FD, official split: 2,940 trainval / 1,260 test" zh="M3FD 官方划分：2,940 训练验证 / 1,260 测试" %}</td></tr>
-          <tr><td>{% include i18n.html en="Initialisation" zh="初始化" %}</td><td>{% include i18n.html en="Candidate DiffusionDet checkpoint (candidate-init)" zh="候选 DiffusionDet 检查点（candidate-init）" %}</td></tr>
-          <tr><td>{% include i18n.html en="Schedule" zh="训练长度" %}</td><td>{% include i18n.html en="15,000 iterations, with periodic evaluation" zh="15,000 次迭代，期间定期评估" %}</td></tr>
-          <tr><td>{% include i18n.html en="Reproducibility" zh="可复现性" %}</td><td>{% include i18n.html en="Two seeds for the multimodal baseline; best-vs-final checkpoint gap checked" zh="多模态基线跑两个种子；检查最佳与最终检查点的差距" %}</td></tr>
-          <tr><td>{% include i18n.html en="Challenge fine-tuning" zh="挑战子集微调" %}</td><td>{% include i18n.html en="Both methods from the same multimodal checkpoint; 361 train / 138 test images" zh="两种方法从同一多模态检查点出发；361 张训练 / 138 张测试" %}</td></tr>
-          <tr><td>{% include i18n.html en="Evaluation" zh="评估" %}</td><td>{% include i18n.html en="Official M3FD HOD evaluator; AP, AP50, AP75, per-class AP" zh="官方 M3FD HOD 评估器；AP、AP50、AP75、逐类 AP" %}</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
 </section>
 
 <section class="project-section" id="results">
