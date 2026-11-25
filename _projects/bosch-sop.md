@@ -109,7 +109,7 @@ section_nav:
 
 <section class="project-section" id="challenges">
   {% include i18n.html tag="div" class="section-kicker" en="3 · Challenges and solutions" zh="3 · 项目难点与解决方法" %}
-  {% include i18n.html tag="h2" en="Four challenges, four design decisions" zh="四个难点，四项设计决策" %}
+  {% include i18n.html tag="h2" en="Three challenges, three design decisions" zh="三个难点，三项设计决策" %}
   <div class="challenge-block" id="evidence">
   {% include i18n.html tag="h3" class="challenge-title" en="3.1 · Look-alike objects → structured evidence" zh="3.1 · 相似负例 → 结构化证据" %}
   <div class="evidence-note mt-3">{% include i18n.html tag="strong" en="Challenge." zh="难点：" %} {% include i18n.html en="A pre-existing black bracket looks like the black box, a printer label looks like an attached label, and a visible drill looks like a finished screw." zh="原有黑色支架像黑盒，打印机出纸像已贴标签，看到电钻像螺丝已装好。" %}</div>
@@ -205,34 +205,6 @@ section_nav:
       {% include i18n.html tag="div" class="overview-label" en="Rule-based" zh="规则式" %}
       {% include i18n.html tag="h3" en="Explicit and inspectable" zh="显式、可检查" %}
       {% include i18n.html tag="p" en="Every call or skip is logged with its reason, so request savings can be traced back to the schedule." zh="每次调用或跳过都记录原因，请求节省可以追溯到具体调度规则。" %}
-    </div>
-  </div>
-  </div>
-  <div class="challenge-block" id="input">
-  {% include i18n.html tag="h3" class="challenge-title" en="3.4 · Silently corrupted inputs → input integrity checks" zh="3.4 · 输入悄悄出错 → 输入完整性校验" %}
-  <div class="evidence-note mt-3">{% include i18n.html tag="strong" en="Challenge." zh="难点：" %} {% include i18n.html en="A wrong crop or a preprocessing step that silently falls back corrupts every rule built on top of it." zh="裁错区域或预处理静默回退，会让上层所有规则都建立在错误证据上。" %}</div>
-  {% include i18n.html tag="h4" class="solution-title" en="Verify the pixels the model actually receives" zh="核对模型实际收到的像素" %}
-  {% include i18n.html tag="p" class="section-intro" en="A wrong crop silently corrupts every rule built on top of it, so preprocessing is treated as part of perception and logged like a model call." zh="裁错区域会让上层所有规则都建立在错误证据上，因此预处理被视为感知的一部分，并像模型调用一样记录。" %}
-  <div class="overview-grid">
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Time" zh="时间" %}
-      {% include i18n.html tag="h3" en="Video time, not wall time" zh="视频时间而非运行时间" %}
-      {% include i18n.html tag="p" en="Evidence is stamped with the video timestamp and frame index; processing latency is measured on a separate clock." zh="证据以视频时间戳与帧号标记；处理延迟用另一套时钟单独统计。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Geometry" zh="几何" %}
-      {% include i18n.html tag="h3" en="Cover-relative work zone" zh="以盖板为参照的工作区" %}
-      {% include i18n.html tag="p" en="An early design used four small fixed boxes; a strip anchored to the cover tolerates small shifts and keeps tool-contact context." zh="早期用四个固定小框；以盖板为参照的长条工作区能容忍轻微偏移，并保留工具接触上下文。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Encoding" zh="编码" %}
-      {% include i18n.html tag="h3" en="Resize, JPEG, Base64 are different" zh="缩放、JPEG、Base64 不是一回事" %}
-      {% include i18n.html tag="p" en="Resizing changes what the model sees, JPEG quality changes bytes, Base64 only wraps them. Each is checked on its own." zh="缩放改变模型看到的内容，JPEG 质量改变字节数，Base64 只是封装。三者分别检查。" %}
-    </div>
-    <div class="overview-card">
-      {% include i18n.html tag="div" class="overview-label" en="Case" zh="案例" %}
-      {% include i18n.html tag="h3" en="Enabled is not applied" zh="开启不等于生效" %}
-      {% include i18n.html tag="p" en="Compression was switched on, but image reads failed on a non-ASCII path and the code fell back to the original image. The fix was to check real payload size, not the config flag." zh="压缩配置已开启，但在中文路径下读图失败，代码回退到原图。解决思路是检查实际载荷大小，而不是配置开关。" %}
     </div>
   </div>
   </div>
