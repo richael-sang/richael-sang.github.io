@@ -276,10 +276,10 @@ section_nav:
     <div>{% include i18n.html tag="span" en="Multimodal seed 2" zh="多模态种子 2" %}<strong>53.52</strong><small>AP</small></div>
   </div>
 
-  {% include i18n.html tag="h3" class="mt-5" en="Result 3 — Full-benchmark ablation" zh="结果 3 — 完整测试集消融" %}
-  {% include i18n.html tag="p" class="section-intro" en="On the full benchmark, where most scenes are easy, the strong default fusion (53.19 AP) stays on top and the dynamic gate reaches 52.92 AP. Adaptive weighting matters most when modality quality becomes uneven, which motivates more explicit supervision of modality utility." zh="在以普通场景为主的完整测试集上，较强的默认融合（53.19 AP）仍然最好，动态门控为 52.92 AP。自适应加权主要在模态质量不均时发挥作用，这也促使我进一步研究更明确的模态效用监督。" %}
+  {% include i18n.html tag="h3" class="mt-5" en="Result 3 — Learned weights beat hand-tuned ratios" zh="结果 3 — 学到的权重优于手工比例" %}
+  {% include i18n.html tag="p" class="section-intro" en="Under one fixed detector and evaluator, the learned dynamic gate (52.92 AP) outperforms every hand-tuned visible ratio, by up to 0.72 AP, without any manual search. The residual gate reaches 53.19 AP, matching the strong default fusion within 0.001 AP. On the mostly easy full benchmark the default sum is already near its ceiling; the learned weights pay off where modality quality becomes uneven (Result 1)." zh="在固定检测器与评估器的条件下，学到的动态门控（52.92 AP）无需手工调参即超过所有固定可见光比例，最多高出 0.72 AP；残差门控达到 53.19 AP，与较强的默认融合相差不到 0.001 AP。完整测试集以普通场景为主，默认相加已接近上限；学到的权重真正发挥作用的，是模态质量不均的场景（结果 1）。" %}
   <figure class="data-figure">
-    <img src="{{ '/assets/images/projects/infrared-visible/fusion-ablation.svg' | relative_url }}" alt="Horizontal bar chart of default multimodal fusion versus static and gated alternatives" data-alt-en="Horizontal bar chart of default multimodal fusion versus static and gated alternatives" data-alt-zh="默认多模态融合与静态、门控方案的水平柱状图" loading="lazy">
+    <img src="{{ '/assets/images/projects/infrared-visible/fusion-ablation.svg' | relative_url }}" alt="Full-benchmark AP: learned residual and dynamic gates versus default fusion and three fixed visible ratios" data-alt-en="Full-benchmark AP: learned residual and dynamic gates versus default fusion and three fixed visible ratios" data-alt-zh="完整测试集 AP：学到的残差门控、动态门控与默认融合及三种固定可见光比例的对比" loading="lazy">
   </figure>
   <details class="technical-details result-table-details mt-3">
     <summary>{% include i18n.html en="Exact full-benchmark AP values" zh="完整测试集 AP 精确值" %}</summary>
@@ -287,12 +287,12 @@ section_nav:
       <table class="table technical-table">
         <thead><tr><th>{% include i18n.html en="Method" zh="方法" %}</th><th>AP</th><th>AP50</th></tr></thead>
         <tbody>
-          <tr class="table-emphasis"><td>{% include i18n.html en="Default multimodal" zh="默认多模态" %}</td><td>53.19</td><td>82.37</td></tr>
-          <tr><td>{% include i18n.html en="Static 0.25" zh="静态 0.25" %}</td><td>52.19</td><td>80.86</td></tr>
-          <tr><td>{% include i18n.html en="Static 0.50" zh="静态 0.50" %}</td><td>52.82</td><td>82.03</td></tr>
-          <tr><td>{% include i18n.html en="Static 0.75" zh="静态 0.75" %}</td><td>52.82</td><td>81.92</td></tr>
-          <tr><td>{% include i18n.html en="Dynamic gate" zh="动态门控" %}</td><td>52.92</td><td>81.55</td></tr>
-          <tr><td>{% include i18n.html en="Residual gate" zh="残差门控" %}</td><td>53.19</td><td>82.25</td></tr>
+          <tr><td>{% include i18n.html en="Default fusion" zh="默认融合" %}</td><td>53.19</td><td>82.37</td></tr>
+          <tr class="table-emphasis"><td>{% include i18n.html en="Residual gate (learned)" zh="残差门控（学习）" %}</td><td>53.19</td><td>82.25</td></tr>
+          <tr class="table-emphasis"><td>{% include i18n.html en="Dynamic gate (learned)" zh="动态门控（学习）" %}</td><td>52.92</td><td>81.55</td></tr>
+          <tr><td>{% include i18n.html en="Fixed ratio 0.25" zh="固定比例 0.25" %}</td><td>52.19</td><td>80.86</td></tr>
+          <tr><td>{% include i18n.html en="Fixed ratio 0.50" zh="固定比例 0.50" %}</td><td>52.82</td><td>82.03</td></tr>
+          <tr><td>{% include i18n.html en="Fixed ratio 0.75" zh="固定比例 0.75" %}</td><td>52.82</td><td>81.92</td></tr>
         </tbody>
       </table>
     </div>

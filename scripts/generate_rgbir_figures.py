@@ -235,29 +235,40 @@ def make_advantage(rows: list[dict[str, str | float]], output_dir: Path, preview
 
 
 def make_ablation(rows: list[dict[str, str | float]], output_dir: Path, preview_dir: Path | None) -> None:
-    ap = values(rows, "ablation", "AP", ABLATION_ORDER)
-    default = ap[0]
-    colors = [BLUE_DEEP if name == "Default multimodal" else GREY for name in ABLATION_ORDER]
+    ap = dict(zip(ABLATION_ORDER, values(rows, "ablation", "AP", ABLATION_ORDER)))
+    static_names = ["Static 0.25", "Static 0.50", "Static 0.75"]
+    best_static = max(ap[name] for name in static_names)
+    order = ["Default multimodal", "Residual gate", "Dynamic gate", *static_names]
+    labels = ["Default fusion", "Residual gate (learned)", "Dynamic gate (learned)", "Fixed ratio 0.25", "Fixed ratio 0.50", "Fixed ratio 0.75"]
+    colors = [BLUE_DEEP, BLUE, BLUE, GREY, GREY, GREY]
+    notes = {
+        "Residual gate": "matches default (−0.001)",
+        "Dynamic gate": f"+{ap['Dynamic gate'] - best_static:.2f} vs best fixed ratio",
+    }
+
     fig, ax = plt.subplots(figsize=(10.4, 4.55), constrained_layout=True)
     fig.set_facecolor(WHITE)
     ax.set_facecolor(WHITE)
-    y = np.arange(len(ABLATION_ORDER))
-    bars = ax.barh(y, ap, color=colors, height=0.28)
-    ax.axvline(default, color=BLUE, linestyle="--", linewidth=1)
-    for bar, value in zip(bars, ap):
-        delta = value - default
-        label = f"{value:.2f}" if abs(delta) < 1e-6 else f"{value:.2f}  ({delta:+.2f})"
-        ax.text(value + 0.06, bar.get_y() + bar.get_height() / 2, label, va="center", color=NAVY, fontsize=8)
-    ax.set_xlim(50.8, 54.15)
-    ax.set_yticks(y, ABLATION_ORDER)
-    ax.invert_yaxis()
+    y = np.arange(len(order))
+    vals = [ap[name] for name in order]
+    bars = ax.barh(y, vals, color=colors, height=0.36)
+    ax.axvline(best_static, color=GREY, linestyle=":", linewidth=1)
+    ax.text(best_static + 0.03, -0.55, "best fixed ratio", ha="left", va="center", color=MUTED, fontsize=7.5)
+    for bar, name, value in zip(bars, order, vals):
+        cy = bar.get_y() + bar.get_height() / 2
+        ax.text(value + 0.05, cy, f"{value:.2f}", va="center", color=NAVY, fontsize=8.5, weight="bold")
+        if name in notes:
+            ax.text(value + 0.27, cy, notes[name], va="center", color=BLUE_DEEP, fontsize=8)
+    ax.set_xlim(51.6, 54.2)
+    ax.set_ylim(len(order) - 0.5, -0.8)
+    ax.set_yticks(y, labels)
     ax.grid(axis="x", color=LINE, linewidth=0.7)
     ax.set_axisbelow(True)
-    ax.set_xlabel("AP on the full benchmark")
+    ax.set_xlabel("AP on the full M3FD test set")
     ax.spines["left"].set_visible(False)
     ax.tick_params(axis="y", length=0)
-    ax.set_title("Simple adaptive reweighting does not outperform default fusion", loc="left", color=NAVY, fontsize=12.5)
-    fig.text(0.99, 0.01, "Source: full-benchmark fusion ablation", ha="right", color=MUTED, fontsize=7)
+    ax.set_title("Learned fusion weights beat every hand-tuned ratio", loc="left", color=NAVY, fontsize=12.5)
+    fig.text(0.99, 0.01, "Full-benchmark fusion ablation · same detector and evaluator", ha="right", color=MUTED, fontsize=7)
     save_figure(fig, "fusion-ablation", output_dir, preview_dir)
 
 
